@@ -9,16 +9,17 @@ import SwiftUI
 struct ContentView: View {
 @State private var animate = false
     var body: some View {
-       NavigationView{
+//       NavigationView{
            NavigationStack {
                ZStack{
-                   Color.brown.opacity(0.28)
+                   Color.background
                        .ignoresSafeArea()
                    VStack{
                        
                        // Background Image
                        Image("logo")
                            .resizable()
+                           .frame(width: 350, height: 350)
                            .scaledToFit()
                            .scaleEffect(animate ? 1 : 0.8)
                            .opacity(animate ? 1 : 0)
@@ -52,7 +53,7 @@ struct ContentView: View {
                                    .font(.headline)
                                    .padding()
                                    .frame(maxWidth: .infinity)
-                                   .background(Color.white.opacity(0.8))
+                                   .background(Color.gray.opacity(0.2))
                                    .foregroundColor(.black)
                                    .cornerRadius(12)
                                    .padding(.horizontal, 40)
@@ -65,7 +66,7 @@ struct ContentView: View {
                }
            }
         }
-    }
+//    }
 
 #Preview {
     ContentView()

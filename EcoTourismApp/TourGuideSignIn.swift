@@ -1,13 +1,13 @@
 //
-//  HomeScreen.swift
+//  TourGuideSignIn.swift
 //  EcoTourismApp
 //
-//  Created by Sarah  on 16/10/2025.
+//  Created by Sarah  on 17/10/2025.
 //
 
 import SwiftUI
 
-struct HomeScreen: View {
+struct TourGuideSignIn: View {
     var body: some View {
         NavigationStack{
             ZStack{
@@ -19,5 +19,5 @@ struct HomeScreen: View {
 }
 
 #Preview {
-    HomeScreen()
+    TourGuideSignIn()
 }
