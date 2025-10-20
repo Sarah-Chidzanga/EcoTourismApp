@@ -1,5 +1,5 @@
 //
-//  TourGuideSignIn.swift
+//  TourGuideSignUp.swift
 //  EcoTourismApp
 //
 //  Created by Sarah  on 17/10/2025.
@@ -7,17 +7,12 @@
 
 import SwiftUI
 
-struct TourGuideSignIn: View {
+struct TourGuideSignUp: View {
     var body: some View {
-        NavigationStack{
-            ZStack{
-                Color.background
-                    .ignoresSafeArea()
-            }
-        }
+            Text("Tour Guide SignUp Coming  🔜")
     }
 }
 
 #Preview {
-    TourGuideSignIn()
+    TourGuideSignUp()
 }

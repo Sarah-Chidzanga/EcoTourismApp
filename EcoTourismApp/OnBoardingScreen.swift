@@ -29,7 +29,7 @@ struct OnBoardingScreen: View {
                          
                         
                         VStack(spacing: 16) {
-                            NavigationLink(destination: TouristSignIn()) {
+                            NavigationLink(destination: TouristSignUp()) {
                                 Text("I am a tourist")
                                     .font(.headline)
                                     .foregroundColor(.brown)
@@ -40,7 +40,7 @@ struct OnBoardingScreen: View {
                             }
                             .padding(.horizontal, 35)
                             
-                            NavigationLink(destination: TourGuideSignIn()) {
+                            NavigationLink(destination: TourGuideSignUp()) {
                                 Text("I am a tour guide")
                                     .font(.headline)
                                     .foregroundColor(.brown)
