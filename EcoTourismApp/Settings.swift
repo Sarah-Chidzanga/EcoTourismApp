@@ -9,7 +9,15 @@ import SwiftUI
 
 struct Settings: View {
     var body: some View {
-        Text("Settings Page coming 🔜!")
+        NavigationStack {
+            ZStack{
+                Color.background
+                    .ignoresSafeArea()
+                Text("Settings Page coming 🔜!")
+                    .foregroundColor(.brown)
+                    .font(Font.largeTitle.bold())
+            }
+        }
     }
 }
 

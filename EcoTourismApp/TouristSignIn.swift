@@ -12,6 +12,7 @@ struct TouristSignUp: View {
     @State private var nationality = ""
     @State private var email = ""
     @State private var password: String = ""
+    @State private var showPassword = false
     @State private var isSignedUp = false
     
     var body: some View {
@@ -42,7 +43,6 @@ struct TouristSignUp: View {
                     TextField("Password", text: $password)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .padding(.horizontal)
-                    
                     // MARK: - SignUp Button
                     Button(action: {
                         if !name.isEmpty && !nationality.isEmpty && !email.isEmpty && !password.isEmpty {
@@ -68,13 +68,11 @@ struct TouristSignUp: View {
                                  .fontWeight(.bold)
                                  .foregroundColor(.blue)
                 }
-                
-                //.hidden()
-                         //.padding(.bottom,30)
                      }
                  }
                  .navigationDestination(isPresented: $isSignedUp) {
                      TouristLogin()
+                         .navigationBarBackButtonHidden(true)
                  }
             }
            
