@@ -7,6 +7,12 @@
 
 import SwiftUI
 
+let countries: [String] = Locale.Region.isoRegions
+    .compactMap { region in
+        Locale.current.localizedString(forRegionCode: region.identifier)
+    }
+    .sorted()
+    
 struct TouristSignUp: View {
     @State private var name = ""
     @State private var nationality = ""
@@ -73,18 +79,42 @@ struct TouristSignUp: View {
                     
                     // MARK: - SignUp Fields
                     TextField("Full Name", text: $name)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .modifier(FormFieldStyle())
                         .padding(.horizontal)
-                    TextField("Nationality", text: $nationality)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .padding(.horizontal)
+                    Menu {
+                        ForEach(countries, id: \.self) { country in
+                            Button {
+                                nationality = country
+                            } label: {
+                                Text(country)
+                            }
+                        }
+                    } label: {
+                        HStack {
+                            Text(nationality.isEmpty ? "Country" : nationality)
+                                .foregroundColor(nationality.isEmpty ? .gray.opacity(0.6) : .primary)
+
+                            Spacer()
+
+                            Image(systemName: "chevron.down")
+                                .foregroundColor(.gray.opacity(0.6))
+                        }
+                        .padding()
+                        .background(Color.white)
+                        .cornerRadius(8)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 8)
+                                .stroke(Color.gray.opacity(0.4), lineWidth: 1)
+                        )
+                    }
+                    .padding(.horizontal)
                     
                     TextField("Email", text: $email)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .modifier(FormFieldStyle())
                         .padding(.horizontal)
                     
                     SecureField("Password", text: $password)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .modifier(FormFieldStyle())
                         .padding(.horizontal)
                     // MARK:  SignUp Button
                     Button(action: {

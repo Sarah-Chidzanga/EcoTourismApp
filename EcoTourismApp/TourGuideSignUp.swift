@@ -34,27 +34,26 @@ struct TourGuideSignUp: View {
                             .font(.subheadline)
                             .foregroundColor(.gray)
                     }
-                    .padding(.top, 40)
+                    .padding(.top, 80)
                     
                     // MARK: SignUp Fields
                     Group {
                         TextField("Full Name", text: $name)
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
-                        
+                            .modifier(FormFieldStyle())
+
                         TextField("Email", text: $email)
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
                             .keyboardType(.emailAddress)
                             .autocapitalization(.none)
-                        
+                            .modifier(FormFieldStyle())
+
                         TextField("Languages (e.g. English, Spanish)", text: $languages)
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
-                        
-                        // Brief Bio for the Guide
+                            .modifier(FormFieldStyle())
+
                         TextField("Short Bio / Expertise", text: $bio)
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
-                        
+                            .modifier(FormFieldStyle())
+
                         SecureField("Password", text: $password)
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .modifier(FormFieldStyle())
                     }
                     .padding(.horizontal)
                     

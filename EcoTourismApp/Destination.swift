@@ -36,7 +36,7 @@ struct Hotel: Identifiable, Codable {
     var id = UUID()
     let name: String
     let priceRange: String
-    let website: String? // Made optional to allow nil websites
+    let website: String? // Made websites an optional to allow nil websites
 }
 
 struct Activity: Identifiable, Codable {

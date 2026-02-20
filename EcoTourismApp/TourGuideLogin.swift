@@ -41,12 +41,12 @@ struct TourGuideLogin: View {
                     // MARK: - Login Fields
                     VStack(spacing: 15) {
                         TextField("Email Address", text: $email)
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
                             .autocapitalization(.none)
                             .keyboardType(.emailAddress)
-                        
+                            .modifier(FormFieldStyle())
+
                         SecureField("Password", text: $password)
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .modifier(FormFieldStyle())
                     }
                     .padding(.horizontal)
                     

@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+
 struct TouristLogin: View {
     @State private var email = ""
     @State private var password: String = ""
@@ -69,19 +70,20 @@ struct TouristLogin: View {
                          .foregroundColor(.brown)
                     // MARK: Email Field and Password
                     VStack(spacing: 20){
-                        TextField("Email Adress", text: $email)
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                        TextField("Email Address", text: $email)
                             .keyboardType(.emailAddress)
                             .autocapitalization(.none)
+                            .modifier(FormFieldStyle())
                         
-                        HStack{
-                            if showPassword{
+                        Group {
+                            if showPassword {
                                 TextField("Password", text: $password)
                             } else {
                                 SecureField("Password", text: $password)
                             }
                         }
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .modifier(FormFieldStyle())
+                      
                     }
                     .padding(.horizontal, 30)
                     .padding(.top, 10)
