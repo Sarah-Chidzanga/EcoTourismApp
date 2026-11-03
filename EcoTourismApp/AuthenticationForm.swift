@@ -68,7 +68,7 @@ struct AuthenticationForm: View {
                     .frame(maxWidth: .infinity)
                     .padding()
                     .foregroundStyle(.white)
-                    .background(.brown, in: RoundedRectangle(cornerRadius: 12))
+                    .background(TravelStyle.forest, in: RoundedRectangle(cornerRadius: 12))
                 }
                 .disabled(!canSubmit || session.isBusy)
 
@@ -91,8 +91,8 @@ struct AuthenticationForm: View {
             .padding(24)
             .disabled(session.isBusy)
         }
-        .background(Color.background.ignoresSafeArea())
-        .tint(.brown)
+        .background(TravelStyle.sand.ignoresSafeArea())
+        .tint(TravelStyle.ink)
         .navigationBarBackButtonHidden(session.isBusy)
         .alert("Unable to Continue", isPresented: $showingError) {
             Button("OK", role: .cancel) {}
@@ -150,7 +150,7 @@ private struct AuthenticationHeader: View {
                 .font(.subheadline)
                 .multilineTextAlignment(.center)
         }
-        .foregroundStyle(.brown)
+        .foregroundStyle(TravelStyle.ink)
         .padding(.vertical)
     }
 }

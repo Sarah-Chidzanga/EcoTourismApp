@@ -148,6 +148,7 @@ struct SessionKeychain {
 @MainActor
 @Observable
 final class AuthSession {
+    var isBrowsing = false
     private(set) var user: AccountProfile?
     private(set) var isRestoring = true
     private(set) var isBusy = false
@@ -224,7 +225,19 @@ final class AuthSession {
         try forgetSession()
     }
 
+    func request<Response: Decodable>(_ route: String, method: String = "GET",
+                                       body: Data? = nil, requiresAuth: Bool = true) async throws -> Response {
+        if requiresAuth && token == nil { throw AuthError.server(401, "Please sign in to continue.") }
+        do {
+            return try await api.request(route, method: method, body: body, token: requiresAuth ? token : nil)
+        } catch AuthError.server(401, let message) {
+            try forgetSession()
+            throw AuthError.server(401, message)
+        }
+    }
+
     func forgetSession() throws {
+        isBrowsing = false
         try keychain.delete()
         token = nil
         user = nil

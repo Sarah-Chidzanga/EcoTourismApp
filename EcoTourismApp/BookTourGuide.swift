@@ -1,111 +1,114 @@
-//
-//  BookTourGuide.swift
-//  EcoTourismApp
-//
-//  Created by Sarah  on 30/10/2025.
-//
-
-
 import SwiftUI
 
 struct BookTourGuide: View {
-    let guide: TourGuide
-    
-    @Environment(\.dismiss) private var dismiss
-    @State private var fullName = ""
-    @State private var email = ""
-    @State private var phone = ""
-    @State private var tourDate = Date()
-    @State private var numberOfPeople = 1
-    @State private var specialRequests = ""
-    @State private var showConfirmation = false
-    
+    let guide: GuideListing
+    @Environment(AuthSession.self) private var session
+    @State private var date = Date()
+    @State private var guests = 1
+    @State private var note = ""
+    @State private var request: BookingRequest?
+    @State private var submitted: TripBooking?
+    @State private var isSending = false
+    @State private var errorMessage = ""
+    @State private var showingError = false
+
     var body: some View {
-        NavigationStack {
-            ZStack{
-                Color.background
-                    .ignoresSafeArea()
+        Group {
+            if let submitted {
+                BookingReceipt(booking: submitted)
+            } else {
                 Form {
-                    Section(header: Text("Tour Guide")) {
-                        HStack {
-                            Image(guide.image)
-                                .resizable()
-                                .scaledToFill()
-                                .frame(width: 60, height: 60)
-                                .clipShape(Circle())
-                            VStack(alignment: .leading) {
-                                Text(guide.name)
-                                    .font(.headline)
-                                Text(guide.priceRange)
-                                    .font(.subheadline)
-                                    .foregroundColor(.secondary)
+                    Section {
+                        HStack(spacing: 14) {
+                            GuideAvatar(initials: guide.initials)
+                            VStack(alignment: .leading, spacing: 6) {
+                                Text(guide.name).font(.headline)
+                                Text(guide.location).foregroundStyle(.secondary)
                             }
                         }
                     }
-                    
-                    Section(header: Text("Your Details")) {
-                        TextField("Full Name", text: $fullName)
-                        TextField("Email", text: $email)
-                            .keyboardType(.emailAddress)
-                        TextField("Phone Number", text: $phone)
-                            .keyboardType(.phonePad)
+                    Section("Make It Your Day") {
+                        DatePicker("Tour date", selection: $date, in: Date()..., displayedComponents: .date)
+                            .environment(\.timeZone, TravelDate.timeZone)
+                        Stepper(guests == 1 ? "1 traveller" : "\(guests) travellers", value: $guests, in: 1...guide.maxGuests)
+                        TextField("What would you like to see or do?", text: $note, axis: .vertical)
+                            .lineLimit(4...8)
                     }
-                    
-                    Section(header: Text("Booking Info")) {
-                        DatePicker("Tour Date", selection: $tourDate, displayedComponents: .date)
-                        Stepper("Number of People: \(numberOfPeople)", value: $numberOfPeople, in: 1...10)
-                        TextField("Special Requests", text: $specialRequests, axis: .vertical)
+                    .disabled(request != nil)
+                    Section {
+                        LabeledContent("One-day guide fee") { Text(guide.dailyRate, format: .currency(code: "USD")) }
+                        Text("For your whole group. Entry fees, transport, accommodation, and meals are not included. Agree on final arrangements with your guide.")
+                            .font(.footnote)
+                            .foregroundStyle(.secondary)
                     }
-                    
-                    Button(action: {
-                        showConfirmation = true
-                    }) {
-                        Text("Confirm Booking")
-                            .font(.headline)
+                    Section {
+                        Button {
+                            Task { await send() }
+                        } label: {
+                            HStack {
+                                Text(request == nil ? "Send Booking Request" : "Retry Same Request")
+                                if isSending { ProgressView() }
+                            }
                             .frame(maxWidth: .infinity)
-                            .padding()
-                            .foregroundColor(.white)
-                            .background(Color.brown)
-                            .cornerRadius(10)
-                    }
-                    .alert("Booking Confirmed!", isPresented: $showConfirmation) {
-                        Button("OK", role: .cancel) {
-                            dismiss()
                         }
-                    } message: {
-                        Text("Your booking with \(guide.name) has been received. You’ll get a confirmation email shortly.")
-                    }
-                }
-                .navigationTitle("Book Guide")
-                .navigationBarTitleDisplayMode(.inline)
-                .toolbar {
-                    ToolbarItem(placement: .topBarTrailing) {
-                        Button("Close") {
-                            dismiss()
+                        .disabled(isSending || note.count > 2000)
+                        Text("This is a request, not a confirmed booking. Follow its status in My Trips. No payment is taken.")
+                            .font(.footnote)
+                            .foregroundStyle(.secondary)
+                        if request != nil {
+                            Text("If your connection dropped, retry safely or check My Trips before starting another request.")
+                                .font(.footnote)
                         }
                     }
                 }
+                .scrollContentBackground(.hidden)
             }
+        }
+        .background(TravelStyle.sand)
+        .navigationTitle("Request a Day")
+        .navigationBarTitleDisplayMode(.inline)
+        .tint(TravelStyle.ink)
+        .alert("Couldn't Send Request", isPresented: $showingError) {
+            Button("OK", role: .cancel) {}
+        } message: { Text(errorMessage) }
+    }
+
+    private func send() async {
+        guard !isSending else { return }
+        isSending = true
+        defer { isSending = false }
+        let payload = request ?? BookingRequest(guideId: guide.id, expectedPrice: guide.dailyRate, tourDate: TravelDate.formatter.string(from: date),
+                                                guests: guests, note: note, requestId: UUID().uuidString)
+        request = payload
+        do {
+            submitted = try await session.request("bookings", method: "POST", body: JSONEncoder().encode(payload))
+        } catch {
+            if case AuthError.server(let status, _) = error, [400, 404, 409].contains(status) {
+                request = nil
+            }
+            errorMessage = AuthSession.message(for: error)
+            showingError = true
         }
     }
 }
 
-#Preview {
-    BookTourGuide(
-        guide: TourGuide(
-            name: "Pride Mafira",
-            image: "pride",
-            phone: "+263 71 900 9990",
-            email: "mafira.chinhoyi@adventurezim.co.zw",
-            qualifications: [
-                "Adventure & Nature Guide (FGASA Level 1)",
-                "Scuba Diving Certified",
-                "Emergency First Responder"
-            ],
-            priceRange: "$70 - $140 per tour"
-        )
-    )
+private struct BookingReceipt: View {
+    let booking: TripBooking
+
+    var body: some View {
+        VStack(spacing: 22) {
+            Image(systemName: "paperplane.circle.fill")
+                .font(.system(size: 64))
+                .foregroundStyle(TravelStyle.ink)
+            Text("Your request is on its way.").font(.title.bold())
+            Text("\(booking.guideName) can now review your request for \(booking.dateLabel).")
+                .foregroundStyle(.secondary)
+            Text("Look in My Trips for the guide’s response. Contact details become available after acceptance.")
+            NavigationLink("View My Trips") { BookingsView(isGuide: false) }
+                .buttonStyle(TravelPrimaryButton())
+        }
+        .multilineTextAlignment(.center)
+        .padding(28)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+    }
 }
-
-
-

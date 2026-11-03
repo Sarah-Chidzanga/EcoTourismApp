@@ -1,154 +1,165 @@
-//
-//  HomeScreen.swift
-//  EcoTourismApp
-//
-//  Created by Sarah on 16/10/2025.
-//
-
 import SwiftUI
 
 struct HomeScreen: View {
-    var userName: String = "Guest"
+    var userName: String = ""
     @State private var searchText = ""
-    @State private var selectedRegion: String? = nil
-    
-    // Animation States
-    @State private var showWelcomeOverlay = true
-    @State private var welcomeOpacity = 1.0
-    @State private var welcomeOffset = 20.0
-    
-    // MARK: - TopDestination Grid
-    let columns: [GridItem] = [
-        GridItem(.flexible(), spacing: 20),
-        GridItem(.flexible(), spacing: 2)
-    ]
-    
-    // MARK: - Region Filter Grid
-    let chipColumns = [
-        GridItem(.flexible(), spacing: 10),
-        GridItem(.flexible(), spacing: 10)
-    ]
+    @State private var selectedRegion = "All"
+
+    private var filteredDestinations: [Destination] {
+        destinations.filter {
+            (selectedRegion == "All" || $0.region == selectedRegion) &&
+            (searchText.isEmpty || "\($0.name) \($0.region) \($0.description)".localizedCaseInsensitiveContains(searchText))
+        }
+    }
 
     var body: some View {
-        ZStack {
-            
-            NavigationStack {
-                ScrollView {
-                    VStack(alignment: .leading, spacing: 20) {
-                        
-                        // MARK: - Search Bar
-                        HStack {
-                            Image(systemName: "magnifyingglass")
-                                .foregroundColor(.brown)
-                            TextField("Search destinations, wildlife or guides", text: $searchText)
-                                .textFieldStyle(PlainTextFieldStyle())
-                        }
-                        .padding()
-                        .background(Color.white)
-                        .cornerRadius(25)
-                        .padding(.horizontal)
-                        .padding(.top, 20)
-                        
-                        // Top Destinations Header
-                        Text("Top Destinations")
-                            .font(.title3).bold()
-                            .padding(.horizontal)
-                        
-                        // MARK: - Destination Grid
-                        LazyVGrid(columns: columns, alignment: .center, spacing: 18) {
-                            ForEach(destinations) { destination in
-                                NavigationLink(destination: DestinationDetailsView(destination: destination)) {
-                                    VStack(spacing: 8) {
-                                        Image(destination.image)
-                                            .resizable()
-                                            .scaledToFill()
-                                            .frame(height: 130)
-                                            .frame(maxWidth: .infinity)
-                                            .clipped()
-                                            .cornerRadius(14)
-                                        
-                                        Text(destination.name)
-                                            .foregroundColor(.black)
-                                            .font(.subheadline)
-                                            .bold()
-                                            .multilineTextAlignment(.center)
-                                    }
+        NavigationStack {
+            ScrollView {
+                VStack(alignment: .leading, spacing: 24) {
+                    ExploreHeader(userName: userName)
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack(spacing: 10) {
+                            ForEach(["All"] + regions.map(\.name), id: \.self) { region in
+                                Button { selectedRegion = region } label: {
+                                    Text(region)
+                                        .font(.subheadline.weight(.medium))
+                                        .padding(.horizontal, 16)
+                                        .padding(.vertical, 10)
+                                        .foregroundStyle(selectedRegion == region ? .white : .primary)
+                                        .background(selectedRegion == region ? TravelStyle.forest : TravelStyle.card, in: Capsule())
                                 }
+                                .accessibilityAddTraits(selectedRegion == region ? .isSelected : [])
                             }
                         }
-                        .padding(.horizontal)
-                        
-                        // MARK: - Filter by Region Header
-                        Text("Filter by Region")
-                            .font(.title3).bold()
-                            .padding(.horizontal)
-                            .padding(.top, 6)
-                        
-                        // MARK: - Region Filter Chips
-                        LazyVGrid(columns: chipColumns, spacing: 12) {
-                            ForEach(regions) { region in
-                                NavigationLink(destination: RegionDetailsView(region: region)) {
-                                    Text(region.name)
-                                        .font(.subheadline)
-                                        .padding(.vertical, 8)
-                                        .frame(maxWidth: .infinity)
-                                        .background(selectedRegion == region.name ? Color.brown : Color.brown)
-                                        .foregroundColor(selectedRegion == region.name ? .black : .white)
-                                        .cornerRadius(16)
-                                }
-                            }
-                        }
-                        .padding(.horizontal)
                     }
-                    .padding(.top, 10)
-                    .padding(.bottom, 20)
-                }
-                .ignoresSafeArea(edges: .bottom)
-                .background(Color("background").ignoresSafeArea())
-                .navigationBarTitleDisplayMode(.inline)
-            }
-            .tint(.white)
-            .blur(radius: showWelcomeOverlay ? 6 : 0)
-            
-           
-            if showWelcomeOverlay {
-                ZStack {
-                  
-                    Color("background").ignoresSafeArea()
-                    
-                    VStack(spacing: 12) {
-                        Text("Welcome,")
-                            .font(.system(size: 22, weight: .light, design: .serif))
-                            .foregroundColor(.secondary)
-                        
-                        Text(userName)
-                            .font(.system(size: 44, weight: .bold, design: .rounded))
-                            .foregroundColor(.brown)
+                    HStack {
+                        Text(searchText.isEmpty ? "Find your next escape" : "Search results")
+                            .font(.title2.bold())
+                        Spacer()
+                        Text(filteredDestinations.count == 1 ? "1 place" : "\(filteredDestinations.count) places")
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
                     }
-                    .opacity(welcomeOpacity)
-                    .offset(y: welcomeOffset)
-                }
-                .onAppear {
-         
-                    withAnimation(.easeOut(duration: 0.8)) {
-                        welcomeOffset = 0
+                    if filteredDestinations.isEmpty {
+                        ContentUnavailableView.search(text: searchText)
                     }
-                    
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                        withAnimation(.easeIn(duration: 1.2)) {
-                            welcomeOpacity = 0
+                    LazyVStack(spacing: 20) {
+                        ForEach(filteredDestinations) { destination in
+                            DestinationExploreCard(destination: destination)
                         }
                     }
-                    
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 3.2) {
-                        showWelcomeOverlay = false
-                    }
+                    Label("Travel thoughtfully. Support local people and respect the places you visit.", systemImage: "leaf")
+                        .font(.footnote)
+                        .foregroundStyle(.secondary)
+                        .padding(.vertical)
                 }
+                .padding(20)
             }
+            .background(TravelStyle.sand)
+            .navigationTitle("Explore")
+            .navigationBarTitleDisplayMode(.inline)
+            .searchable(text: $searchText, prompt: "Search places or regions")
+            .tint(TravelStyle.ink)
         }
     }
 }
 
-#Preview {
-    HomeScreen(userName: "Sarah")
+private struct ExploreHeader: View {
+    let userName: String
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            Text(userName.isEmpty ? "YOUR ZIMBABWE STARTS HERE" : "WELCOME, \(userName.uppercased())")
+                .font(.caption.weight(.bold))
+                .tracking(2)
+                .foregroundStyle(TravelStyle.ink)
+            Text("Go somewhere\nunforgettable.")
+                .font(.largeTitle.bold())
+            Text("Wild landscapes, living culture, and people who know the way.")
+                .foregroundStyle(.secondary)
+        }
+    }
+}
+
+struct DestinationExploreCard: View {
+    let destination: Destination
+    @AppStorage("savedDestinationNames") private var savedNames = ""
+
+    private var isSaved: Bool { savedNames.split(separator: "|").contains(Substring(destination.name)) }
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 0) {
+            NavigationLink {
+                DestinationDetailsView(destination: destination)
+            } label: {
+                Image(destination.image)
+                    .resizable()
+                    .scaledToFill()
+                    .frame(height: 220)
+                    .clipped()
+                    .overlay(alignment: .bottomLeading) {
+                        Text(destination.region)
+                            .font(.caption.weight(.semibold))
+                            .padding(10)
+                            .background(.regularMaterial, in: Capsule())
+                            .padding(16)
+                    }
+            }
+            HStack(alignment: .top, spacing: 12) {
+                NavigationLink {
+                    DestinationDetailsView(destination: destination)
+                } label: {
+                    VStack(alignment: .leading, spacing: 6) {
+                        Text(destination.name).font(.title3.bold()).foregroundStyle(.primary)
+                        Text(destination.description)
+                            .font(.subheadline)
+                            .foregroundStyle(.secondary)
+                            .lineLimit(2)
+                    }
+                    .multilineTextAlignment(.leading)
+                }
+                Spacer(minLength: 0)
+                Button {
+                    var names = Set(savedNames.split(separator: "|").map(String.init))
+                    if isSaved { names.remove(destination.name) } else { names.insert(destination.name) }
+                    savedNames = names.sorted().joined(separator: "|")
+                } label: {
+                    Image(systemName: isSaved ? "bookmark.fill" : "bookmark")
+                        .font(.title3)
+                        .padding(12)
+                }
+                .accessibilityLabel(isSaved ? "Unsave \(destination.name)" : "Save \(destination.name)")
+            }
+            .padding(18)
+        }
+        .background(TravelStyle.card)
+        .clipShape(RoundedRectangle(cornerRadius: 24))
+    }
+}
+
+struct SavedPlacesView: View {
+    @AppStorage("savedDestinationNames") private var savedNames = ""
+    private var saved: [Destination] {
+        let names = Set(savedNames.split(separator: "|").map(String.init))
+        return destinations.filter { names.contains($0.name) }
+    }
+
+    var body: some View {
+        NavigationStack {
+            ScrollView {
+                if saved.isEmpty {
+                    ContentUnavailableView("Keep a Little Inspiration", systemImage: "bookmark",
+                                           description: Text("Save places from Explore and find them here. Saved places stay on this device."))
+                        .padding(.top, 60)
+                } else {
+                    LazyVStack(spacing: 20) {
+                        ForEach(saved) { DestinationExploreCard(destination: $0) }
+                    }
+                    .padding(20)
+                }
+            }
+            .background(TravelStyle.sand)
+            .navigationTitle("Saved Places")
+        }
+    }
 }

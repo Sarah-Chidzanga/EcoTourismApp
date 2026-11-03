@@ -1,10 +1,10 @@
-# EcoTourism backend
+# Shanya backend
 
-Recovered Express/SQLite backend for the Shanya iOS app. Source and dependency lockfile live alongside the app so the backend can be restored from Git. The original iCloud folder and database are untouched.
+Express/SQLite backend for the Zimbabwe travel app. This repository contains the source, schema setup, dependency lockfile, and automated tests. Live databases and credentials stay out of Git.
 
 ## Run locally
 
-Install a supported Node.js LTS release from https://nodejs.org/en/download (Node 22 or newer), then run from the repository root:
+Install Node.js 22 or newer from https://nodejs.org/en/download, then run from the repository root:
 
 ```sh
 cd backend
@@ -13,41 +13,59 @@ npm test
 npm start
 ```
 
-The server listens at `http://127.0.0.1:3000`. Verify with `curl http://127.0.0.1:3000/health`.
+The server listens at `http://127.0.0.1:3000`; `GET /health` reports its status. The first start creates `backend/ecotourism.db`. Existing accounts are preserved when adding the guide-language column and guide/booking tables. Tests use isolated temporary databases.
 
-A fresh `backend/ecotourism.db` and users table are created automatically on first start. Database files, dependencies, and local environment files are ignored by Git. Never commit real user databases. Tests create and remove their own temporary database.
+Optional environment variables: `PORT`, `HOST`, `DATABASE_PATH`. The default database location is relative to server.js. Authentication attempts are limited to 30 per IP per 15 minutes; this in-memory limit resets on restart. Proxy trust is disabled until configured for a specific host.
 
-Optional environment variables: `PORT`, `HOST`, and `DATABASE_PATH`. The default database path is relative to server.js, not the terminal's working directory. An existing database with duplicate emails differing only in case must be reconciled before the unique email index can be created; startup fails rather than deleting data.
+## App connection
 
-## API
+Debug app builds use `http://localhost:3000`. Set `ECOTOURISM_API_URL` in the Xcode Run scheme to change it. For an iPhone on the same trusted Wi-Fi network, use the Mac's local hostname, such as `http://your-mac.local:3000`, and start the server with `HOST=0.0.0.0`. Local-network permission is required on the phone.
 
-- `GET /health`: 200 with `{"status":"ok"}`.
-- `POST /register`: JSON containing `name`, `email`, `password`, and `role` (`tourist` or `guide`); optional `nationality` and `bio`. Returns 201 with `id` and `message`. Invalid input returns 400; duplicate email returns 409.
-- `POST /login`: JSON containing `email` and `password`. Returns 200 with `id`, `name`, `role`, `token`, and `expiresAt`; incorrect credentials return 401. Existing identity fields remain compatible with the tourist screens.
-- `GET /me`: send `Authorization: Bearer <token>` to read the signed-in user profile.
-- `POST /logout`: send the same authorization header to revoke that session. Missing, invalid, revoked, or expired tokens return 401.
+Release builds require an HTTPS `APIBaseURL` in the app Info.plist; they don't fall back to localhost. The app permits local networking and has a localhost HTTP exception, not a blanket HTTP exception.
 
-Registration requires a password of at least 8 characters and at most 72 UTF-8 bytes. Passwords are hashed with bcrypt. Email matching is case insensitive. The old unauthenticated account deletion route has been removed.
+Tokens are saved in device-only Keychain items, separately for each service URL. On launch the app validates the token with `/me`. Network failures preserve the token and offer retry. Logout revokes the server session and removes the saved token. Tokens expire after seven days; SQLite stores only their SHA-256 hashes. Passwords are bcrypt hashed and never logged.
 
-## iOS integration and remaining work
+## Authentication API
 
-The existing tourist screens already call `http://localhost:3000/register` and `/login` and use the matching success status codes. These endpoints have been preserved. Run the server separately while using the iOS simulator. On a physical iPhone, localhost refers to the phone: a configurable Mac LAN address and appropriate local network/transport configuration are still needed.
+- `POST /register`: `name`, `email`, `password`, `role` (`tourist` or `guide`), optional `nationality`, `bio`, `languages`. Returns 201 with `id` and `message`.
+- `POST /login`: `email`, `password`. Returns `id`, `name`, `role`, `token`, `expiresAt`.
+- `GET /me`: current account profile.
+- `POST /logout`: revoke the current session.
 
-The current app Info.plist uses an incorrectly named transport setting; simulator connectivity must be verified and any exception scoped to local development. Login failures currently appear only in the Xcode console. Guide forms still need wiring to the backend.
+Protected endpoints require `Authorization: Bearer <token>`. Invalid/expired credentials return 401. Registration requires at least 8 characters and at most 72 UTF-8 bytes in a password. Email matching is case insensitive. Duplicate registration returns 409. Validation errors return 400.
 
-Sessions last seven days and survive server restarts. Only SHA-256 token hashes are stored in SQLite; raw bearer tokens are returned at login. Logout revokes the current session. Expired sessions are cleaned up during login. The iOS app still needs to store tokens in Keychain and send them to protected endpoints; it currently ignores the new session fields.
+## Guide and booking API
 
-Authentication endpoints share a limit of 30 requests per IP per 15 minutes, returning 429 and Retry-After when exceeded. Limits are in memory and reset on restart; deployment across multiple processes needs a shared store. Proxy trust remains disabled; configure it deliberately for your hosting platform before deploying behind a reverse proxy.
+- `GET /guides`: public listings, only from guides who explicitly publish. Includes `id`, `name`, `title`, `location`, `bio`, `languages`, `dailyRate`, `maxGuests`. Does not expose email.
+- `GET /guide-profile`: signed-in guide's listing or a private initial draft.
+- `PUT /guide-profile`: guide-only update with `title`, `location`, `bio`, `languages`, `dailyRate` (USD), `maxGuests` (1–20), `published` (boolean). Publishing requires all text fields and a price of at least 1 USD. Turning publication off pauses new requests; existing bookings remain accessible.
+- `GET /bookings`: only requests where the signed-in person is the tourist or guide.
+- `POST /bookings`: tourist-only. Supply `guideId`, `tourDate` (`YYYY-MM-DD`, interpreted as a Zimbabwe calendar day), `guests`, `note`, `expectedPrice`, and a unique `requestId` (UUID). Returns the saved pending booking. Retrying the same ID and payload returns the original booking. A changed quoted price, conflicting active request, or unavailable day returns 409.
+- `PATCH /bookings/:id`: body `status`. The assigned guide can accept (`confirmed`) or decline a pending request. Either participant can cancel pending/confirmed requests. Other users cannot access or change it.
 
-GitHub Actions runs backend tests for pull requests and changes to main. Use `npm test` locally before pushing.
+A booking is a request for one guide for one calendar day, for the whole group. Its USD guide fee is captured when requested; later profile price edits do not change it. One confirmed booking per guide/date is enforced by a unique database index, including simultaneous acceptance attempts. Invalid dates, past dates, and groups over the guide's capacity are rejected. Pending requests do not reserve the date.
 
-## Remaining product work
+Contact emails are visible to the two participants only after acceptance. The app does not collect payments or send confirmation emails/notifications. Refresh My Trips or Requests for updates. Guests and guides must agree directly on itinerary, meeting point, entry fees, transport, meals, and payment arrangements.
 
-- Wire guide registration/login and persist guide languages and availability.
-- Add bookings with stable guide IDs, tourist ownership, guide access rules, and status transitions.
-- Connect app sessions, logout, profile, and user-facing errors.
-- Add email verification and password recovery through a configured email provider.
-- Set up hosting, HTTPS, monitoring, and automated database backups before production use.
-- Plan migration from the recovered sqlite3 driver to a maintained SQLite driver or hosted database before production; its upstream repository is archived.
+## Pilot walkthrough
 
-GitHub preserves source code and database creation logic, not live accounts or bookings. Back up the SQLite database separately using SQLite's backup API or a managed hosting backup service. Never upload a live user database to this public repository. This remains a local development backend until the deployment work above is complete.
+1. Register a guide account. In Workspace, open the guide listing editor, add locations/languages/bio/day rate, then publish.
+2. Register a tourist account (or browse as a guest first). Find the guide, choose a date and group size, then submit a request.
+3. Sign in as the guide. Open Requests, select the request, and accept or decline it.
+4. Sign in as the tourist. My Trips shows the response; accepted requests expose an email contact link. Cancel a request to verify both sides see the updated status.
+5. Restart the server and relaunch the app: accounts, sessions, profiles, and requests should remain. Never use real user data in the test suite.
+
+Destination inspiration remains bundled in the app. Saved places are local to the device. Sample guide records in the old destination model are no longer shown as bookable guides.
+
+## Before inviting a public audience
+
+This is a development milestone, not a deployed service. A supervised pilot still needs a reachable HTTPS backend and persistent, backed-up database. Before public distribution:
+
+- Recruit actual guides and check destination content and guide credentials; profiles currently contain self-reported information, with no verified badge.
+- Add email verification, password recovery, account deletion, and support/reporting tools.
+- Decide cancellation/payment policies and provide privacy information and terms for the actual service.
+- Add request notifications and guide calendar/blocked-date management; today accepted full-day requests reserve dates and guides can pause their listing.
+- Configure hosting, monitoring, rate limits appropriate for the hosting proxy, backups, and restore drills. Move off the archived sqlite3 driver to a maintained database integration before production.
+- Complete physical-device, accessibility, and TestFlight checks with both user roles.
+
+GitHub preserves code and schema setup; it does not back up accounts and bookings. Use a separate SQLite-consistent backup process or a managed database backup service. Do not put live databases in this public repository.

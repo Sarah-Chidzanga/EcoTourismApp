@@ -7,46 +7,26 @@ struct NavigateTabView: View {
         TabView {
             if session.user?.role == .guide {
                 GuideDashboard()
-                    .tabItem { Label("Dashboard", systemImage: "mountain.2") }
+                    .tabItem { Label("Workspace", systemImage: "square.grid.2x2") }
+                NavigationStack { BookingsView(isGuide: true) }
+                    .tabItem { Label("Requests", systemImage: "tray") }
             } else {
                 HomeScreen(userName: session.user?.name ?? "")
-                    .tabItem { Label("Home", systemImage: "house") }
+                    .tabItem { Label("Explore", systemImage: "safari") }
+                NavigationStack { GuideDirectory() }
+                    .tabItem { Label("Guides", systemImage: "person.2") }
+                NavigationStack { BookingsView(isGuide: false) }
+                    .tabItem { Label("My Trips", systemImage: "suitcase.rolling") }
+                SavedPlacesView()
+                    .tabItem { Label("Saved", systemImage: "bookmark") }
             }
             Profile()
-                .tabItem { Label("Profile", systemImage: "person") }
-            Settings()
-                .tabItem { Label("Settings", systemImage: "gear") }
+                .tabItem { Label("You", systemImage: "person.crop.circle") }
         }
-        .tint(.brown)
-    }
-}
-
-struct GuideDashboard: View {
-    @Environment(AuthSession.self) private var session
-
-    var body: some View {
-        NavigationStack {
-            VStack(spacing: 20) {
-                Image(systemName: "mountain.2.fill")
-                    .font(.largeTitle)
-                    .foregroundStyle(.brown)
-                Text("Welcome, \(session.user?.name ?? "")")
-                    .font(.title.bold())
-                Text("Your guide account is ready.")
-                Text("Booking requests and availability management are coming next.")
-                    .foregroundStyle(.secondary)
-                NavigationLink("View Your Profile") { Profile() }
-            }
-            .multilineTextAlignment(.center)
-            .padding()
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(Color.background.ignoresSafeArea())
-            .navigationTitle("Guide Dashboard")
-        }
+        .tint(TravelStyle.ink)
     }
 }
 
 #Preview {
-    NavigateTabView()
-        .environment(AuthSession())
+    NavigateTabView().environment(AuthSession())
 }

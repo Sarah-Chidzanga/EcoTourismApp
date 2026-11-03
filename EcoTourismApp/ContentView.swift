@@ -1,80 +1,52 @@
-//
-//  ContentView.swift
-//  EcoTourismApp
-//
-//  Created by Sarah  on 16/10/2025.
-//
 import SwiftUI
 
 struct ContentView: View {
-@State private var animate = false
-    var body: some View {
-//       NavigationView{
-           NavigationStack {
-               ZStack{
-                   Color.background
-                       .ignoresSafeArea()
-                   VStack{
-                       
-                       // Background Image
-                       Image("logo")
-                           .resizable()
-                           .frame(width: 350, height: 350)
-                           .scaledToFit()
-                           .scaleEffect(animate ? 1 : 0.8)
-                           .opacity(animate ? 1 : 0)
-                           .animation(.easeOut(duration: 1.5), value: animate)
-                           .ignoresSafeArea()
-                           .offset(y: -30)
-                       
-                       //App Title
-                           .navigationTitle("Shanya")
-                       
-                       //.navigationBarTitleDisplayMode(.inline)
-                           .font(.largeTitle)
-                           .foregroundColor(.brown)
-                           .fontWeight(.bold)
-                           .shadow(radius: 5)
-                       
-                       
-                       //Welcome Message
-                       Text("Cultural Connection & Wildlife Adventure, Where your journey begins.")
-                           .font(.title2)
-                           .foregroundColor(.brown)
-                           .italic()
-                           .multilineTextAlignment(.center)
-                           .padding(.horizontal)
-                       
-                       // Get Started Button and Navigation Link
-                       NavigationLink{
-                           OnBoardingScreen()
-                       } label: {
-                               Text("Get Started")
-                                   .font(.headline)
-                                   .padding()
-                                   .frame(maxWidth: .infinity)
-                                   .background(Color.gray.opacity(0.2))
-                                   .foregroundColor(.black)
-                                   .cornerRadius(12)
-                                   .padding(.horizontal, 40)
-                           }
-                       }
-                   }
-               }
-               .onAppear {
-                   animate = true
-               }
-           }
-        }
-//    }
+    @Environment(AuthSession.self) private var session
 
-#Preview {
-    ContentView()
+    var body: some View {
+        NavigationStack {
+            ScrollView {
+                VStack(alignment: .leading, spacing: 28) {
+                    ZStack(alignment: .bottomLeading) {
+                        Image("victoria")
+                            .resizable()
+                            .scaledToFill()
+                            .frame(height: 360)
+                            .clipped()
+                        LinearGradient(colors: [.clear, .black.opacity(0.8)], startPoint: .center, endPoint: .bottom)
+                        VStack(alignment: .leading, spacing: 10) {
+                            Label("SHANYA", systemImage: "leaf.fill")
+                                .font(.subheadline.weight(.bold))
+                            Text("A little closer\nto Zimbabwe.")
+                                .font(.largeTitle.bold())
+                        }
+                        .foregroundStyle(.white)
+                        .padding(24)
+                    }
+                    .clipShape(RoundedRectangle(cornerRadius: 30))
+                    VStack(alignment: .leading, spacing: 12) {
+                        Text("Extraordinary places.\nLocal perspectives.")
+                            .font(.title.bold())
+                        Text("Discover places worth slowing down for, meet local guides, and plan a day that feels like yours.")
+                            .foregroundStyle(.secondary)
+                    }
+                    Button("Start Exploring") { session.isBrowsing = true }
+                        .buttonStyle(TravelPrimaryButton())
+                    HStack {
+                        NavigationLink("Log In") { AuthenticationForm(role: .tourist, isRegistration: false) }
+                        Spacer()
+                        NavigationLink("I'm a Tour Guide") { AuthenticationForm(role: .guide, isRegistration: true) }
+                    }
+                    .font(.subheadline.weight(.semibold))
+                }
+                .padding(20)
+            }
+            .background(TravelStyle.sand)
+            .tint(TravelStyle.ink)
+        }
+    }
 }
 
-
-
-
-
-
-
+#Preview {
+    ContentView().environment(AuthSession())
+}

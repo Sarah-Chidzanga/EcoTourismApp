@@ -18,6 +18,9 @@ struct Profile: View {
                         Section("Country") { Text(nationality) }
                     }
                     if user.role == .guide {
+                        Section("Your Business") {
+                            NavigationLink("Edit Public Guide Listing") { GuideProfileEditor() }
+                        }
                         if let languages = user.languages, !languages.isEmpty {
                             Section("Languages") { Text(languages) }
                         }
@@ -42,11 +45,19 @@ struct Profile: View {
                         }
                         .disabled(session.isBusy)
                     }
+                } else {
+                    SignInPrompt()
+                    Section {
+                        NavigationLink("Join as a Tour Guide") {
+                            AuthenticationForm(role: .guide, isRegistration: true)
+                        }
+                    }
                 }
             }
             .navigationTitle("Profile")
             .scrollContentBackground(.hidden)
-            .background(Color.background)
+            .background(TravelStyle.sand)
+            .tint(TravelStyle.ink)
             .alert("Couldn't Log Out", isPresented: $showingError) {
                 Button("OK", role: .cancel) {}
             } message: {
