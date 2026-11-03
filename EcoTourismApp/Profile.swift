@@ -1,21 +1,56 @@
-//
-//  Profile.swift
-//  EcoTourismApp
-//
-//  Created by Sarah  on 20/10/2025.
-//
-
 import SwiftUI
 
 struct Profile: View {
+    @Environment(AuthSession.self) private var session
+    @State private var errorMessage = ""
+    @State private var showingError = false
+
     var body: some View {
         NavigationStack {
-            ZStack{
-                Color.background
-                    .ignoresSafeArea()
-                Text("Profile Page coming 🔜!")
-                    .foregroundColor(.brown)
-                    .font(Font.largeTitle.bold())
+            Form {
+                if let user = session.user {
+                    Section("Your Account") {
+                        LabeledContent("Name", value: user.name)
+                        LabeledContent("Email", value: user.email)
+                        LabeledContent("Account Type", value: user.role == .guide ? "Tour Guide" : "Tourist")
+                    }
+                    if let nationality = user.nationality, !nationality.isEmpty {
+                        Section("Country") { Text(nationality) }
+                    }
+                    if user.role == .guide {
+                        if let languages = user.languages, !languages.isEmpty {
+                            Section("Languages") { Text(languages) }
+                        }
+                        if let bio = user.bio, !bio.isEmpty {
+                            Section("About You") { Text(bio) }
+                        }
+                    }
+                    Section {
+                        Button(role: .destructive) {
+                            Task {
+                                do { try await session.signOut() }
+                                catch {
+                                    errorMessage = AuthSession.message(for: error)
+                                    showingError = true
+                                }
+                            }
+                        } label: {
+                            HStack {
+                                Text("Log Out")
+                                if session.isBusy { ProgressView() }
+                            }
+                        }
+                        .disabled(session.isBusy)
+                    }
+                }
+            }
+            .navigationTitle("Profile")
+            .scrollContentBackground(.hidden)
+            .background(Color.background)
+            .alert("Couldn't Log Out", isPresented: $showingError) {
+                Button("OK", role: .cancel) {}
+            } message: {
+                Text(errorMessage)
             }
         }
     }
@@ -23,4 +58,5 @@ struct Profile: View {
 
 #Preview {
     Profile()
+        .environment(AuthSession())
 }
