@@ -1,0 +1,24 @@
+{
+  "name": "ecotourism-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.7.3",
+    "sqlite3": "^6.0.1"
+  },
+  "private": true,
+  "engines": {
+    "node": ">=22"
+  }
+}
