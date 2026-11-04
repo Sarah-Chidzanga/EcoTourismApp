@@ -20,6 +20,9 @@ async function createApp(databasePath = path.join(__dirname, 'ecotourism.db'), o
             else resolve({ id: this.lastID });
         });
     });
+    const all = sql => new Promise((resolve, reject) => {
+        db.all(sql, (error, rows) => error ? reject(error) : resolve(rows));
+    });
     const get = (sql, values) => new Promise((resolve, reject) => {
         db.get(sql, values, (error, row) => error ? reject(error) : resolve(row));
     });
@@ -38,6 +41,10 @@ async function createApp(databasePath = path.join(__dirname, 'ecotourism.db'), o
             nationality TEXT,
             bio TEXT
         )`);
+        const columns = await all('PRAGMA table_info(users)');
+        if (!columns.some(column => column.name === 'languages')) {
+            await run('ALTER TABLE users ADD COLUMN languages TEXT');
+        }
         await run('CREATE UNIQUE INDEX IF NOT EXISTS users_email_nocase ON users(email COLLATE NOCASE)');
         await run(`CREATE TABLE IF NOT EXISTS sessions (
             token_hash TEXT PRIMARY KEY,
@@ -69,7 +76,7 @@ async function createApp(databasePath = path.join(__dirname, 'ecotourism.db'), o
         const match = /^Bearer ([a-f0-9]{64})$/i.exec(req.get('Authorization') || '');
         if (!match) return res.status(401).json({ error: 'Authentication required.' });
         const tokenHash = hashToken(match[1]);
-        const user = await get(`SELECT users.id, users.name, users.email, users.role, users.nationality, users.bio
+        const user = await get(`SELECT users.id, users.name, users.email, users.role, users.nationality, users.bio, users.languages
             FROM sessions JOIN users ON users.id = sessions.user_id
             WHERE sessions.token_hash = ? AND sessions.expires_at > ?`, [tokenHash, now()]);
         if (!user) return res.status(401).json({ error: 'Session expired or invalid.' });
@@ -84,19 +91,20 @@ async function createApp(databasePath = path.join(__dirname, 'ecotourism.db'), o
 
     app.get('/health', (req, res) => res.json({ status: 'ok' }));
     app.post('/register', async (req, res) => {
-        const { name, email, password, role, nationality, bio } = req.body || {};
+        const { name, email, password, role, nationality, bio, languages } = req.body || {};
         if (!validText(name, 120) || !validEmail(email) || !validPassword(password) || !['tourist', 'guide'].includes(role)) {
             return res.status(400).json({ error: 'Provide a name, valid email, tourist or guide role, and a password of at least 8 characters (maximum 72 bytes).' });
         }
         if ((nationality !== undefined && (typeof nationality !== 'string' || nationality.length > 120)) ||
-            (bio !== undefined && (typeof bio !== 'string' || bio.length > 2000))) {
-            return res.status(400).json({ error: 'Invalid nationality or bio.' });
+            (bio !== undefined && (typeof bio !== 'string' || bio.length > 2000)) ||
+            (languages !== undefined && (typeof languages !== 'string' || languages.length > 500))) {
+            return res.status(400).json({ error: 'Invalid nationality, bio, or languages.' });
         }
         const hashedPassword = await bcrypt.hash(password, 10);
         try {
             const result = await run(
-                'INSERT INTO users (name, email, password, role, nationality, bio) VALUES (?, ?, ?, ?, ?, ?)',
-                [name.trim(), email.trim().toLowerCase(), hashedPassword, role, nationality?.trim() || null, bio?.trim() || null]
+                'INSERT INTO users (name, email, password, role, nationality, bio, languages) VALUES (?, ?, ?, ?, ?, ?, ?)',
+                [name.trim(), email.trim().toLowerCase(), hashedPassword, role, nationality?.trim() || null, bio?.trim() || null, languages?.trim() || null]
             );
             res.status(201).json({ id: result.id, message: 'User registered successfully!' });
         } catch (error) {

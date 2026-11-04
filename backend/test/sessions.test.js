@@ -34,7 +34,7 @@ test('sessions survive restart, isolate users, expire, and can be revoked', asyn
     }
     try {
         await start();
-        const users = ['tourist', 'guide'].map(role => ({ name: role, email: `${role}@example.test`, role, password: 'test-password-123' }));
+        const users = ['tourist', 'guide'].map(role => ({ name: role, email: `${role}@example.test`, role, languages: role === 'guide' ? 'English, Shona' : '', password: 'test-password-123' }));
         const tokens = [];
         for (const user of users) {
             assert.equal((await request('/register', { method: 'POST', body: user })).status, 201);
@@ -61,6 +61,7 @@ test('sessions survive restart, isolate users, expire, and can be revoked', asyn
             assert.equal(profile.status, 200);
             assert.equal(profile.body.email, users[i].email);
             assert.equal(profile.body.role, users[i].role);
+            assert.equal(profile.body.languages, users[i].languages || null);
             assert.equal(profile.body.password, undefined);
         }
         assert.equal((await request('/logout', { method: 'POST', token: tokens[0] })).status, 200);
