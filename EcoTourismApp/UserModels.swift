@@ -28,7 +28,7 @@ struct FormFieldStyle: ViewModifier {
     func body(content: Content) -> some View {
         content
             .padding()
-            .background(Color.white)
+            .background(TravelStyle.card)
             .cornerRadius(8)
             .overlay(
                 RoundedRectangle(cornerRadius: 8)

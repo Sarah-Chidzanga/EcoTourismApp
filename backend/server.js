@@ -17,11 +17,11 @@ async function createApp(databasePath = path.join(__dirname, 'ecotourism.db'), o
     const run = (sql, values = []) => new Promise((resolve, reject) => {
         db.run(sql, values, function(error) {
             if (error) reject(error);
-            else resolve({ id: this.lastID });
+            else resolve({ id: this.lastID, changes: this.changes });
         });
     });
-    const all = sql => new Promise((resolve, reject) => {
-        db.all(sql, (error, rows) => error ? reject(error) : resolve(rows));
+    const all = (sql, values = []) => new Promise((resolve, reject) => {
+        db.all(sql, values, (error, rows) => error ? reject(error) : resolve(rows));
     });
     const get = (sql, values) => new Promise((resolve, reject) => {
         db.get(sql, values, (error, row) => error ? reject(error) : resolve(row));
@@ -133,6 +133,12 @@ async function createApp(databasePath = path.join(__dirname, 'ecotourism.db'), o
         await run('DELETE FROM sessions WHERE token_hash = ?', [req.tokenHash]);
         res.json({ message: 'Logged out successfully.' });
     });
+    try {
+        await require('./marketplace')(app, { run, get, all, authenticate, now });
+    } catch (error) {
+        await close();
+        throw error;
+    }
     app.use((req, res) => res.status(404).json({ error: 'Route not found.' }));
     app.use((error, req, res, next) => {
         if (error.type === 'entity.parse.failed') return res.status(400).json({ error: 'Invalid JSON.' });

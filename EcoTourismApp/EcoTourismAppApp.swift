@@ -21,8 +21,9 @@ struct SessionRootView: View {
                 ProgressView("Restoring your session…")
             } else if let message = session.restoreError {
                 SessionRecoveryView(message: message)
-            } else if session.user != nil {
+            } else if session.user != nil || session.isBrowsing {
                 NavigateTabView()
+                    .id(session.user?.id)
             } else {
                 ContentView()
             }
