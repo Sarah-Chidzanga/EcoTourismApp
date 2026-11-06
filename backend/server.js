@@ -90,6 +90,9 @@ async function createApp(databasePath = path.join(__dirname, 'ecotourism.db'), o
     const validPassword = value => typeof value === 'string' && value.length >= 8 && Buffer.byteLength(value, 'utf8') <= 72;
 
     app.get('/health', (req, res) => res.json({ status: 'ok' }));
+    // The same reviewed catalogue ships with iOS for offline browsing.
+    const catalog = require('../EcoTourismApp/travel-catalog.json');
+    app.get('/catalog', (req, res) => res.json(catalog));
     app.post('/register', async (req, res) => {
         const { name, email, password, role, nationality, bio, languages } = req.body || {};
         if (!validText(name, 120) || !validEmail(email) || !validPassword(password) || !['tourist', 'guide'].includes(role)) {

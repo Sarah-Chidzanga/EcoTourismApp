@@ -98,10 +98,8 @@ struct DestinationCardView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
-            Image(destination.image)
-                .resizable()
-                .scaledToFill()
-                .frame(width: 200, height: 140)
+            DestinationArtwork(image: destination.image, symbol: destination.symbol, height: 140)
+                .frame(width: 200)
                 .cornerRadius(16)
                 .clipped()
             
@@ -124,5 +122,5 @@ struct DestinationCardView: View {
 }
 
 #Preview {
-    RegionDetailsView(region: Region(name: "Matabeleland North"))
+    RegionDetailsView(region: Region(name: "Matabeleland North")).environment(TravelCatalogStore())
 }

@@ -55,7 +55,15 @@ Contact emails are visible to the two participants only after acceptance. The ap
 4. Sign in as the tourist. My Trips shows the response; accepted requests expose an email contact link. Cancel a request to verify both sides see the updated status.
 5. Restart the server and relaunch the app: accounts, sessions, profiles, and requests should remain. Never use real user data in the test suite.
 
-Destination inspiration remains bundled in the app. Saved places are local to the device. Sample guide records in the old destination model are no longer shown as bookable guides.
+## Travel catalogue
+
+`GET /catalog` publicly serves `EcoTourismApp/travel-catalog.json`. Keep that file at its repository-relative location when deploying the backend. The same resource ships with iOS for offline browsing. The app refreshes on first exploration and pull-to-refresh, caches valid responses, and retains offline information if the service is unavailable.
+
+The starting directory includes 12 destinations, 28 activities and 10 operators or visitor authorities. Each destination and activity links to its source, and companies link to their websites. Sources were reviewed on 2026-11-04 using official park, heritage and operator pages; indexed official listings were used where automated access was blocked. This is a growing directory, not an exhaustive business register or a guarantee of licensing or availability.
+
+To update the directory, edit the JSON, preserve stable IDs, check official sources, update `reviewedAt`, run `npm test`, and restart/redeploy the backend. CI validates destination/provider relationships and HTTPS links when the catalogue changes. There is no public editing endpoint. Do not add unconfirmed prices, contacts or credentials.
+
+Company enquiries open external websites; they do not create Shanya bookings. Registered guide requests remain a separate flow. Map links search for the destination rather than a verified entrance. Destinations without a photo use an illustration. Saved places stay on the device, with aliases preserving older saved names. The old sample guide contacts and unverified price ranges have been removed.
 
 ## Before inviting a public audience
 

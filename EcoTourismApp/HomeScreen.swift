@@ -2,13 +2,14 @@ import SwiftUI
 
 struct HomeScreen: View {
     var userName: String = ""
+    @Environment(TravelCatalogStore.self) private var store
     @State private var searchText = ""
     @State private var selectedRegion = "All"
 
     private var filteredDestinations: [Destination] {
-        destinations.filter {
+        store.destinations.filter {
             (selectedRegion == "All" || $0.region == selectedRegion) &&
-            (searchText.isEmpty || "\($0.name) \($0.region) \($0.description)".localizedCaseInsensitiveContains(searchText))
+            (searchText.isEmpty ||  $0.searchText.localizedCaseInsensitiveContains(searchText))
         }
     }
 
@@ -17,9 +18,10 @@ struct HomeScreen: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: 24) {
                     ExploreHeader(userName: userName)
+                    ExploreDirectoryLinks()
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack(spacing: 10) {
-                            ForEach(["All"] + regions.map(\.name), id: \.self) { region in
+                            ForEach(["All"] + store.regions.map(\.name), id: \.self) { region in
                                 Button { selectedRegion = region } label: {
                                     Text(region)
                                         .font(.subheadline.weight(.medium))
@@ -48,7 +50,7 @@ struct HomeScreen: View {
                             DestinationExploreCard(destination: destination)
                         }
                     }
-                    Label("Travel thoughtfully. Support local people and respect the places you visit.", systemImage: "leaf")
+                    CatalogFootnote(reviewedAt: store.catalog.reviewedAt, status: store.statusMessage)
                         .font(.footnote)
                         .foregroundStyle(.secondary)
                         .padding(.vertical)
@@ -59,6 +61,8 @@ struct HomeScreen: View {
             .navigationTitle("Explore")
             .navigationBarTitleDisplayMode(.inline)
             .searchable(text: $searchText, prompt: "Search places or regions")
+            .task { await store.refresh() }
+            .refreshable { await store.refresh(force: true) }
             .tint(TravelStyle.ink)
         }
     }
@@ -85,18 +89,17 @@ struct DestinationExploreCard: View {
     let destination: Destination
     @AppStorage("savedDestinationNames") private var savedNames = ""
 
-    private var isSaved: Bool { savedNames.split(separator: "|").contains(Substring(destination.name)) }
+    private var isSaved: Bool {
+        let names = Set(savedNames.split(separator: "|").map(String.init))
+        return names.contains(destination.name) || destination.aliases.contains(where: names.contains)
+    }
 
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             NavigationLink {
                 DestinationDetailsView(destination: destination)
             } label: {
-                Image(destination.image)
-                    .resizable()
-                    .scaledToFill()
-                    .frame(height: 220)
-                    .clipped()
+                DestinationArtwork(image: destination.image, symbol: destination.symbol, height: 220)
                     .overlay(alignment: .bottomLeading) {
                         Text(destination.region)
                             .font(.caption.weight(.semibold))
@@ -121,7 +124,10 @@ struct DestinationExploreCard: View {
                 Spacer(minLength: 0)
                 Button {
                     var names = Set(savedNames.split(separator: "|").map(String.init))
-                    if isSaved { names.remove(destination.name) } else { names.insert(destination.name) }
+                    if isSaved {
+                        names.remove(destination.name)
+                        for alias in destination.aliases { names.remove(alias) }
+                    } else { names.insert(destination.name) }
                     savedNames = names.sorted().joined(separator: "|")
                 } label: {
                     Image(systemName: isSaved ? "bookmark.fill" : "bookmark")
@@ -138,10 +144,11 @@ struct DestinationExploreCard: View {
 }
 
 struct SavedPlacesView: View {
+    @Environment(TravelCatalogStore.self) private var store
     @AppStorage("savedDestinationNames") private var savedNames = ""
     private var saved: [Destination] {
         let names = Set(savedNames.split(separator: "|").map(String.init))
-        return destinations.filter { names.contains($0.name) }
+        return store.destinations.filter { names.contains($0.name) || $0.aliases.contains(where: names.contains) }
     }
 
     var body: some View {
@@ -160,6 +167,23 @@ struct SavedPlacesView: View {
             }
             .background(TravelStyle.sand)
             .navigationTitle("Saved Places")
+        }
+    }
+}
+
+private struct ExploreDirectoryLinks: View {
+    var body: some View {
+        VStack(spacing: 12) {
+            NavigationLink { TravelDirectory(section: "Activities") } label: {
+                Label("Browse All Activities", systemImage: "binoculars")
+                    .frame(maxWidth: .infinity)
+            }
+            .buttonStyle(TravelPrimaryButton())
+            NavigationLink { TravelDirectory(section: "Companies") } label: {
+                Label("Explore Companies & Visitor Teams", systemImage: "building.2")
+                    .font(.subheadline.weight(.semibold))
+                    .frame(maxWidth: .infinity).padding(.vertical, 10)
+            }
         }
     }
 }

@@ -3,11 +3,13 @@ import SwiftUI
 @main
 struct EcoTourismAppApp: App {
     @State private var session = AuthSession()
+    @State private var catalog = TravelCatalogStore()
 
     var body: some Scene {
         WindowGroup {
             SessionRootView()
                 .environment(session)
+                .environment(catalog)
         }
     }
 }

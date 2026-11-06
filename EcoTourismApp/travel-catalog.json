@@ -1,0 +1,625 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-11-04",
+  "destinations": [
+    {
+      "id": "victoria-falls",
+      "name": "Victoria Falls",
+      "image": "victoria",
+      "symbol": "water.waves",
+      "region": "Matabeleland North",
+      "description": "Waterfall viewpoints, Zambezi cruises and gorge adventures around Zimbabwe’s best-known waterfall town.",
+      "planning": "Ask each operator about transfers, park fees and seasonal river conditions before booking.",
+      "sourceURL": "https://wildhorizons.co.za/victoria-falls/",
+      "guideSearch": "Victoria Falls",
+      "aliases": [
+        "Vic Falls"
+      ],
+      "ecoTip": "Use designated routes, take litter home, and follow local guides and site rules. Ask permission before photographing people."
+    },
+    {
+      "id": "matobo",
+      "name": "Matobo Hills",
+      "image": "matopo",
+      "symbol": "mountain.2",
+      "region": "Matabeleland South",
+      "description": "Granite hills south of Bulawayo, rock-art sites and guided rhino tracking.",
+      "planning": "Arrange guided wildlife activities in advance and confirm which park and heritage fees are included.",
+      "sourceURL": "https://www.matobohillslodge.co.zw/things-to-do/",
+      "guideSearch": "Matobo",
+      "aliases": [
+        "Matopo Hills",
+        "Matopos"
+      ],
+      "ecoTip": "Use designated routes, take litter home, and follow local guides and site rules. Ask permission before photographing people."
+    },
+    {
+      "id": "hwange",
+      "name": "Hwange National Park",
+      "image": "hwange",
+      "symbol": "pawprint",
+      "region": "Matabeleland North",
+      "description": "Explore Zimbabwe’s western safari country through game drives, walking safaris and time at waterholes.",
+      "planning": "Choose a camp or park entrance before arranging transport. Activities and access vary by camp and concession.",
+      "sourceURL": "https://imvelosafarilodges.com/hwange-classic-combo/",
+      "guideSearch": "Hwange",
+      "aliases": [],
+      "ecoTip": "Use designated routes, take litter home, and follow local guides and site rules. Ask permission before photographing people."
+    },
+    {
+      "id": "chinhoyi",
+      "name": "Chinhoyi Caves",
+      "image": "chinhoyi",
+      "symbol": "drop",
+      "region": "Mashonaland West",
+      "description": "A cave system near Chinhoyi known for the deep blue Sleeping Pool.",
+      "planning": "Check access and opening arrangements with ZimParks. Viewing the caves and specialist diving require different arrangements.",
+      "sourceURL": "https://www.wetlandscop15.gov.zw/service/chinhoyi-caves-recreational-park/",
+      "guideSearch": "Chinhoyi",
+      "aliases": [],
+      "ecoTip": "Use designated routes, take litter home, and follow local guides and site rules. Ask permission before photographing people."
+    },
+    {
+      "id": "nyanga",
+      "name": "Nyanga & Mutarazi Falls",
+      "image": "inyanga",
+      "symbol": "mountain.2",
+      "region": "Manicaland",
+      "description": "Eastern Highlands landscapes, mountain walks and the Mutarazi Falls SkyWalk and SkyLine.",
+      "planning": "Check mountain conditions and activity requirements directly. Allow time for the approach roads to the falls.",
+      "sourceURL": "https://www.zimparks.org.zw/nyanga-national-park/",
+      "guideSearch": "Nyanga",
+      "aliases": [
+        "Inyanga",
+        "Inyanga ",
+        "Mutarazi"
+      ],
+      "ecoTip": "Use designated routes, take litter home, and follow local guides and site rules. Ask permission before photographing people."
+    },
+    {
+      "id": "chimanimani",
+      "name": "Chimanimani National Park",
+      "image": "",
+      "symbol": "figure.hiking",
+      "region": "Manicaland",
+      "description": "Mountain wilderness in Zimbabwe’s Eastern Highlands, with hiking routes through rugged scenery.",
+      "planning": "Arrange your route, guide, permits and overnight plans with the park before setting out.",
+      "sourceURL": "https://www.zimparks.org.zw/chimanimani-national-park/",
+      "guideSearch": "Chimanimani",
+      "aliases": [],
+      "ecoTip": "Use designated routes, take litter home, and follow local guides and site rules. Ask permission before photographing people."
+    },
+    {
+      "id": "great-zimbabwe",
+      "name": "Great Zimbabwe",
+      "image": "",
+      "symbol": "building.columns",
+      "region": "Masvingo",
+      "description": "The stone-built remains of a major historic Shona settlement, including the Hill Complex and Great Enclosure.",
+      "planning": "Ask the monument authority about opening hours, admission and on-site guiding.",
+      "sourceURL": "https://whc.unesco.org/en/list/364/",
+      "guideSearch": "Masvingo",
+      "aliases": [
+        "Great Zimbabwe National Monument"
+      ],
+      "ecoTip": "Use designated routes, take litter home, and follow local guides and site rules. Ask permission before photographing people."
+    },
+    {
+      "id": "khami",
+      "name": "Khami Ruins",
+      "image": "",
+      "symbol": "building.columns",
+      "region": "Matabeleland North",
+      "description": "A heritage site near Bulawayo with decorated stone walls and terraces from the Kingdom of Butua.",
+      "planning": "Plan a visit from Bulawayo and check current access and guiding with the monument authority.",
+      "sourceURL": "https://whc.unesco.org/en/list/365/",
+      "guideSearch": "Bulawayo",
+      "aliases": [
+        "Khami Monument"
+      ],
+      "ecoTip": "Use designated routes, take litter home, and follow local guides and site rules. Ask permission before photographing people."
+    },
+    {
+      "id": "mana-pools",
+      "name": "Mana Pools National Park",
+      "image": "",
+      "symbol": "leaf",
+      "region": "Mashonaland West",
+      "description": "Zambezi river scenery and safari experiences on foot, by vehicle and by canoe with specialist operators.",
+      "planning": "Confirm seasonal camp access, transfers and the operator’s requirements for walking or canoeing.",
+      "sourceURL": "https://africanbushcamps.com/wp-content/uploads/2020/08/African-Bush-Camps_Factsheets.pdf",
+      "guideSearch": "Mana Pools",
+      "aliases": [],
+      "ecoTip": "Use designated routes, take litter home, and follow local guides and site rules. Ask permission before photographing people."
+    },
+    {
+      "id": "gonarezhou",
+      "name": "Gonarezhou National Park",
+      "image": "",
+      "symbol": "sun.haze",
+      "region": "Masvingo",
+      "description": "Lowveld wilderness, scenic viewpoints and wildlife routes around the Runde and Mwenezi river landscapes.",
+      "planning": "Discuss your route, vehicle and accommodation with the park. Check conditions before remote travel.",
+      "sourceURL": "https://gonarezhou.org/visit-gonarezhou-national-park/activities/",
+      "guideSearch": "Gonarezhou",
+      "aliases": [],
+      "ecoTip": "Use designated routes, take litter home, and follow local guides and site rules. Ask permission before photographing people."
+    },
+    {
+      "id": "kariba",
+      "name": "Lake Kariba",
+      "image": "",
+      "symbol": "sailboat",
+      "region": "Mashonaland West",
+      "description": "Lakeside scenery and opportunities to plan time on the water from Kariba.",
+      "planning": "Ask the park or your chosen operator about boating arrangements, permits and current lake conditions.",
+      "sourceURL": "https://www.zimparks.org.zw/lake-kariba-recreational-park/",
+      "guideSearch": "Kariba",
+      "aliases": [],
+      "ecoTip": "Use designated routes, take litter home, and follow local guides and site rules. Ask permission before photographing people."
+    },
+    {
+      "id": "matusadona",
+      "name": "Matusadona National Park",
+      "image": "",
+      "symbol": "pawprint",
+      "region": "Mashonaland West",
+      "description": "A remote safari landscape along Lake Kariba, with woodland, hills and lakeshore wildlife viewing.",
+      "planning": "Plan access and accommodation with the park; ask about road conditions and boat-transfer options.",
+      "sourceURL": "https://www.zimparks.org.zw/matusadona-national-park/",
+      "guideSearch": "Matusadona",
+      "aliases": [],
+      "ecoTip": "Use designated routes, take litter home, and follow local guides and site rules. Ask permission before photographing people."
+    }
+  ],
+  "activities": [
+    {
+      "id": "falls-walk",
+      "destinationID": "victoria-falls",
+      "name": "Guided waterfall tour",
+      "category": "Nature",
+      "description": "Explore the waterfall viewpoints with an operator’s guide.",
+      "companyIDs": [
+        "shearwater"
+      ],
+      "sourceURL": "https://www.shearwatervictoriafalls.com/victoria-falls-specials/",
+      "planning": "Confirm the date, total price, inclusions, transfers and participation requirements directly with the provider."
+    },
+    {
+      "id": "sunset-cruise",
+      "destinationID": "victoria-falls",
+      "name": "Zambezi sunset cruise",
+      "category": "Water",
+      "description": "Take an upper-Zambezi cruise for river scenery and evening light.",
+      "companyIDs": [
+        "wild-horizons",
+        "shearwater"
+      ],
+      "sourceURL": "https://wildhorizons.co.za/victoria-falls/",
+      "planning": "Confirm the date, total price, inclusions, transfers and participation requirements directly with the provider."
+    },
+    {
+      "id": "rafting",
+      "destinationID": "victoria-falls",
+      "name": "White-water rafting",
+      "category": "Adventure",
+      "description": "Join an operator-led rafting experience below the falls; availability depends on river conditions.",
+      "companyIDs": [
+        "wild-horizons",
+        "shearwater"
+      ],
+      "sourceURL": "https://wildhorizons.co.za/victoria-falls/",
+      "planning": "Confirm the date, total price, inclusions, transfers and participation requirements directly with the provider."
+    },
+    {
+      "id": "bridge-bungee",
+      "destinationID": "victoria-falls",
+      "name": "Bridge bungee, swing & slide",
+      "category": "Adventure",
+      "description": "Choose a bridge activity with Shearwater. Confirm eligibility and bridge-access documents before travel.",
+      "companyIDs": [
+        "shearwater"
+      ],
+      "sourceURL": "https://www.shearwatervictoriafalls.com/experience/victoria-falls-bridge-adventures/",
+      "planning": "Confirm the date, total price, inclusions, transfers and participation requirements directly with the provider."
+    },
+    {
+      "id": "helicopter",
+      "destinationID": "victoria-falls",
+      "name": "Scenic helicopter flight",
+      "category": "Scenic",
+      "description": "See the waterfall landscape from above on an operator’s scenic flight.",
+      "companyIDs": [
+        "shearwater"
+      ],
+      "sourceURL": "https://www.shearwatervictoriafalls.com/victoria-falls-specials/",
+      "planning": "Confirm the date, total price, inclusions, transfers and participation requirements directly with the provider."
+    },
+    {
+      "id": "gorge",
+      "destinationID": "victoria-falls",
+      "name": "Gorge swing & zipline",
+      "category": "Adventure",
+      "description": "Experience the Batoka Gorge with Wild Horizons’ high-wire activities.",
+      "companyIDs": [
+        "wild-horizons"
+      ],
+      "sourceURL": "https://wildhorizons.co.za/victoria-falls/",
+      "planning": "Confirm the date, total price, inclusions, transfers and participation requirements directly with the provider."
+    },
+    {
+      "id": "rhino",
+      "destinationID": "matobo",
+      "name": "Guided rhino tracking",
+      "category": "Wildlife",
+      "description": "Explore rhino habitat on foot with an organised guide. Wildlife sightings are never guaranteed.",
+      "companyIDs": [
+        "matobo-lodge"
+      ],
+      "sourceURL": "https://www.matobohillslodge.co.zw/rhino-tracking-zimbabwe/",
+      "planning": "Confirm the date, total price, inclusions, transfers and participation requirements directly with the provider."
+    },
+    {
+      "id": "rock-art",
+      "destinationID": "matobo",
+      "name": "Rock-art visits",
+      "category": "Culture",
+      "description": "Visit Matobo’s rock-art sites and learn about their history with a guide.",
+      "companyIDs": [
+        "matobo-lodge"
+      ],
+      "sourceURL": "https://www.matobohillslodge.co.zw/things-to-do/",
+      "planning": "Confirm the date, total price, inclusions, transfers and participation requirements directly with the provider."
+    },
+    {
+      "id": "matobo-view",
+      "destinationID": "matobo",
+      "name": "Granite-hill viewpoints",
+      "category": "Scenic",
+      "description": "Explore the granite landscape and viewpoints through the lodge’s guided excursions.",
+      "companyIDs": [
+        "matobo-lodge"
+      ],
+      "sourceURL": "https://www.matobohillslodge.co.zw/things-to-do/",
+      "planning": "Confirm the date, total price, inclusions, transfers and participation requirements directly with the provider."
+    },
+    {
+      "id": "hwange-drive",
+      "destinationID": "hwange",
+      "name": "Game drives",
+      "category": "Wildlife",
+      "description": "Explore Hwange by safari vehicle with a lodge operator.",
+      "companyIDs": [
+        "imvelo"
+      ],
+      "sourceURL": "https://imvelosafarilodges.com/hwange-classic-combo/",
+      "planning": "Confirm the date, total price, inclusions, transfers and participation requirements directly with the provider."
+    },
+    {
+      "id": "hwange-walk",
+      "destinationID": "hwange",
+      "name": "Walking safaris",
+      "category": "Wildlife",
+      "description": "Look at tracks, plants and wildlife with a professional safari guide.",
+      "companyIDs": [
+        "imvelo"
+      ],
+      "sourceURL": "https://imvelosafarilodges.com/hwange-classic-combo/",
+      "planning": "Confirm the date, total price, inclusions, transfers and participation requirements directly with the provider."
+    },
+    {
+      "id": "waterhole",
+      "destinationID": "hwange",
+      "name": "Waterhole viewing",
+      "category": "Wildlife",
+      "description": "Spend time watching wildlife at a lodge’s waterhole or hide.",
+      "companyIDs": [
+        "imvelo"
+      ],
+      "sourceURL": "https://imvelosafarilodges.com/hwange-classic-combo/",
+      "planning": "Confirm the date, total price, inclusions, transfers and participation requirements directly with the provider."
+    },
+    {
+      "id": "cave-view",
+      "destinationID": "chinhoyi",
+      "name": "Cave viewpoints",
+      "category": "Nature",
+      "description": "Visit the public cave system and the Sleeping Pool viewpoints.",
+      "companyIDs": [
+        "zimparks"
+      ],
+      "sourceURL": "https://www.wetlandscop15.gov.zw/service/chinhoyi-caves-recreational-park/",
+      "planning": "Confirm the date, total price, inclusions, transfers and participation requirements directly with the provider."
+    },
+    {
+      "id": "nyanga-walk",
+      "destinationID": "nyanga",
+      "name": "Mountain walks",
+      "category": "Hiking",
+      "description": "Plan walks through Nyanga’s highland scenery with the park.",
+      "companyIDs": [
+        "zimparks"
+      ],
+      "sourceURL": "https://www.zimparks.org.zw/nyanga-national-park/",
+      "planning": "Confirm the date, total price, inclusions, transfers and participation requirements directly with the provider."
+    },
+    {
+      "id": "skywalk",
+      "destinationID": "nyanga",
+      "name": "Mutarazi SkyWalk",
+      "category": "Adventure",
+      "description": "Walk the suspension bridges overlooking Mutarazi Falls.",
+      "companyIDs": [
+        "far-wide"
+      ],
+      "sourceURL": "https://www.farandwide.co.zw/copy-of-events",
+      "planning": "Confirm the date, total price, inclusions, transfers and participation requirements directly with the provider."
+    },
+    {
+      "id": "skyline",
+      "destinationID": "nyanga",
+      "name": "Mutarazi SkyLine",
+      "category": "Adventure",
+      "description": "Cross the falls landscape on Far and Wide’s zipline experience.",
+      "companyIDs": [
+        "far-wide"
+      ],
+      "sourceURL": "https://www.farandwide.co.zw/copy-of-events",
+      "planning": "Confirm the date, total price, inclusions, transfers and participation requirements directly with the provider."
+    },
+    {
+      "id": "chim-hike",
+      "destinationID": "chimanimani",
+      "name": "Mountain hiking",
+      "category": "Hiking",
+      "description": "Plan a guided day walk or longer mountain route with the park.",
+      "companyIDs": [
+        "zimparks"
+      ],
+      "sourceURL": "https://www.zimparks.org.zw/chimanimani-national-park/",
+      "planning": "Confirm the date, total price, inclusions, transfers and participation requirements directly with the provider."
+    },
+    {
+      "id": "great-heritage",
+      "destinationID": "great-zimbabwe",
+      "name": "Stone-city heritage visit",
+      "category": "Culture",
+      "description": "Explore the historic stone complexes and ask about guided interpretation.",
+      "companyIDs": [
+        "nmmz"
+      ],
+      "sourceURL": "https://whc.unesco.org/en/list/364/",
+      "planning": "Confirm the date, total price, inclusions, transfers and participation requirements directly with the provider."
+    },
+    {
+      "id": "khami-heritage",
+      "destinationID": "khami",
+      "name": "Terraces & stonework",
+      "category": "Culture",
+      "description": "Discover Khami’s terraced architecture and decorated stone walls.",
+      "companyIDs": [
+        "nmmz"
+      ],
+      "sourceURL": "https://whc.unesco.org/en/list/365/",
+      "planning": "Confirm the date, total price, inclusions, transfers and participation requirements directly with the provider."
+    },
+    {
+      "id": "mana-walk",
+      "destinationID": "mana-pools",
+      "name": "Guided walking safari",
+      "category": "Wildlife",
+      "description": "Explore the Mana Pools landscape on foot as part of a Nyamatusi safari stay.",
+      "companyIDs": [
+        "abc"
+      ],
+      "sourceURL": "https://africanbushcamps.com/wp-content/uploads/2020/08/African-Bush-Camps_Factsheets.pdf",
+      "planning": "Confirm the date, total price, inclusions, transfers and participation requirements directly with the provider."
+    },
+    {
+      "id": "mana-canoe",
+      "destinationID": "mana-pools",
+      "name": "Canoeing safari",
+      "category": "Water",
+      "description": "Explore the river with a specialist guide; confirm conditions and participation rules.",
+      "companyIDs": [
+        "abc"
+      ],
+      "sourceURL": "https://africanbushcamps.com/wp-content/uploads/2020/08/African-Bush-Camps_Factsheets.pdf",
+      "planning": "Confirm the date, total price, inclusions, transfers and participation requirements directly with the provider."
+    },
+    {
+      "id": "mana-drive",
+      "destinationID": "mana-pools",
+      "name": "Game drives & birding",
+      "category": "Wildlife",
+      "description": "Explore the Mana Pools landscape by vehicle with a camp guide.",
+      "companyIDs": [
+        "abc"
+      ],
+      "sourceURL": "https://africanbushcamps.com/wp-content/uploads/2020/08/African-Bush-Camps_Factsheets.pdf",
+      "planning": "Confirm the date, total price, inclusions, transfers and participation requirements directly with the provider."
+    },
+    {
+      "id": "gona-drive",
+      "destinationID": "gonarezhou",
+      "name": "Self-drive wildlife routes",
+      "category": "Wildlife",
+      "description": "Plan a park drive through Gonarezhou’s landscapes and viewing areas.",
+      "companyIDs": [
+        "gonarezhou-park"
+      ],
+      "sourceURL": "https://gonarezhou.org/visit-gonarezhou-national-park/activities/",
+      "planning": "Confirm the date, total price, inclusions, transfers and participation requirements directly with the provider."
+    },
+    {
+      "id": "gona-bird",
+      "destinationID": "gonarezhou",
+      "name": "Birdwatching & photography",
+      "category": "Nature",
+      "description": "Explore the park’s birdlife and scenic viewpoints.",
+      "companyIDs": [
+        "gonarezhou-park"
+      ],
+      "sourceURL": "https://gonarezhou.org/visit-gonarezhou-national-park/activities/",
+      "planning": "Confirm the date, total price, inclusions, transfers and participation requirements directly with the provider."
+    },
+    {
+      "id": "gona-guided",
+      "destinationID": "gonarezhou",
+      "name": "Guided park safari",
+      "category": "Wildlife",
+      "description": "Enquire with the park team about privately guided safari arrangements.",
+      "companyIDs": [
+        "gonarezhou-park"
+      ],
+      "sourceURL": "https://gonarezhou.org/visit-gonarezhou-national-park/activities/",
+      "planning": "Confirm the date, total price, inclusions, transfers and participation requirements directly with the provider."
+    },
+    {
+      "id": "kariba-lake",
+      "destinationID": "kariba",
+      "name": "Lakeside exploration",
+      "category": "Scenic",
+      "description": "Plan a visit to the recreational park and enquire about lake activities and permits.",
+      "companyIDs": [
+        "zimparks"
+      ],
+      "sourceURL": "https://www.zimparks.org.zw/lake-kariba-recreational-park/",
+      "planning": "Confirm the date, total price, inclusions, transfers and participation requirements directly with the provider."
+    },
+    {
+      "id": "matus-drive",
+      "destinationID": "matusadona",
+      "name": "Game viewing",
+      "category": "Wildlife",
+      "description": "Plan a safari through Matusadona’s woodland and lakeshore landscapes.",
+      "companyIDs": [
+        "matusadona-park"
+      ],
+      "sourceURL": "https://www.zimparks.org.zw/matusadona-national-park/",
+      "planning": "Confirm the date, total price, inclusions, transfers and participation requirements directly with the provider."
+    },
+    {
+      "id": "matus-birds",
+      "destinationID": "matusadona",
+      "name": "Birdwatching",
+      "category": "Nature",
+      "description": "Explore the park’s birdlife with the visitor team or your lodge.",
+      "companyIDs": [
+        "matusadona-park"
+      ],
+      "sourceURL": "https://www.zimparks.org.zw/matusadona-national-park/",
+      "planning": "Confirm the date, total price, inclusions, transfers and participation requirements directly with the provider."
+    }
+  ],
+  "companies": [
+    {
+      "id": "wild-horizons",
+      "name": "Wild Horizons",
+      "kind": "Activity operator",
+      "description": "Victoria Falls activities including Zambezi cruises, rafting and gorge adventures.",
+      "website": "https://wildhorizons.co.za/victoria-falls/",
+      "destinationIDs": [
+        "victoria-falls"
+      ]
+    },
+    {
+      "id": "shearwater",
+      "name": "Shearwater Victoria Falls",
+      "kind": "Activity operator",
+      "description": "Victoria Falls tours, bridge activities and scenic helicopter experiences.",
+      "website": "https://www.shearwatervictoriafalls.com/victoria-falls-specials/",
+      "destinationIDs": [
+        "victoria-falls"
+      ]
+    },
+    {
+      "id": "matobo-lodge",
+      "name": "Matobo Hills Lodge",
+      "kind": "Lodge & experiences",
+      "description": "A Matobo lodge offering rhino tracking, rock-art visits and other guided experiences. Ask about day visits.",
+      "website": "https://www.matobohillslodge.co.zw/things-to-do/",
+      "destinationIDs": [
+        "matobo"
+      ]
+    },
+    {
+      "id": "imvelo",
+      "name": "Imvelo Safari Lodges",
+      "kind": "Safari operator",
+      "description": "Hwange lodge safaris with game drives, walking and waterhole experiences. Ask which activities are included in a stay.",
+      "website": "https://imvelosafarilodges.com/hwange-classic-combo/",
+      "destinationIDs": [
+        "hwange"
+      ]
+    },
+    {
+      "id": "far-wide",
+      "name": "Far and Wide Zimbabwe",
+      "kind": "Adventure operator",
+      "description": "The operator of the Mutarazi Falls SkyWalk and SkyLine in the Eastern Highlands.",
+      "website": "https://www.farandwide.co.zw/copy-of-events",
+      "destinationIDs": [
+        "nyanga"
+      ]
+    },
+    {
+      "id": "abc",
+      "name": "African Bush Camps",
+      "kind": "Safari operator",
+      "description": "Nyamatusi Camp in Mana Pools offers walking, game drives, canoeing and birding as part of its safari stays.",
+      "website": "https://africanbushcamps.com/",
+      "destinationIDs": [
+        "mana-pools"
+      ]
+    },
+    {
+      "id": "zimparks",
+      "name": "ZimParks",
+      "kind": "Park authority",
+      "description": "Official park information and reservations. Contact the park for entry, permits, camping and local arrangements.",
+      "website": "https://book.zimparks.org.zw/hotel",
+      "destinationIDs": [
+        "victoria-falls",
+        "matobo",
+        "hwange",
+        "chinhoyi",
+        "nyanga",
+        "chimanimani",
+        "mana-pools",
+        "kariba"
+      ]
+    },
+    {
+      "id": "nmmz",
+      "name": "National Museums & Monuments of Zimbabwe",
+      "kind": "Heritage authority",
+      "description": "The national heritage authority for monument information, visiting arrangements and site enquiries.",
+      "website": "https://www.nmmz.co.zw/",
+      "destinationIDs": [
+        "great-zimbabwe",
+        "khami"
+      ]
+    },
+    {
+      "id": "gonarezhou-park",
+      "name": "Gonarezhou National Park",
+      "kind": "Park team",
+      "description": "Plan park visits, accommodation and guided activities with the Gonarezhou team.",
+      "website": "https://gonarezhou.org/visit-gonarezhou-national-park/activities/",
+      "destinationIDs": [
+        "gonarezhou"
+      ]
+    },
+    {
+      "id": "matusadona-park",
+      "name": "Matusadona National Park",
+      "kind": "Park team",
+      "description": "Visitor information for the park managed by African Parks in partnership with ZimParks.",
+      "website": "https://visitmatusadona.org/day-visitors/",
+      "destinationIDs": [
+        "matusadona"
+      ]
+    }
+  ]
+}
