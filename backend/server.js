@@ -62,7 +62,7 @@ async function createApp(databasePath = path.join(__dirname, 'ecotourism.db'), o
         res.set('Cache-Control', 'no-store');
         next();
     });
-    app.use(['/register', '/login'], rateLimit({
+    app.use(['/register', '/login', '/auth'], rateLimit({
         windowMs: 15 * 60 * 1000,
         limit: options.authLimit || 30,
         standardHeaders: true,
@@ -88,6 +88,15 @@ async function createApp(databasePath = path.join(__dirname, 'ecotourism.db'), o
     const validEmail = value => validText(value, 254) && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
     // bcrypt truncates beyond 72 bytes, so reject longer passwords explicitly.
     const validPassword = value => typeof value === 'string' && value.length >= 8 && Buffer.byteLength(value, 'utf8') <= 72;
+
+    async function issueSession(userID) {
+        const token = randomBytes(32).toString('hex');
+        const expiresAt = now() + sessionDuration;
+        await run('DELETE FROM sessions WHERE expires_at <= ?', [now()]);
+        await run('INSERT INTO sessions (token_hash, user_id, expires_at) VALUES (?, ?, ?)', [hashToken(token), userID, expiresAt]);
+        const user = await get('SELECT id, name, role FROM users WHERE id = ?', [userID]);
+        return { ...user, token, expiresAt: new Date(expiresAt).toISOString() };
+    }
 
     app.get('/health', (req, res) => res.json({ status: 'ok' }));
     // The same reviewed catalogue ships with iOS for offline browsing.
@@ -125,11 +134,7 @@ async function createApp(databasePath = path.join(__dirname, 'ecotourism.db'), o
         if (!user || !matches) {
             return res.status(401).json({ error: 'Incorrect email or password.' });
         }
-        const token = randomBytes(32).toString('hex');
-        const expiresAt = now() + sessionDuration;
-        await run('DELETE FROM sessions WHERE expires_at <= ?', [now()]);
-        await run('INSERT INTO sessions (token_hash, user_id, expires_at) VALUES (?, ?, ?)', [hashToken(token), user.id, expiresAt]);
-        res.json({ id: user.id, name: user.name, role: user.role, token, expiresAt: new Date(expiresAt).toISOString() });
+        res.json(await issueSession(user.id));
     });
     app.get('/me', authenticate, (req, res) => res.json(req.user));
     app.post('/logout', authenticate, async (req, res) => {
@@ -137,6 +142,7 @@ async function createApp(databasePath = path.join(__dirname, 'ecotourism.db'), o
         res.json({ message: 'Logged out successfully.' });
     });
     try {
+        await require('./social-auth')(app, { run, get, now, issueSession }, options.social);
         await require('./marketplace')(app, { run, get, all, authenticate, now });
     } catch (error) {
         await close();

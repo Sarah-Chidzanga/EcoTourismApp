@@ -81,3 +81,7 @@ This is a development milestone, not a deployed service. A supervised pilot stil
 - Complete physical-device, accessibility, and TestFlight checks with both user roles.
 
 GitHub preserves code and schema setup; it does not back up accounts and bookings. Use a separate SQLite-consistent backup process or a managed database backup service. Do not put live databases in this public repository.
+
+## Social sign-in and memory sharing
+
+See [SOCIAL_SIGN_IN_SETUP.md](SOCIAL_SIGN_IN_SETUP.md) for Google, Facebook and Apple configuration, callback URLs, activation checks, and the iOS memory-sharing behavior. Providers remain unavailable until configured.

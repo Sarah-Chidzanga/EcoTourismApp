@@ -8,6 +8,11 @@ struct Profile: View {
     var body: some View {
         NavigationStack {
             Form {
+                Section("Travel Memories") {
+                    NavigationLink { ShareMemory() } label: {
+                        Label("Share a Memory", systemImage: "photo.on.rectangle")
+                    }
+                }
                 if let user = session.user {
                     Section("Your Account") {
                         LabeledContent("Name", value: user.name)

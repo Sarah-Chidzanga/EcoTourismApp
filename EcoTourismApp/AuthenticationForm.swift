@@ -119,6 +119,8 @@ struct AuthenticationForm: View {
                     Button("Forgot Password?") { showingRecoveryInfo = true }
                         .font(.footnote)
                 }
+                SocialSignIn(role: role)
+
                 Text("EXPLORE · CONNECT · CONSERVE")
                     .font(.caption2.weight(.semibold))
                     .tracking(2)
