@@ -144,6 +144,11 @@ struct DestinationExploreCard: View {
 }
 
 struct SavedPlacesView: View {
+    @AppStorage("savedVenueIDs") private var savedVenueIDs = ""
+    private var savedVenues: [TravelVenue] {
+        let ids = Set(savedVenueIDs.split(separator: "|").map(String.init))
+        return store.catalog.venues.filter { ids.contains($0.id) }
+    }
     @Environment(TravelCatalogStore.self) private var store
     @AppStorage("savedDestinationNames") private var savedNames = ""
     private var saved: [Destination] {
@@ -154,13 +159,14 @@ struct SavedPlacesView: View {
     var body: some View {
         NavigationStack {
             ScrollView {
-                if saved.isEmpty {
+                if saved.isEmpty && savedVenues.isEmpty {
                     ContentUnavailableView("Keep a Little Inspiration", systemImage: "bookmark",
                                            description: Text("Save places from Explore and find them here. Saved places stay on this device."))
                         .padding(.top, 60)
                 } else {
                     LazyVStack(spacing: 20) {
                         ForEach(saved) { DestinationExploreCard(destination: $0) }
+                        ForEach(savedVenues) { VenueRow(venue: $0) }
                     }
                     .padding(20)
                 }
@@ -174,6 +180,13 @@ struct SavedPlacesView: View {
 private struct ExploreDirectoryLinks: View {
     var body: some View {
         VStack(spacing: 12) {
+            LazyVGrid(columns: [GridItem(.adaptive(minimum: 140))], spacing: 12) {
+                NavigationLink { VenueDirectory(category: "Stays") } label: { Label("Stays", systemImage: "bed.double") }
+                NavigationLink { VenueDirectory(category: "Food") } label: { Label("Food", systemImage: "fork.knife") }
+                NavigationLink { WildlifeDirectory() } label: { Label("Wildlife", systemImage: "pawprint") }
+                NavigationLink { TravelDirectory(category: "Game drives") } label: { Label("Game Drives", systemImage: "car.side") }
+            }
+            .buttonStyle(.bordered)
             NavigationLink { TravelDirectory(section: "Activities") } label: {
                 Label("Browse All Activities", systemImage: "binoculars")
                     .frame(maxWidth: .infinity)

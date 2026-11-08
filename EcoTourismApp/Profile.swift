@@ -54,7 +54,12 @@ struct Profile: View {
                     }
                 }
             }
-            .navigationTitle("Profile")
+            .navigationTitle("You")
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    NavigationLink { Settings() } label: { Label("Settings", systemImage: "gearshape") }
+                }
+            }
             .scrollContentBackground(.hidden)
             .background(TravelStyle.sand)
             .tint(TravelStyle.ink)
@@ -70,4 +75,5 @@ struct Profile: View {
 #Preview {
     Profile()
         .environment(AuthSession())
+        .environment(TravelCatalogStore())
 }

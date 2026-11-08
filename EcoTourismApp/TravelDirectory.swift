@@ -6,8 +6,9 @@ struct TravelDirectory: View {
     @State private var category = "All"
     @State private var section: String
 
-    init(section: String = "Activities") {
+    init(section: String = "Activities", category: String = "All") {
         _section = State(initialValue: section)
+        _category = State(initialValue: category)
     }
 
     private var activities: [TravelActivity] {

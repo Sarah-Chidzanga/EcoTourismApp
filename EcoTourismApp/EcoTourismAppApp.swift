@@ -4,12 +4,14 @@ import SwiftUI
 struct EcoTourismAppApp: App {
     @State private var session = AuthSession()
     @State private var catalog = TravelCatalogStore()
+    @AppStorage("appearance") private var appearance = "System"
 
     var body: some Scene {
         WindowGroup {
             SessionRootView()
                 .environment(session)
                 .environment(catalog)
+                .preferredColorScheme(appearance == "Dark" ? .dark : appearance == "Light" ? .light : nil)
         }
     }
 }

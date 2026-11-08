@@ -4,6 +4,7 @@ struct DestinationDetailsView: View {
     let destination: Destination
     @Environment(TravelCatalogStore.self) private var store
     @AppStorage("savedDestinationNames") private var savedNames = ""
+    @State private var selectedSection = "Activities"
 
     private var isSaved: Bool {
         let names = Set(savedNames.split(separator: "|").map(String.init))
@@ -33,8 +34,14 @@ struct DestinationDetailsView: View {
                     }
                 }
                 TravelInfoSection(title: "Plan Your Visit", text: destination.planning)
-                DestinationExperiences(activities: store.activities(for: destination.id),
-                                       companies: store.companies(for: destination.id))
+                Picker("Explore this destination", selection: $selectedSection) {
+                    Text("Activities").tag("Activities")
+                    Text("Stays").tag("Stays")
+                    Text("Food").tag("Food")
+                    Text("Wildlife").tag("Wildlife")
+                }
+                .pickerStyle(.segmented)
+                DestinationTravelSection(destinationID: destination.id, selection: selectedSection)
                 NavigationLink {
                     GuideDirectory(initialSearch: destination.guideSearch)
                 } label: {
@@ -79,6 +86,34 @@ private struct DestinationExperiences: View {
             ForEach(activities) { ActivityDirectoryRow(activity: $0) }
             Text("Companies & Visitor Teams").font(.title2.bold()).padding(.top, 8)
             ForEach(companies) { CompanyDirectoryRow(company: $0) }
+        }
+    }
+}
+
+private struct DestinationTravelSection: View {
+    let destinationID: String
+    let selection: String
+    @Environment(TravelCatalogStore.self) private var store
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 16) {
+            if selection == "Activities" {
+                DestinationExperiences(activities: store.activities(for: destinationID),
+                                       companies: store.companies(for: destinationID))
+            } else if selection == "Wildlife" {
+                let animals = store.wildlife(for: destinationID)
+                if animals.isEmpty {
+                    Text("Wildlife information for this destination is still being researched.").foregroundStyle(.secondary)
+                }
+                ForEach(animals) { WildlifeRow(animal: $0) }
+            } else {
+                let venues = store.venues(for: destinationID, category: selection)
+                if venues.isEmpty {
+                    Text("No checked listings here yet. Browse the wider directory for more places.").foregroundStyle(.secondary)
+                }
+                ForEach(venues) { VenueRow(venue: $0) }
+                NavigationLink("Browse All \(selection)") { VenueDirectory(category: selection) }
+            }
         }
     }
 }

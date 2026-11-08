@@ -1,6 +1,6 @@
 {
-  "schemaVersion": 1,
-  "reviewedAt": "2026-11-04",
+  "schemaVersion": 2,
+  "reviewedAt": "2026-11-07",
   "destinations": [
     {
       "id": "victoria-falls",
@@ -170,6 +170,116 @@
       "guideSearch": "Matusadona",
       "aliases": [],
       "ecoTip": "Use designated routes, take litter home, and follow local guides and site rules. Ask permission before photographing people."
+    },
+    {
+      "id": "harare",
+      "name": "Harare",
+      "region": "Harare",
+      "symbol": "building.2",
+      "image": "",
+      "description": "City art, museums, dining and places to stay, with nature outings nearby.",
+      "sourceURL": "https://nationalgallery.co.zw/p/plan-your-visit",
+      "guideSearch": "Harare",
+      "aliases": [],
+      "planning": "Confirm access, opening arrangements and any permits with the venue or visitor authority before travelling.",
+      "ecoTip": "Respect local communities and heritage, keep to designated routes, and take your litter home."
+    },
+    {
+      "id": "bulawayo",
+      "name": "Bulawayo",
+      "region": "Bulawayo",
+      "symbol": "building.columns",
+      "image": "",
+      "description": "Museums and cultural heritage, with Khami and the Matobo Hills within reach.",
+      "sourceURL": "https://naturalhistorymuseumzimbabwe.com/",
+      "guideSearch": "Bulawayo",
+      "aliases": [],
+      "planning": "Confirm access, opening arrangements and any permits with the venue or visitor authority before travelling.",
+      "ecoTip": "Respect local communities and heritage, keep to designated routes, and take your litter home."
+    },
+    {
+      "id": "bvumba",
+      "name": "Bvumba Highlands",
+      "region": "Manicaland",
+      "symbol": "mountain.2",
+      "image": "",
+      "description": "Highland scenery, gardens, hotel dining and golf around the Bvumba area near Mutare.",
+      "sourceURL": "https://www.leopardrockhotel.com/",
+      "guideSearch": "Vumba",
+      "aliases": [
+        "Vumba"
+      ],
+      "planning": "Confirm access, opening arrangements and any permits with the venue or visitor authority before travelling.",
+      "ecoTip": "Respect local communities and heritage, keep to designated routes, and take your litter home."
+    },
+    {
+      "id": "chivero",
+      "name": "Lake Chivero Recreational Park",
+      "region": "Mashonaland West",
+      "symbol": "leaf",
+      "image": "",
+      "description": "A park near Harare with woodland and birdlife around the lake.",
+      "sourceURL": "https://www.zimparks.org.zw/lake-chivero-recreational-park-2/",
+      "guideSearch": "Chivero",
+      "aliases": [],
+      "planning": "Confirm access, opening arrangements and any permits with the venue or visitor authority before travelling.",
+      "ecoTip": "Respect local communities and heritage, keep to designated routes, and take your litter home."
+    },
+    {
+      "id": "chizarira",
+      "name": "Chizarira National Park",
+      "region": "Matabeleland North",
+      "symbol": "mountain.2",
+      "image": "",
+      "description": "Escarpment scenery, gorges and birdwatching in a remote national park.",
+      "sourceURL": "https://www.zimparks.org.zw/chizarira-national-park/",
+      "guideSearch": "Chizarira",
+      "aliases": [],
+      "planning": "Confirm access, opening arrangements and any permits with the venue or visitor authority before travelling.",
+      "ecoTip": "Respect local communities and heritage, keep to designated routes, and take your litter home."
+    },
+    {
+      "id": "mukuvisi",
+      "name": "Mukuvisi Woodlands",
+      "region": "Harare",
+      "symbol": "leaf",
+      "image": "",
+      "description": "An urban woodland reserve with marked nature trails and birdwatching opportunities.",
+      "sourceURL": "https://mukuvisiwoodlands.org/activities/",
+      "guideSearch": "Harare",
+      "aliases": [],
+      "planning": "Confirm access, opening arrangements and any permits with the venue or visitor authority before travelling.",
+      "ecoTip": "Respect local communities and heritage, keep to designated routes, and take your litter home."
+    },
+    {
+      "id": "gweru",
+      "name": "Antelope Park, Gweru",
+      "region": "Midlands",
+      "symbol": "sun.max",
+      "image": "",
+      "description": "A private park and accommodation destination near Gweru.",
+      "sourceURL": "https://zimbabwetourism.net/portfolios/antelope-park/",
+      "guideSearch": "Gweru",
+      "aliases": [
+        "Antelope Park"
+      ],
+      "planning": "Confirm access, opening arrangements and any permits with the venue or visitor authority before travelling.",
+      "ecoTip": "Respect local communities and heritage, keep to designated routes, and take your litter home."
+    },
+    {
+      "id": "penhalonga",
+      "name": "Penhalonga & La Rochelle",
+      "region": "Manicaland",
+      "symbol": "tree",
+      "image": "",
+      "description": "Country-house stays, gardens and dining in the Penhalonga area near Mutare.",
+      "sourceURL": "https://larochellecentre.com/",
+      "guideSearch": "Mutare",
+      "aliases": [
+        "La Rochelle"
+      ],
+      "planning": "Confirm access, opening arrangements and any permits with the venue or visitor authority before travelling.",
+      "ecoTip": "Respect local communities and heritage, keep to designated routes, and take your litter home."
     }
   ],
   "activities": [
@@ -287,7 +397,7 @@
       "id": "hwange-drive",
       "destinationID": "hwange",
       "name": "Game drives",
-      "category": "Wildlife",
+      "category": "Game drives",
       "description": "Explore Hwange by safari vehicle with a lodge operator.",
       "companyIDs": [
         "imvelo"
@@ -431,7 +541,7 @@
       "id": "mana-drive",
       "destinationID": "mana-pools",
       "name": "Game drives & birding",
-      "category": "Wildlife",
+      "category": "Game drives",
       "description": "Explore the Mana Pools landscape by vehicle with a camp guide.",
       "companyIDs": [
         "abc"
@@ -443,7 +553,7 @@
       "id": "gona-drive",
       "destinationID": "gonarezhou",
       "name": "Self-drive wildlife routes",
-      "category": "Wildlife",
+      "category": "Game drives",
       "description": "Plan a park drive through Gonarezhou’s landscapes and viewing areas.",
       "companyIDs": [
         "gonarezhou-park"
@@ -491,7 +601,7 @@
       "id": "matus-drive",
       "destinationID": "matusadona",
       "name": "Game viewing",
-      "category": "Wildlife",
+      "category": "Game drives",
       "description": "Plan a safari through Matusadona’s woodland and lakeshore landscapes.",
       "companyIDs": [
         "matusadona-park"
@@ -510,6 +620,138 @@
       ],
       "sourceURL": "https://www.zimparks.org.zw/matusadona-national-park/",
       "planning": "Confirm the date, total price, inclusions, transfers and participation requirements directly with the provider."
+    },
+    {
+      "id": "vf-game-drive",
+      "destinationID": "victoria-falls",
+      "name": "Victoria Falls guided game drive",
+      "category": "Game drives",
+      "description": "Arrange a morning or afternoon game drive through the Safari Collection activity desk.",
+      "companyIDs": [
+        "vf-collection"
+      ],
+      "sourceURL": "https://victoria-falls-safari-collection.com/en-US/activities",
+      "planning": "Ask which reserve the drive visits, whether day visitors can join, and what transport and fees are included."
+    },
+    {
+      "id": "zambezi-drive",
+      "destinationID": "victoria-falls",
+      "name": "Zambezi National Park lodge game drive",
+      "category": "Game drives",
+      "description": "Explore Zambezi National Park by safari vehicle with Victoria Falls River Lodge.",
+      "companyIDs": [
+        "vf-river-operator"
+      ],
+      "sourceURL": "https://victoriafallsriverlodge.com/victoria-falls-safari/",
+      "planning": "This operator arranges activities for in-house guests. Confirm age restrictions, inclusions and dates with the lodge."
+    },
+    {
+      "id": "boma-evening",
+      "destinationID": "victoria-falls",
+      "name": "Boma dinner & drumming",
+      "category": "Culture",
+      "description": "Combine dinner with performances and interactive drumming on the Safari Lodge estate.",
+      "companyIDs": [
+        "vf-collection"
+      ],
+      "sourceURL": "https://victoria-falls-safari-collection.com/en-US/wine-and-dine",
+      "planning": "Reserve directly and confirm transport, dietary requirements and the total meal price."
+    },
+    {
+      "id": "harare-gallery",
+      "destinationID": "harare",
+      "name": "National Gallery visit",
+      "category": "Culture",
+      "description": "Explore exhibitions at the National Gallery in central Harare.",
+      "companyIDs": [
+        "gallery"
+      ],
+      "sourceURL": "https://nationalgallery.co.zw/p/plan-your-visit",
+      "planning": "Contact the provider for current opening arrangements, available dates, participation requirements and a full quote."
+    },
+    {
+      "id": "byo-museum",
+      "destinationID": "bulawayo",
+      "name": "Natural History Museum visit",
+      "category": "Culture",
+      "description": "Explore museum displays about Zimbabwe’s natural history and heritage.",
+      "companyIDs": [
+        "nmmz"
+      ],
+      "sourceURL": "https://naturalhistorymuseumzimbabwe.com/",
+      "planning": "Contact the provider for current opening arrangements, available dates, participation requirements and a full quote."
+    },
+    {
+      "id": "bvumba-golf",
+      "destinationID": "bvumba",
+      "name": "Leopard Rock golf",
+      "category": "Scenic",
+      "description": "Enquire about a round at the hotel’s golf course in the Bvumba Highlands.",
+      "companyIDs": [
+        "leopard-rock"
+      ],
+      "sourceURL": "https://www.leopardrockhotel.com/",
+      "planning": "Contact the provider for current opening arrangements, available dates, participation requirements and a full quote."
+    },
+    {
+      "id": "chivero-bird",
+      "destinationID": "chivero",
+      "name": "Woodland birdwatching",
+      "category": "Nature",
+      "description": "Plan a park visit for birdwatching and woodland scenery; ask about current access restrictions.",
+      "companyIDs": [
+        "zimparks"
+      ],
+      "sourceURL": "https://www.zimparks.org.zw/lake-chivero-recreational-park-2/",
+      "planning": "Contact the provider for current opening arrangements, available dates, participation requirements and a full quote."
+    },
+    {
+      "id": "chizarira-view",
+      "destinationID": "chizarira",
+      "name": "Gorges & birdwatching",
+      "category": "Nature",
+      "description": "Arrange a park visit to explore the escarpment landscape and its birdlife.",
+      "companyIDs": [
+        "zimparks"
+      ],
+      "sourceURL": "https://www.zimparks.org.zw/chizarira-national-park/",
+      "planning": "Contact the provider for current opening arrangements, available dates, participation requirements and a full quote."
+    },
+    {
+      "id": "mukuvisi-trails",
+      "destinationID": "mukuvisi",
+      "name": "Woodland trails",
+      "category": "Hiking",
+      "description": "Walk, run or cycle on designated woodland routes; check the current visitor schedule.",
+      "companyIDs": [
+        "mukuvisi-team"
+      ],
+      "sourceURL": "https://mukuvisiwoodlands.org/activities/",
+      "planning": "Contact the provider for current opening arrangements, available dates, participation requirements and a full quote."
+    },
+    {
+      "id": "antelope-visit",
+      "destinationID": "gweru",
+      "name": "Antelope Park visit",
+      "category": "Nature",
+      "description": "Contact the park for a current programme and choose an activity suitable for your group.",
+      "companyIDs": [
+        "antelope"
+      ],
+      "sourceURL": "https://zimbabwetourism.net/portfolios/antelope-park/",
+      "planning": "Contact the provider for current opening arrangements, available dates, participation requirements and a full quote."
+    },
+    {
+      "id": "larochelle-gardens",
+      "destinationID": "penhalonga",
+      "name": "Country-house gardens visit",
+      "category": "Nature",
+      "description": "Ask La Rochelle about garden access and combining a visit with dining.",
+      "companyIDs": [
+        "la-rochelle"
+      ],
+      "sourceURL": "https://larochellecentre.com/",
+      "planning": "Contact the provider for current opening arrangements, available dates, participation requirements and a full quote."
     }
   ],
   "companies": [
@@ -587,7 +829,9 @@
         "nyanga",
         "chimanimani",
         "mana-pools",
-        "kariba"
+        "kariba",
+        "chivero",
+        "chizarira"
       ]
     },
     {
@@ -598,7 +842,8 @@
       "website": "https://www.nmmz.co.zw/",
       "destinationIDs": [
         "great-zimbabwe",
-        "khami"
+        "khami",
+        "bulawayo"
       ]
     },
     {
@@ -620,6 +865,519 @@
       "destinationIDs": [
         "matusadona"
       ]
+    },
+    {
+      "id": "vf-collection",
+      "name": "Victoria Falls Safari Collection",
+      "kind": "Lodges, dining & activities",
+      "description": "Victoria Falls accommodation, restaurants and an activity desk for local experiences.",
+      "website": "https://victoria-falls-safari-collection.com/en-US/activities",
+      "destinationIDs": [
+        "victoria-falls"
+      ]
+    },
+    {
+      "id": "vf-river-operator",
+      "name": "Victoria Falls River Lodge",
+      "kind": "Safari lodge",
+      "description": "Game drives in Zambezi National Park for guests staying at the lodge.",
+      "website": "https://victoriafallsriverlodge.com/victoria-falls-safari/",
+      "destinationIDs": [
+        "victoria-falls"
+      ]
+    },
+    {
+      "id": "gallery",
+      "name": "National Gallery of Zimbabwe",
+      "kind": "Gallery",
+      "description": "Visitor information and exhibitions at the National Gallery in Harare.",
+      "website": "https://nationalgallery.co.zw/p/plan-your-visit",
+      "destinationIDs": [
+        "harare"
+      ]
+    },
+    {
+      "id": "mukuvisi-team",
+      "name": "Mukuvisi Woodlands",
+      "kind": "Visitor team",
+      "description": "Contact the woodlands team about trails, visits and available guided experiences.",
+      "website": "https://mukuvisiwoodlands.org/activities/",
+      "destinationIDs": [
+        "mukuvisi",
+        "harare"
+      ]
+    },
+    {
+      "id": "leopard-rock",
+      "name": "Leopard Rock Hotel",
+      "kind": "Hotel & experiences",
+      "description": "Bvumba accommodation, dining and golf enquiries.",
+      "website": "https://www.leopardrockhotel.com/",
+      "destinationIDs": [
+        "bvumba"
+      ]
+    },
+    {
+      "id": "antelope",
+      "name": "Antelope Park",
+      "kind": "Park & accommodation",
+      "description": "Arrange a stay or enquire about current park activities.",
+      "website": "https://zimbabwetourism.net/portfolios/antelope-park/",
+      "destinationIDs": [
+        "gweru"
+      ]
+    },
+    {
+      "id": "la-rochelle",
+      "name": "La Rochelle Country House",
+      "kind": "Country house",
+      "description": "Accommodation, gardens and dining enquiries in Penhalonga.",
+      "website": "https://larochellecentre.com/",
+      "destinationIDs": [
+        "penhalonga"
+      ]
+    },
+    {
+      "id": "amalinda",
+      "name": "Amalinda Safari Collection",
+      "kind": "Safari lodges",
+      "description": "Matobo and Hwange-area lodges with safari and heritage experiences.",
+      "website": "https://www.amalindacollection.com/",
+      "destinationIDs": [
+        "matobo",
+        "hwange"
+      ]
+    }
+  ],
+  "venues": [
+    {
+      "id": "ilala",
+      "name": "Ilala Lodge Hotel",
+      "category": "Stays",
+      "kind": "Hotel",
+      "location": "Victoria Falls",
+      "destinationID": "victoria-falls",
+      "description": "A hotel base in Victoria Falls with gardens and on-site dining.",
+      "website": "https://www.ilalalodge.com/facilities",
+      "sourceLabel": "Official website",
+      "planning": "Ask about your dates, room type, meal plan, transfers and cancellation terms. Confirm the total directly before paying."
+    },
+    {
+      "id": "vf-hotel",
+      "name": "The Victoria Falls Hotel",
+      "category": "Stays",
+      "kind": "Hotel",
+      "location": "Victoria Falls",
+      "destinationID": "victoria-falls",
+      "description": "A historic hotel with rooms, gardens and several dining options.",
+      "website": "https://africansun.com/hotels/the-victoria-falls-hotel/",
+      "sourceLabel": "Official website",
+      "planning": "Ask about your dates, room type, meal plan, transfers and cancellation terms. Confirm the total directly before paying."
+    },
+    {
+      "id": "vf-safari",
+      "name": "Victoria Falls Safari Lodge",
+      "category": "Stays",
+      "kind": "Lodge",
+      "location": "Victoria Falls",
+      "destinationID": "victoria-falls",
+      "description": "A lodge overlooking bushland and a waterhole, with dining and an activity desk.",
+      "website": "https://victoria-falls-safari-collection.com/en-US/accommodation/victoria-falls-safari-lodge",
+      "sourceLabel": "Official website",
+      "planning": "Ask about your dates, room type, meal plan, transfers and cancellation terms. Confirm the total directly before paying."
+    },
+    {
+      "id": "vf-river",
+      "name": "Victoria Falls River Lodge",
+      "category": "Stays",
+      "kind": "Safari lodge",
+      "location": "Zambezi National Park",
+      "destinationID": "victoria-falls",
+      "description": "A safari stay with game drives for in-house guests. Confirm which activities are included in your booking.",
+      "website": "https://victoriafallsriverlodge.com/victoria-falls-safari/",
+      "sourceLabel": "Official website",
+      "planning": "Ask about your dates, room type, meal plan, transfers and cancellation terms. Confirm the total directly before paying."
+    },
+    {
+      "id": "matobo-stay",
+      "name": "Matobo Hills Lodge",
+      "category": "Stays",
+      "kind": "Lodge",
+      "location": "Matobo Hills",
+      "destinationID": "matobo",
+      "description": "Chalet accommodation with meal packages and options for guided Matobo experiences.",
+      "website": "https://www.matobohillslodge.co.zw/rooms/",
+      "sourceLabel": "Official website",
+      "planning": "Ask about your dates, room type, meal plan, transfers and cancellation terms. Confirm the total directly before paying."
+    },
+    {
+      "id": "bomani",
+      "name": "Bomani Tented Lodge",
+      "category": "Stays",
+      "kind": "Tented lodge",
+      "location": "Hwange area",
+      "destinationID": "hwange",
+      "description": "Imvelo’s tented safari lodge in the Ngamo Plains area, with access to Hwange safari experiences.",
+      "website": "https://imvelosafarilodges.com/bomani-tented-camp/",
+      "sourceLabel": "Official website",
+      "planning": "Ask about your dates, room type, meal plan, transfers and cancellation terms. Confirm the total directly before paying."
+    },
+    {
+      "id": "troutbeck",
+      "name": "Troutbeck Resort",
+      "category": "Stays",
+      "kind": "Resort",
+      "location": "Nyanga",
+      "destinationID": "nyanga",
+      "description": "An Eastern Highlands resort with mountain surroundings and on-site dining.",
+      "website": "https://africansun.com/hotels/troutbeck-resort/",
+      "sourceLabel": "Official website",
+      "planning": "Ask about your dates, room type, meal plan, transfers and cancellation terms. Confirm the total directly before paying."
+    },
+    {
+      "id": "khayalethu",
+      "name": "Khayalethu Garden Lodges",
+      "category": "Stays",
+      "kind": "Lodge",
+      "location": "Kwekwe",
+      "destinationID": null,
+      "description": "A Kwekwe accommodation listing. Confirm the property’s current facilities and booking arrangements directly.",
+      "website": "https://thedirectory.co.zw/company.cfm?companyid=14887",
+      "sourceLabel": "Business-directory listing",
+      "planning": "Ask about your dates, room type, meal plan, transfers and cancellation terms. Confirm the total directly before paying."
+    },
+    {
+      "id": "kumusha",
+      "name": "Kumusha Gardens & Resort",
+      "category": "Day visits",
+      "kind": "Resort & gardens",
+      "location": "Ruwa / Goromonzi",
+      "destinationID": null,
+      "description": "An agrotourism resort with a focus on Zimbabwean cultural heritage. Enquire about available visits and facilities.",
+      "website": "https://kumushagardens.com/contact/",
+      "sourceLabel": "Official website",
+      "planning": "Contact the venue for current facilities, visiting arrangements and availability."
+    },
+    {
+      "id": "lookout",
+      "name": "The Lookout Café",
+      "category": "Food",
+      "kind": "Café & restaurant",
+      "location": "Victoria Falls",
+      "destinationID": "victoria-falls",
+      "description": "Dining overlooking the Batoka Gorge, with breakfast, lunch and dinner options.",
+      "website": "https://wildhorizons.co.za/the-lookout-cafe/",
+      "sourceLabel": "Official website",
+      "planning": "Check current menus, opening times and table availability. Tell the venue about dietary and access requirements when enquiring."
+    },
+    {
+      "id": "cassia",
+      "name": "Cassia Restaurant",
+      "category": "Food",
+      "kind": "Restaurant",
+      "location": "Ilala Lodge, Victoria Falls",
+      "destinationID": "victoria-falls",
+      "description": "Indoor and garden dining at Ilala Lodge, serving breakfast, lunch and dinner.",
+      "website": "https://www.ilalalodge.com/dining",
+      "sourceLabel": "Official website",
+      "planning": "Check current menus, opening times and table availability. Tell the venue about dietary and access requirements when enquiring."
+    },
+    {
+      "id": "boma",
+      "name": "The Boma – Dinner & Drum Show",
+      "category": "Food",
+      "kind": "Dinner & entertainment",
+      "location": "Victoria Falls Safari Lodge estate",
+      "destinationID": "victoria-falls",
+      "description": "A dining experience combining a meal with performances and interactive drumming.",
+      "website": "https://victoria-falls-safari-collection.com/en-US/wine-and-dine",
+      "sourceLabel": "Official website",
+      "planning": "Check current menus, opening times and table availability. Tell the venue about dietary and access requirements when enquiring."
+    },
+    {
+      "id": "makuwa",
+      "name": "MaKuwa-Kuwa Restaurant",
+      "category": "Food",
+      "kind": "Restaurant",
+      "location": "Victoria Falls Safari Lodge",
+      "destinationID": "victoria-falls",
+      "description": "Restaurant dining overlooking the estate’s waterhole.",
+      "website": "https://victoria-falls-safari-collection.com/en-US/wine-and-dine",
+      "sourceLabel": "Official website",
+      "planning": "Check current menus, opening times and table availability. Tell the venue about dietary and access requirements when enquiring."
+    },
+    {
+      "id": "livingstone",
+      "name": "The Livingstone Room",
+      "category": "Food",
+      "kind": "Restaurant",
+      "location": "The Victoria Falls Hotel",
+      "destinationID": "victoria-falls",
+      "description": "A formal dining option at the historic Victoria Falls Hotel. Check dress requirements when reserving.",
+      "website": "https://www.victoriafallshotel.com/dining",
+      "sourceLabel": "Official website",
+      "planning": "Check current menus, opening times and table availability. Tell the venue about dietary and access requirements when enquiring."
+    },
+    {
+      "id": "matobo-dining",
+      "name": "Matobo Hills Lodge Dining",
+      "category": "Food",
+      "kind": "Lodge restaurant",
+      "location": "Matobo Hills",
+      "destinationID": "matobo",
+      "description": "Lodge dining with terrace and evening meal options; visitors should enquire in advance.",
+      "website": "https://www.matobohillslodge.co.zw/dining/",
+      "sourceLabel": "Official website",
+      "planning": "Check current menus, opening times and table availability. Tell the venue about dietary and access requirements when enquiring."
+    },
+    {
+      "id": "troutbeck-dining",
+      "name": "Troutbeck Resort Dining",
+      "category": "Food",
+      "kind": "Resort restaurant",
+      "location": "Nyanga",
+      "destinationID": "nyanga",
+      "description": "Buffet, à la carte and lounge dining at Troutbeck Resort. Ask about arrangements for day visitors.",
+      "website": "https://africansun.com/hotels/troutbeck-resort/",
+      "sourceLabel": "Official website",
+      "planning": "Check current menus, opening times and table availability. Tell the venue about dietary and access requirements when enquiring."
+    },
+    {
+      "id": "meikles",
+      "name": "Hyatt Regency Harare The Meikles",
+      "category": "Stays",
+      "kind": "Hotel",
+      "location": "Harare",
+      "destinationID": "harare",
+      "description": "A central Harare hotel with on-site dining.",
+      "website": "https://www.hyatt.com/hyatt-regency/en-US/hrerh-hyatt-regency-harare-the-meikles/dining",
+      "sourceLabel": "Official website",
+      "planning": "Ask about available rooms, meal plans, transfers and the total price for your dates. Confirm cancellation terms directly."
+    },
+    {
+      "id": "holiday-harare",
+      "name": "Holiday Inn Harare",
+      "category": "Stays",
+      "kind": "Hotel",
+      "location": "Harare",
+      "destinationID": "harare",
+      "description": "City accommodation listed in African Sun’s hotel portfolio.",
+      "website": "https://africansun.com/hotels/",
+      "sourceLabel": "Official website",
+      "planning": "Ask about available rooms, meal plans, transfers and the total price for your dates. Confirm cancellation terms directly."
+    },
+    {
+      "id": "holiday-byo",
+      "name": "Holiday Inn Bulawayo",
+      "category": "Stays",
+      "kind": "Hotel",
+      "location": "Bulawayo",
+      "destinationID": "bulawayo",
+      "description": "Hotel accommodation for a Bulawayo city stay.",
+      "website": "https://africansun.com/hotels/",
+      "sourceLabel": "Official website",
+      "planning": "Ask about available rooms, meal plans, transfers and the total price for your dates. Confirm cancellation terms directly."
+    },
+    {
+      "id": "leopard-stay",
+      "name": "Leopard Rock Hotel",
+      "category": "Stays",
+      "kind": "Hotel",
+      "location": "Bvumba",
+      "destinationID": "bvumba",
+      "description": "A highland hotel with golf and dining.",
+      "website": "https://www.leopardrockhotel.com/",
+      "sourceLabel": "Official website",
+      "planning": "Ask about available rooms, meal plans, transfers and the total price for your dates. Confirm cancellation terms directly."
+    },
+    {
+      "id": "rochelle-stay",
+      "name": "La Rochelle Country House",
+      "category": "Stays",
+      "kind": "Country house",
+      "location": "Penhalonga",
+      "destinationID": "penhalonga",
+      "description": "Country-house accommodation with gardens and communal lounges.",
+      "website": "https://larochellecentre.com/",
+      "sourceLabel": "Official website",
+      "planning": "Ask about available rooms, meal plans, transfers and the total price for your dates. Confirm cancellation terms directly."
+    },
+    {
+      "id": "amalinda-stay",
+      "name": "Amalinda Lodge",
+      "category": "Stays",
+      "kind": "Safari lodge",
+      "location": "Matobo Hills",
+      "destinationID": "matobo",
+      "description": "Rooms set among granite boulders, with guided heritage and safari options.",
+      "website": "https://www.amalindacollection.com/amalinda-lodge-page",
+      "sourceLabel": "Official website",
+      "planning": "Ask about available rooms, meal plans, transfers and the total price for your dates. Confirm cancellation terms directly."
+    },
+    {
+      "id": "khulu",
+      "name": "Khulu Bush Camp",
+      "category": "Stays",
+      "kind": "Safari camp",
+      "location": "Hwange area",
+      "destinationID": "hwange",
+      "description": "A tented camp on a private concession bordering Hwange.",
+      "website": "https://www.amalindacollection.com/explore-our-lodges",
+      "sourceLabel": "Official website",
+      "planning": "Ask about available rooms, meal plans, transfers and the total price for your dates. Confirm cancellation terms directly."
+    },
+    {
+      "id": "ivory",
+      "name": "Ivory Lodge",
+      "category": "Stays",
+      "kind": "Safari lodge",
+      "location": "Hwange area",
+      "destinationID": "hwange",
+      "description": "A lodge with raised chalets and a covered wildlife hide.",
+      "website": "https://www.amalindacollection.com/",
+      "sourceLabel": "Official website",
+      "planning": "Ask about available rooms, meal plans, transfers and the total price for your dates. Confirm cancellation terms directly."
+    },
+    {
+      "id": "ancient-city",
+      "name": "Lodge at the Ancient City",
+      "category": "Stays",
+      "kind": "Lodge",
+      "location": "Masvingo",
+      "destinationID": "great-zimbabwe",
+      "description": "A lodge base for visiting the Great Zimbabwe monuments.",
+      "website": "https://lodgeattheancientcity.co.zw/index.html",
+      "sourceLabel": "Official website",
+      "planning": "Ask about available rooms, meal plans, transfers and the total price for your dates. Confirm cancellation terms directly."
+    },
+    {
+      "id": "bushman-rock",
+      "name": "Bushman Rock Safaris",
+      "category": "Stays",
+      "kind": "Lodge",
+      "location": "Near Harare",
+      "destinationID": null,
+      "description": "Lodge accommodation offered by Bushman Rock Safaris. Confirm transfer arrangements when booking.",
+      "website": "https://bushmanrock.com/accommodation/",
+      "sourceLabel": "Official website",
+      "planning": "Ask about available rooms, meal plans, transfers and the total price for your dates. Confirm cancellation terms directly."
+    },
+    {
+      "id": "meikles-dining",
+      "name": "The Meikles Dining",
+      "category": "Food",
+      "kind": "Hotel dining",
+      "location": "Harare",
+      "destinationID": "harare",
+      "description": "Explore the hotel’s current dining options and enquire about a table.",
+      "website": "https://www.hyatt.com/hyatt-regency/en-US/hrerh-hyatt-regency-harare-the-meikles/dining",
+      "sourceLabel": "Official website",
+      "planning": "Check current menus, opening arrangements and reservations with the venue. Mention dietary and access requirements."
+    },
+    {
+      "id": "leopard-dining",
+      "name": "Leopard Rock Dining",
+      "category": "Food",
+      "kind": "Hotel restaurant",
+      "location": "Bvumba",
+      "destinationID": "bvumba",
+      "description": "Hotel dining and bar options; check the evening dress requirements when reserving.",
+      "website": "https://www.leopardrockhotel.com/dining",
+      "sourceLabel": "Official website",
+      "planning": "Check current menus, opening arrangements and reservations with the venue. Mention dietary and access requirements."
+    },
+    {
+      "id": "rochelle-dining",
+      "name": "La Rochelle Restaurant & Coffee Shop",
+      "category": "Food",
+      "kind": "Restaurant & coffee shop",
+      "location": "Penhalonga",
+      "destinationID": "penhalonga",
+      "description": "Country-house dining and coffee-shop options; enquire about visitor access.",
+      "website": "https://larochellecentre.com/",
+      "sourceLabel": "Official website",
+      "planning": "Check current menus, opening arrangements and reservations with the venue. Mention dietary and access requirements."
+    }
+  ],
+  "wildlife": [
+    {
+      "id": "elephant",
+      "name": "African elephant",
+      "image": "elephant",
+      "description": "Hwange supports elephants. Ask your guide about seasonal wildlife viewing and observe from a respectful distance.",
+      "destinationIDs": [
+        "hwange"
+      ],
+      "activityIDs": [
+        "hwange-drive",
+        "waterhole"
+      ],
+      "sourceURL": "https://www.zimparks.org.zw/hwange-national-park/"
+    },
+    {
+      "id": "lion",
+      "name": "Lion",
+      "image": "lion",
+      "description": "Lions occur in Hwange. A guided game drive offers a way to look for them without disturbing their behaviour.",
+      "destinationIDs": [
+        "hwange"
+      ],
+      "activityIDs": [
+        "hwange-drive"
+      ],
+      "sourceURL": "https://www.zimparks.org.zw/hwange-national-park/"
+    },
+    {
+      "id": "buffalo",
+      "name": "African buffalo",
+      "image": "",
+      "description": "Buffalo are among Hwange’s large mammals. View them with your guide and follow park rules.",
+      "destinationIDs": [
+        "hwange"
+      ],
+      "activityIDs": [
+        "hwange-drive"
+      ],
+      "sourceURL": "https://www.zimparks.org.zw/hwange-national-park/"
+    },
+    {
+      "id": "leopard",
+      "name": "Leopard",
+      "image": "",
+      "description": "Leopards occur in Hwange but can be difficult to spot; no drive can promise a sighting.",
+      "destinationIDs": [
+        "hwange"
+      ],
+      "activityIDs": [
+        "hwange-drive"
+      ],
+      "sourceURL": "https://www.zimparks.org.zw/hwange-national-park/"
+    },
+    {
+      "id": "rhino",
+      "name": "White rhino",
+      "image": "rhino",
+      "description": "Matobo offers organised rhino tracking with professional guides. Arrange an approved experience and follow the guide’s instructions.",
+      "destinationIDs": [
+        "matobo"
+      ],
+      "activityIDs": [
+        "rhino"
+      ],
+      "sourceURL": "https://www.matobohillslodge.co.zw/rhino-tracking-zimbabwe/"
+    },
+    {
+      "id": "waterhole-wildlife",
+      "name": "Waterhole wildlife",
+      "image": "",
+      "description": "Elephant, buffalo, kudu, waterbuck and impala may visit the Safari Lodge waterhole. Animals arrive at their own pace.",
+      "destinationIDs": [
+        "victoria-falls"
+      ],
+      "activityIDs": [
+        "vf-game-drive"
+      ],
+      "sourceURL": "https://victoria-falls-safari-collection.com/en-US/activities"
     }
   ]
 }

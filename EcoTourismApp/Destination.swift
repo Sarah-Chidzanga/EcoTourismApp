@@ -40,7 +40,7 @@ struct TravelActivity: Identifiable, Codable {
 
     var symbol: String {
         switch category {
-        case "Wildlife": return "pawprint"
+        case "Wildlife", "Game drives": return "pawprint"
         case "Water": return "water.waves"
         case "Adventure": return "bolt"
         case "Hiking": return "figure.hiking"
@@ -60,14 +60,49 @@ struct TravelCompany: Identifiable, Codable {
     let destinationIDs: [String]
 }
 
+struct TravelVenue: Identifiable, Codable {
+    let id: String
+    let name: String
+    let category: String
+    let kind: String
+    let location: String
+    let destinationID: String?
+    let description: String
+    let website: String
+    let sourceLabel: String
+    let planning: String
+
+    var symbol: String {
+        category == "Stays" ? "bed.double" : category == "Food" ? "fork.knife" : "sun.max"
+    }
+
+    var mapURL: URL? {
+        var components = URLComponents(string: "https://maps.apple.com/")
+        components?.queryItems = [URLQueryItem(name: "q", value: "\(name), \(location), Zimbabwe")]
+        return components?.url
+    }
+}
+
+struct WildlifeListing: Identifiable, Codable {
+    let id: String
+    let name: String
+    let image: String
+    let description: String
+    let destinationIDs: [String]
+    let activityIDs: [String]
+    let sourceURL: String
+}
+
 struct TravelCatalog: Codable {
     let schemaVersion: Int
     let reviewedAt: String
     let destinations: [Destination]
     let activities: [TravelActivity]
     let companies: [TravelCompany]
+    let venues: [TravelVenue]
+    let wildlife: [WildlifeListing]
 
-    static let empty = TravelCatalog(schemaVersion: 1, reviewedAt: "", destinations: [], activities: [], companies: [])
+    static let empty = TravelCatalog(schemaVersion: 2, reviewedAt: "", destinations: [], activities: [], companies: [], venues: [], wildlife: [])
 
     static let bundled: TravelCatalog = {
         guard let url = Bundle.main.url(forResource: "travel-catalog", withExtension: "json"),
@@ -81,10 +116,26 @@ struct TravelCatalog: Codable {
     var isValid: Bool {
         let destinationIDs = Set(destinations.map(\.id))
         let companyIDs = Set(companies.map(\.id))
-        return schemaVersion == 1 && !destinations.isEmpty &&
+        return schemaVersion == 2 && !destinations.isEmpty &&
             destinationIDs.count == destinations.count &&
             companyIDs.count == companies.count &&
             Set(activities.map(\.id)).count == activities.count &&
+            Set(venues.map(\.id)).count == venues.count &&
+            Set(wildlife.map(\.id)).count == wildlife.count &&
+            venues.allSatisfy { venue in
+                !venue.id.isEmpty && !venue.name.isEmpty &&
+                ["Stays", "Food", "Day visits"].contains(venue.category) &&
+                CatalogURL.website(venue.website) != nil &&
+                (venue.destinationID == nil || destinationIDs.contains(venue.destinationID ?? ""))
+            } &&
+            wildlife.allSatisfy { animal in
+                !animal.id.isEmpty && !animal.name.isEmpty &&
+                CatalogURL.website(animal.sourceURL) != nil &&
+                !animal.destinationIDs.isEmpty && animal.destinationIDs.allSatisfy(destinationIDs.contains) &&
+                animal.activityIDs.allSatisfy { id in
+                    activities.contains { $0.id == id && animal.destinationIDs.contains($0.destinationID) }
+                }
+            } &&
             destinations.allSatisfy { !$0.id.isEmpty && !$0.name.isEmpty && CatalogURL.website($0.sourceURL) != nil } &&
             companies.allSatisfy { !$0.id.isEmpty && CatalogURL.website($0.website) != nil && $0.destinationIDs.allSatisfy(destinationIDs.contains) } &&
             activities.allSatisfy { activity in
@@ -113,7 +164,7 @@ final class TravelCatalogStore {
     private(set) var statusMessage: String?
     private var didRefresh = false
     private let cacheURL = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)
-        .first?.appendingPathComponent("shanya-travel-catalog-v1.json")
+        .first?.appendingPathComponent("shanya-travel-catalog-v2.json")
 
     init() {
         if let cacheURL, let data = try? Data(contentsOf: cacheURL),
@@ -134,13 +185,21 @@ final class TravelCatalogStore {
         catalog.companies.filter { $0.destinationIDs.contains(destinationID) }
     }
 
+    func venues(for destinationID: String, category: String) -> [TravelVenue] {
+        catalog.venues.filter { $0.destinationID == destinationID && $0.category == category }
+    }
+
+    func wildlife(for destinationID: String) -> [WildlifeListing] {
+        catalog.wildlife.filter { $0.destinationIDs.contains(destinationID) }
+    }
+
     func refresh(force: Bool = false) async {
         guard !isRefreshing, force || !didRefresh else { return }
         isRefreshing = true
         defer { isRefreshing = false }
         do {
             let updated: TravelCatalog = try await AuthAPI().request("catalog")
-            guard updated.isValid else { throw AuthError.invalidResponse }
+            guard updated.isValid, updated.reviewedAt >= catalog.reviewedAt else { throw AuthError.invalidResponse }
             catalog = updated
             if let cacheURL, let data = try? JSONEncoder().encode(updated) {
                 try? data.write(to: cacheURL, options: .atomic)

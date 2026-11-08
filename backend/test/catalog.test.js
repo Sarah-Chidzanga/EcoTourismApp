@@ -4,9 +4,9 @@ const { createApp } = require('../server');
 const catalog = require('../../EcoTourismApp/travel-catalog.json');
 
 test('travel catalogue has stable unique IDs, valid references and secure source links', () => {
-    assert.equal(catalog.schemaVersion, 1);
+    assert.equal(catalog.schemaVersion, 2);
     assert.match(catalog.reviewedAt, /^\d{4}-\d{2}-\d{2}$/);
-    for (const records of [catalog.destinations, catalog.activities, catalog.companies]) {
+    for (const records of [catalog.destinations, catalog.activities, catalog.companies, catalog.venues, catalog.wildlife]) {
         assert.ok(records.length > 0);
         assert.equal(new Set(records.map(record => record.id)).size, records.length);
         for (const record of records) {
@@ -19,6 +19,19 @@ test('travel catalogue has stable unique IDs, valid references and secure source
         }
     }
     const destinations = new Set(catalog.destinations.map(place => place.id));
+    for (const venue of catalog.venues) {
+        assert.ok(['Stays', 'Food', 'Day visits'].includes(venue.category));
+        assert.ok(venue.location && venue.planning && venue.sourceLabel);
+        assert.ok(venue.destinationID === null || destinations.has(venue.destinationID));
+    }
+    for (const animal of catalog.wildlife) {
+        assert.ok(animal.destinationIDs.length);
+        assert.ok(animal.destinationIDs.every(id => destinations.has(id)));
+        for (const id of animal.activityIDs) {
+            const activity = catalog.activities.find(activity => activity.id === id);
+            assert.ok(activity && animal.destinationIDs.includes(activity.destinationID));
+        }
+    }
     for (const company of catalog.companies) {
         assert.ok(company.destinationIDs.length);
         assert.ok(company.destinationIDs.every(id => destinations.has(id)));
