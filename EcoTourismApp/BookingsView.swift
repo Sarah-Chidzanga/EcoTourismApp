@@ -21,6 +21,15 @@ struct BookingsView: View {
                     .font(.largeTitle.bold())
                 Text(isGuide ? "Review requests and make a plan with your guests." : "All your guide requests, in one place.")
                     .foregroundStyle(.secondary)
+                if !isGuide {
+                    NavigationLink { TripPlanner() } label: {
+                        Label("Your Trip Plans", systemImage: "map")
+                            .frame(maxWidth: .infinity)
+                    }
+                    .buttonStyle(TravelPrimaryButton())
+                    Text("Trip plans are your ideas. A guide request is only confirmed when the guide accepts it.")
+                        .font(.footnote).foregroundStyle(.secondary)
+                }
                 Picker("Show bookings", selection: $selectedStatus) {
                     Text("Active").tag("Active")
                     Text("All").tag("All")
@@ -124,6 +133,12 @@ struct BookingDetailView: View {
                         Text("The Plan").font(.title2.bold())
                         Text(booking.note)
                     }
+                }
+                if booking.status == "pending" {
+                    TravelInfoSection(title: "Awaiting Guide Confirmation",
+                                      text: isGuide
+                                        ? "This request is awaiting your response. Accept only when you can host these guests on the requested date."
+                                        : "This is a request, not a confirmed booking. Check My Trips for the guide's response before making arrangements.")
                 }
                 if booking.status == "confirmed" {
                     let email = isGuide ? booking.touristEmail : booking.guideEmail

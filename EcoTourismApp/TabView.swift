@@ -28,5 +28,5 @@ struct NavigateTabView: View {
 }
 
 #Preview {
-    NavigateTabView().environment(AuthSession())
+    NavigateTabView().environment(AuthSession()).environment(TravelCatalogStore())
 }

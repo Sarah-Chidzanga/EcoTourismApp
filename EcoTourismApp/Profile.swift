@@ -8,6 +8,14 @@ struct Profile: View {
     var body: some View {
         NavigationStack {
             Form {
+                Section("Travel Memories") {
+                    NavigationLink { TravelGames() } label: { Label("Travel Games", systemImage: "puzzlepiece") }
+                    NavigationLink { NotificationInbox() } label: { Label("Notifications", systemImage: "bell") }
+                    NavigationLink { AppSuggestions() } label: { Label("Suggest an Improvement", systemImage: "bubble.left") }
+                    NavigationLink { ShareMemory() } label: {
+                        Label("Share a Memory", systemImage: "photo.on.rectangle")
+                    }
+                }
                 if let user = session.user {
                     Section("Your Account") {
                         LabeledContent("Name", value: user.name)
@@ -54,7 +62,12 @@ struct Profile: View {
                     }
                 }
             }
-            .navigationTitle("Profile")
+            .navigationTitle("You")
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    NavigationLink { Settings() } label: { Label("Settings", systemImage: "gearshape") }
+                }
+            }
             .scrollContentBackground(.hidden)
             .background(TravelStyle.sand)
             .tint(TravelStyle.ink)
@@ -70,4 +83,5 @@ struct Profile: View {
 #Preview {
     Profile()
         .environment(AuthSession())
+        .environment(TravelCatalogStore())
 }

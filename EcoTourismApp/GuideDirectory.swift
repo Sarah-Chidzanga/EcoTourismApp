@@ -21,6 +21,11 @@ struct GuideDirectory: View {
                     Text("Find a guide, choose your day, and send a request. Your trip is accepted when the guide says yes.")
                         .foregroundStyle(.secondary)
                 }
+                if session.user == nil {
+                    NavigationLink { AuthenticationForm(role: .guide, isRegistration: true) } label: {
+                        Label("Are You a Guide? Create Your Listing", systemImage: "person.badge.plus")
+                    }
+                }
                 if isLoading {
                     ProgressView("Finding guides…").frame(maxWidth: .infinity).padding(40)
                 } else if let errorMessage {

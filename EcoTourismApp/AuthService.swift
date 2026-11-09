@@ -157,7 +157,8 @@ final class AuthSession {
     private let keychain: SessionKeychain
     private var token: String?
 
-    init(api: AuthAPI = AuthAPI(), keychainAccount: String? = nil) {
+    init(api: AuthAPI? = nil, keychainAccount: String? = nil) {
+        let api = api ?? AuthAPI()
         self.api = api
         keychain = SessionKeychain(account: keychainAccount ?? api.baseURL?.absoluteString ?? "unconfigured")
     }
@@ -199,6 +200,19 @@ final class AuthSession {
     private func authenticate(email: String, password: String) async throws {
         let credentials = LoginCredentials(email: email.trimmingCharacters(in: .whitespacesAndNewlines), password: password)
         let result: LoginResult = try await api.request("login", method: "POST", body: JSONEncoder().encode(credentials))
+        try await acceptSession(result)
+    }
+
+    func completeSocialSignIn(code: String, verifier: String) async throws {
+        guard !isBusy else { return }
+        isBusy = true
+        defer { isBusy = false }
+        let body = try JSONEncoder().encode(["code": code, "verifier": verifier])
+        let result: LoginResult = try await api.request("auth/social/exchange", method: "POST", body: body)
+        try await acceptSession(result)
+    }
+
+    private func acceptSession(_ result: LoginResult) async throws {
         do {
             let profile: AccountProfile = try await api.request("me", token: result.token)
             try keychain.save(result.token)
