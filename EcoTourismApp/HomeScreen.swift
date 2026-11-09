@@ -18,6 +18,7 @@ struct HomeScreen: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: 24) {
                     ExploreHeader(userName: userName)
+                    TripDiscoveryLinks()
                     ExploreDirectoryLinks()
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack(spacing: 10) {
@@ -159,6 +160,10 @@ struct SavedPlacesView: View {
     var body: some View {
         NavigationStack {
             ScrollView {
+                NavigationLink { TripPlanner() } label: {
+                    Label("Plan a Trip with Saved Places", systemImage: "map")
+                        .padding()
+                }
                 if saved.isEmpty && savedVenues.isEmpty {
                     ContentUnavailableView("Keep a Little Inspiration", systemImage: "bookmark",
                                            description: Text("Save places from Explore and find them here. Saved places stay on this device."))
@@ -197,6 +202,31 @@ private struct ExploreDirectoryLinks: View {
                     .font(.subheadline.weight(.semibold))
                     .frame(maxWidth: .infinity).padding(.vertical, 10)
             }
+        }
+    }
+}
+
+private struct TripDiscoveryLinks: View {
+    var body: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            Text("Make it your kind of trip").font(.title2.bold())
+            NavigationLink { TripPlanner() } label: {
+                Label("Plan a Zimbabwe Trip", systemImage: "map")
+                    .frame(maxWidth: .infinity)
+            }
+            .buttonStyle(TravelPrimaryButton())
+            HStack {
+                NavigationLink {
+                    TripPlanner(suggestedName: "Weekend Escape", suggestedDays: 2)
+                } label: { Label("Weekend Planner", systemImage: "sun.max") }
+                NavigationLink {
+                    TripPlanner(suggestedName: "Family Day Out", suggestedDays: 1,
+                                suggestedNotes: "Check age restrictions, child prices, accessibility and facilities with each operator.")
+                } label: { Label("Family Day Out", systemImage: "figure.2.and.child.holdinghands") }
+            }
+            .buttonStyle(.bordered)
+            Text("Choose an area below to explore places around your visit.")
+                .font(.footnote).foregroundStyle(.secondary)
         }
     }
 }
