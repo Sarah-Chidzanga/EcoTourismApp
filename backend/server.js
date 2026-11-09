@@ -144,6 +144,7 @@ async function createApp(databasePath = path.join(__dirname, 'ecotourism.db'), o
     try {
         await require('./social-auth')(app, { run, get, now, issueSession }, options.social);
         await require('./marketplace')(app, { run, get, all, authenticate, now });
+        await require('./community')(app, { run, get, all, authenticate, now });
     } catch (error) {
         await close();
         throw error;

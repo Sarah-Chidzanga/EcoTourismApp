@@ -9,6 +9,9 @@ struct Profile: View {
         NavigationStack {
             Form {
                 Section("Travel Memories") {
+                    NavigationLink { TravelGames() } label: { Label("Travel Games", systemImage: "puzzlepiece") }
+                    NavigationLink { NotificationInbox() } label: { Label("Notifications", systemImage: "bell") }
+                    NavigationLink { AppSuggestions() } label: { Label("Suggest an Improvement", systemImage: "bubble.left") }
                     NavigationLink { ShareMemory() } label: {
                         Label("Share a Memory", systemImage: "photo.on.rectangle")
                     }

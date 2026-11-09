@@ -157,7 +157,8 @@ final class AuthSession {
     private let keychain: SessionKeychain
     private var token: String?
 
-    init(api: AuthAPI = AuthAPI(), keychainAccount: String? = nil) {
+    init(api: AuthAPI? = nil, keychainAccount: String? = nil) {
+        let api = api ?? AuthAPI()
         self.api = api
         keychain = SessionKeychain(account: keychainAccount ?? api.baseURL?.absoluteString ?? "unconfigured")
     }

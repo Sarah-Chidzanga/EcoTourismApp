@@ -10,6 +10,11 @@ struct Settings: View {
 
     var body: some View {
         Form {
+            Section("Keep in Touch") {
+                NavigationLink { NotificationInbox() } label: { Label("Notifications", systemImage: "bell") }
+                NavigationLink { AppSuggestions() } label: { Label("Suggest an Improvement", systemImage: "bubble.left.and.text.bubble.right") }
+                AppRatingButton()
+            }
             Section("Appearance") {
                 Picker("Theme", selection: $appearance) {
                     Text("Use Device Setting").tag("System")
@@ -64,5 +69,5 @@ struct Settings: View {
 }
 
 #Preview {
-    NavigationStack { Settings() }.environment(TravelCatalogStore())
+    NavigationStack { Settings() }.environment(TravelCatalogStore()).environment(AuthSession())
 }

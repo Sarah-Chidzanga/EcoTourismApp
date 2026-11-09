@@ -85,3 +85,21 @@ GitHub preserves code and schema setup; it does not back up accounts and booking
 ## Social sign-in and memory sharing
 
 See [SOCIAL_SIGN_IN_SETUP.md](SOCIAL_SIGN_IN_SETUP.md) for Google, Facebook and Apple configuration, callback URLs, activation checks, and the iOS memory-sharing behavior. Providers remain unavailable until configured.
+
+## Explore, games, notifications and feedback
+
+Explore now opens separate directories instead of listing every destination on its home screen. Play contains a local photo tile puzzle, wildlife memory pairs, and Zimbabwe place-name scramble. Photos are selected with the system picker and are not uploaded; game rounds are not persisted.
+
+Restart/deploy the updated backend to create `notifications` and `suggestions` tables and booking triggers. Existing requests are not backfilled into the inbox; new requests and subsequent status changes generate updates atomically. `GET /notifications` returns the signed-in user's latest 100 updates. `PATCH /notifications/:id/read` checks ownership. The app refreshes the inbox when opened or pulled to refresh; this is not remote push delivery.
+
+Local phone reminders are opt-in, support up to ten pending reminders, and can be removed in Notifications → Reminder Settings. They are independent of booking cancellations or itinerary edits. APNs device registration, push delivery, and physical-device delivery verification remain deployment work.
+
+Signed-in users can submit ideas, problems, or listing corrections to `POST /suggestions`. Submissions are validated, rate-limited, and deduplicated by a client request ID. The app retains an unsent draft on the device. There is no public endpoint exposing submissions. On the backend host, an operator can review the latest 200 submissions with:
+
+```sh
+node review-suggestions.js
+```
+
+Set `DATABASE_PATH` if the deployment uses a different database file. Treat this output as private user feedback. An admin review dashboard, status workflow, and replies are not implemented.
+
+For the persistent App Store rating action, add the published numeric app ID as the `AppStoreID` string in the iOS Info.plist. Until configured, the action explains that reviews become available after publication. It does not create local ratings or pretend to submit reviews. Apple controls the review page: https://developer.apple.com/documentation/storekit/requestreviewaction

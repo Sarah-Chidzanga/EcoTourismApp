@@ -3,86 +3,94 @@ import SwiftUI
 struct HomeScreen: View {
     var userName: String = ""
     @Environment(TravelCatalogStore.self) private var store
-    @State private var searchText = ""
-    @State private var selectedRegion = "All"
-
-    private var filteredDestinations: [Destination] {
-        store.destinations.filter {
-            (selectedRegion == "All" || $0.region == selectedRegion) &&
-            (searchText.isEmpty ||  $0.searchText.localizedCaseInsensitiveContains(searchText))
-        }
-    }
 
     var body: some View {
         NavigationStack {
             ScrollView {
-                VStack(alignment: .leading, spacing: 24) {
-                    ExploreHeader(userName: userName)
-                    TripDiscoveryLinks()
-                    ExploreDirectoryLinks()
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        HStack(spacing: 10) {
-                            ForEach(["All"] + store.regions.map(\.name), id: \.self) { region in
-                                Button { selectedRegion = region } label: {
-                                    Text(region)
-                                        .font(.subheadline.weight(.medium))
-                                        .padding(.horizontal, 16)
-                                        .padding(.vertical, 10)
-                                        .foregroundStyle(selectedRegion == region ? .white : .primary)
-                                        .background(selectedRegion == region ? TravelStyle.forest : TravelStyle.card, in: Capsule())
-                                }
-                                .accessibilityAddTraits(selectedRegion == region ? .isSelected : [])
-                            }
-                        }
-                    }
-                    HStack {
-                        Text(searchText.isEmpty ? "Find your next escape" : "Search results")
-                            .font(.title2.bold())
-                        Spacer()
-                        Text(filteredDestinations.count == 1 ? "1 place" : "\(filteredDestinations.count) places")
-                            .font(.caption)
-                            .foregroundStyle(.secondary)
-                    }
-                    if filteredDestinations.isEmpty {
-                        ContentUnavailableView.search(text: searchText)
-                    }
-                    LazyVStack(spacing: 20) {
-                        ForEach(filteredDestinations) { destination in
-                            DestinationExploreCard(destination: destination)
-                        }
-                    }
-                    CatalogFootnote(reviewedAt: store.catalog.reviewedAt, status: store.statusMessage)
-                        .font(.footnote)
+                VStack(alignment: .leading, spacing: 20) {
+                    Text(userName.isEmpty ? "Where will you go next?" : "Where next, \(userName)?")
+                        .font(.largeTitle.bold())
+                    Text("Choose your adventure. Make it yours.")
                         .foregroundStyle(.secondary)
-                        .padding(.vertical)
+                    LazyVGrid(columns: [GridItem(.adaptive(minimum: 145))], spacing: 12) {
+                        NavigationLink { DestinationDirectory() } label: { ExploreTile(title: "Places", subtitle: "Discover Zimbabwe", symbol: "map") }
+                        NavigationLink { TravelDirectory() } label: { ExploreTile(title: "Experiences", subtitle: "Activities & companies", symbol: "binoculars") }
+                        NavigationLink { VenueDirectory(category: "Stays") } label: { ExploreTile(title: "Stays", subtitle: "Rest somewhere special", symbol: "bed.double") }
+                        NavigationLink { VenueDirectory(category: "Food") } label: { ExploreTile(title: "Food", subtitle: "Find your next table", symbol: "fork.knife") }
+                        NavigationLink { WildlifeDirectory() } label: { ExploreTile(title: "Wildlife", subtitle: "Animals & game drives", symbol: "pawprint") }
+                        NavigationLink { TravelGames() } label: { ExploreTile(title: "Play", subtitle: "Three travel games", symbol: "puzzlepiece") }
+                    }
+                    .buttonStyle(.plain)
+                    NavigationLink { TripPlanner() } label: {
+                        Label("Plan Your Trip", systemImage: "plus.circle")
+                            .frame(maxWidth: .infinity)
+                    }
+                    .buttonStyle(TravelPrimaryButton())
                 }
                 .padding(20)
             }
             .background(TravelStyle.sand)
             .navigationTitle("Explore")
             .navigationBarTitleDisplayMode(.inline)
-            .searchable(text: $searchText, prompt: "Search places or regions")
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    NavigationLink { NotificationInbox() } label: { Label("Notifications", systemImage: "bell") }
+                }
+            }
             .task { await store.refresh() }
-            .refreshable { await store.refresh(force: true) }
             .tint(TravelStyle.ink)
         }
     }
 }
 
-private struct ExploreHeader: View {
-    let userName: String
+private struct ExploreTile: View {
+    let title: String
+    let subtitle: String
+    let symbol: String
 
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
-            Text(userName.isEmpty ? "YOUR ZIMBABWE STARTS HERE" : "WELCOME, \(userName.uppercased())")
-                .font(.caption.weight(.bold))
-                .tracking(2)
-                .foregroundStyle(TravelStyle.ink)
-            Text("Go somewhere\nunforgettable.")
-                .font(.largeTitle.bold())
-            Text("Wild landscapes, living culture, and people who know the way.")
-                .foregroundStyle(.secondary)
+            Image(systemName: symbol).font(.title2).foregroundStyle(TravelStyle.ink)
+            Text(title).font(.headline).foregroundStyle(.primary)
+            Text(subtitle).font(.caption).foregroundStyle(.secondary)
         }
+        .frame(maxWidth: .infinity, minHeight: 110, alignment: .leading)
+        .padding(16)
+        .background(TravelStyle.card, in: RoundedRectangle(cornerRadius: 22))
+        .accessibilityElement(children: .combine)
+    }
+}
+
+struct DestinationDirectory: View {
+    @Environment(TravelCatalogStore.self) private var store
+    @State private var query = ""
+    @State private var region = "All"
+    private var places: [Destination] {
+        store.destinations.filter {
+            (region == "All" || $0.region == region) &&
+            (query.isEmpty || $0.searchText.localizedCaseInsensitiveContains(query))
+        }
+    }
+
+    var body: some View {
+        ScrollView {
+            LazyVStack(spacing: 20) {
+                Picker("Region", selection: $region) {
+                    Text("All Regions").tag("All")
+                    ForEach(store.regions) { Text($0.name).tag($0.name) }
+                }
+                .pickerStyle(.menu)
+                if places.isEmpty { ContentUnavailableView.search(text: query) }
+                ForEach(places) { DestinationExploreCard(destination: $0) }
+                CatalogFootnote(reviewedAt: store.catalog.reviewedAt, status: store.statusMessage)
+            }
+            .padding(20)
+        }
+        .background(TravelStyle.sand)
+        .navigationTitle("Places")
+        .searchable(text: $query, prompt: "Search places or regions")
+        .refreshable { await store.refresh(force: true) }
+        .tint(TravelStyle.ink)
     }
 }
 
@@ -178,55 +186,6 @@ struct SavedPlacesView: View {
             }
             .background(TravelStyle.sand)
             .navigationTitle("Saved Places")
-        }
-    }
-}
-
-private struct ExploreDirectoryLinks: View {
-    var body: some View {
-        VStack(spacing: 12) {
-            LazyVGrid(columns: [GridItem(.adaptive(minimum: 140))], spacing: 12) {
-                NavigationLink { VenueDirectory(category: "Stays") } label: { Label("Stays", systemImage: "bed.double") }
-                NavigationLink { VenueDirectory(category: "Food") } label: { Label("Food", systemImage: "fork.knife") }
-                NavigationLink { WildlifeDirectory() } label: { Label("Wildlife", systemImage: "pawprint") }
-                NavigationLink { TravelDirectory(category: "Game drives") } label: { Label("Game Drives", systemImage: "car.side") }
-            }
-            .buttonStyle(.bordered)
-            NavigationLink { TravelDirectory(section: "Activities") } label: {
-                Label("Browse All Activities", systemImage: "binoculars")
-                    .frame(maxWidth: .infinity)
-            }
-            .buttonStyle(TravelPrimaryButton())
-            NavigationLink { TravelDirectory(section: "Companies") } label: {
-                Label("Explore Companies & Visitor Teams", systemImage: "building.2")
-                    .font(.subheadline.weight(.semibold))
-                    .frame(maxWidth: .infinity).padding(.vertical, 10)
-            }
-        }
-    }
-}
-
-private struct TripDiscoveryLinks: View {
-    var body: some View {
-        VStack(alignment: .leading, spacing: 12) {
-            Text("Make it your kind of trip").font(.title2.bold())
-            NavigationLink { TripPlanner() } label: {
-                Label("Plan a Zimbabwe Trip", systemImage: "map")
-                    .frame(maxWidth: .infinity)
-            }
-            .buttonStyle(TravelPrimaryButton())
-            HStack {
-                NavigationLink {
-                    TripPlanner(suggestedName: "Weekend Escape", suggestedDays: 2)
-                } label: { Label("Weekend Planner", systemImage: "sun.max") }
-                NavigationLink {
-                    TripPlanner(suggestedName: "Family Day Out", suggestedDays: 1,
-                                suggestedNotes: "Check age restrictions, child prices, accessibility and facilities with each operator.")
-                } label: { Label("Family Day Out", systemImage: "figure.2.and.child.holdinghands") }
-            }
-            .buttonStyle(.bordered)
-            Text("Choose an area below to explore places around your visit.")
-                .font(.footnote).foregroundStyle(.secondary)
         }
     }
 }
