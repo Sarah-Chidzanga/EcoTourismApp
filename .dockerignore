@@ -1,0 +1,10 @@
+.git
+**/node_modules
+**/.env
+**/.env.*
+**/*.db*
+**/*.sqlite*
+**/*.pem
+**/*.p8
+**/xcuserdata
+backups

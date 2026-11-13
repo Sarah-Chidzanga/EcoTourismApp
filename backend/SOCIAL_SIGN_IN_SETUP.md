@@ -16,6 +16,7 @@ Set these in the hosting provider's secret/environment settings, then restart th
 | `FACEBOOK_GRAPH_VERSION` | Supported Graph API version for your Meta app; default `v25.0` |
 | `APPLE_SERVICE_ID` | Sign in with Apple Services ID associated with your primary App ID |
 | `APPLE_CLIENT_SECRET` | Apple-signed client-secret JWT generated with your Sign in with Apple private key; rotate before expiry |
+| `TOKEN_ENCRYPTION_KEY` | Independently generated 32-byte random key, base64 encoded; required for Apple token storage and deletion |
 
 The iOS release build must also have `APIBaseURL` configured to the HTTPS backend. Localhost alone cannot receive provider callbacks. Never commit `.env` files, Apple private keys, or client-secret JWTs.
 
@@ -35,7 +36,9 @@ The iOS release build must also have `APIBaseURL` configured to the HTTPS backen
 
 ## Security and storage
 
-Provider authorization codes are exchanged only by the backend. App handoff codes expire in one minute and are consumed atomically with a SHA-256 PKCE verifier. Provider state expires in ten minutes and is single-use. Apple signatures, issuer, audience, expiry and nonce are validated with `jose`. Google profiles are obtained from Google's authenticated OpenID user-info endpoint using the server-exchanged token; Facebook profiles use the server-exchanged token and app-secret proof. Provider access/refresh tokens are not persisted. App sessions use the existing expiring, hashed-token session store and iOS Keychain.
+Provider authorization codes are exchanged only by the backend. App handoff codes expire in one minute and are consumed atomically with a SHA-256 PKCE verifier. Provider state expires in ten minutes and is single-use. Apple signatures, issuer, audience, expiry and nonce are validated with `jose`. Google profiles are obtained from Google's authenticated OpenID user-info endpoint using the server-exchanged token; Facebook profiles use the server-exchanged token and app-secret proof. Apple refresh tokens are encrypted with AES-256-GCM so account deletion can revoke Apple access before removing local account data. Other provider tokens are not persisted. App sessions use the existing expiring, hashed-token session store and iOS Keychain.
+
+Keep the encryption key in the host's secret store and back it up separately from the database. Replacing it without re-encrypting stored tokens breaks Apple revocation. Existing Apple accounts without a stored token must sign in again before deletion. Test revocation against real Apple test accounts before release; automated tests use a fake provider.
 
 The SQLite database stores provider/subject-to-user mappings and short-lived OAuth requests. Back up this database alongside existing accounts. Run one backend instance with this SQLite database; database-hosting/multi-instance migration remains separate work.
 

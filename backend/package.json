@@ -13,10 +13,11 @@
   "type": "commonjs",
   "dependencies": {
     "bcryptjs": "^3.0.3",
+    "better-sqlite3": "^13.0.3",
     "express": "^5.2.1",
     "express-rate-limit": "^8.7.3",
     "jose": "^6.2.16",
-    "sqlite3": "^6.0.1"
+    "nodemailer": "^10.4.0"
   },
   "private": true,
   "engines": {

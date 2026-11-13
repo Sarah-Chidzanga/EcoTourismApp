@@ -74,10 +74,10 @@ Company enquiries open external websites; they do not create Shanya bookings. Re
 This is a development milestone, not a deployed service. A supervised pilot still needs a reachable HTTPS backend and persistent, backed-up database. Before public distribution:
 
 - Recruit actual guides and check destination content and guide credentials; profiles currently contain self-reported information, with no verified badge.
-- Add email verification, password recovery, account deletion, and support/reporting tools.
+- Configure and verify email delivery for the implemented verification/recovery flows, and test account deletion on a physical device. Establish a support and reporting process.
 - Decide cancellation/payment policies and provide privacy information and terms for the actual service.
 - Add request notifications and guide calendar/blocked-date management; today accepted full-day requests reserve dates and guides can pause their listing.
-- Configure hosting, monitoring, rate limits appropriate for the hosting proxy, backups, and restore drills. Move off the archived sqlite3 driver to a maintained database integration before production.
+- Configure hosting, monitoring, rate limits appropriate for the hosting proxy, scheduled off-host backups, and restore drills. The backend now uses better-sqlite3; see [DEPLOYMENT.md](DEPLOYMENT.md).
 - Complete physical-device, accessibility, and TestFlight checks with both user roles.
 
 GitHub preserves code and schema setup; it does not back up accounts and bookings. Use a separate SQLite-consistent backup process or a managed database backup service. Do not put live databases in this public repository.

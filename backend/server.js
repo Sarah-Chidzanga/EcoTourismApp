@@ -1,5 +1,5 @@
 const express = require('express');
-const sqlite3 = require('sqlite3').verbose();
+const Database = require('better-sqlite3');
 const bcrypt = require('bcryptjs');
 const path = require('node:path');
 const { randomBytes, createHash } = require('node:crypto');
@@ -8,30 +8,18 @@ const { rateLimit } = require('express-rate-limit');
 async function createApp(databasePath = path.join(__dirname, 'ecotourism.db'), options = {}) {
     const now = options.now || Date.now;
     const sessionDuration = 7 * 24 * 60 * 60 * 1000;
-    const db = await new Promise((resolve, reject) => {
-        const connection = new sqlite3.Database(databasePath, error => {
-            if (error) reject(error);
-            else resolve(connection);
-        });
-    });
-    const run = (sql, values = []) => new Promise((resolve, reject) => {
-        db.run(sql, values, function(error) {
-            if (error) reject(error);
-            else resolve({ id: this.lastID, changes: this.changes });
-        });
-    });
-    const all = (sql, values = []) => new Promise((resolve, reject) => {
-        db.all(sql, values, (error, rows) => error ? reject(error) : resolve(rows));
-    });
-    const get = (sql, values) => new Promise((resolve, reject) => {
-        db.get(sql, values, (error, row) => error ? reject(error) : resolve(row));
-    });
-    const close = () => new Promise((resolve, reject) => {
-        db.close(error => error ? reject(error) : resolve());
-    });
+    const db = new Database(databasePath);
+    const run = async (sql, values = []) => {
+        const result = db.prepare(sql).run(...values);
+        return { id: Number(result.lastInsertRowid), changes: result.changes };
+    };
+    const all = async (sql, values = []) => db.prepare(sql).all(...values);
+    const get = async (sql, values = []) => db.prepare(sql).get(...values);
+    const close = async () => { db.close(); };
     try {
         await run('PRAGMA foreign_keys = ON');
         await run('PRAGMA busy_timeout = 5000');
+        db.pragma('journal_mode = WAL');
         await run(`CREATE TABLE IF NOT EXISTS users (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             name TEXT,
@@ -76,9 +64,9 @@ async function createApp(databasePath = path.join(__dirname, 'ecotourism.db'), o
         const match = /^Bearer ([a-f0-9]{64})$/i.exec(req.get('Authorization') || '');
         if (!match) return res.status(401).json({ error: 'Authentication required.' });
         const tokenHash = hashToken(match[1]);
-        const user = await get(`SELECT users.id, users.name, users.email, users.role, users.nationality, users.bio, users.languages
+        const user = await get(`SELECT users.id, users.name, users.email, users.role, users.nationality, users.bio, users.languages, users.email_verified AS emailVerified
             FROM sessions JOIN users ON users.id = sessions.user_id
-            WHERE sessions.token_hash = ? AND sessions.expires_at > ?`, [tokenHash, now()]);
+            WHERE sessions.token_hash = ? AND sessions.expires_at > ? AND users.deleted_at IS NULL`, [tokenHash, now()]);
         if (!user) return res.status(401).json({ error: 'Session expired or invalid.' });
         req.user = user;
         req.tokenHash = tokenHash;
@@ -90,12 +78,19 @@ async function createApp(databasePath = path.join(__dirname, 'ecotourism.db'), o
     const validPassword = value => typeof value === 'string' && value.length >= 8 && Buffer.byteLength(value, 'utf8') <= 72;
 
     async function issueSession(userID) {
-        const token = randomBytes(32).toString('hex');
-        const expiresAt = now() + sessionDuration;
-        await run('DELETE FROM sessions WHERE expires_at <= ?', [now()]);
-        await run('INSERT INTO sessions (token_hash, user_id, expires_at) VALUES (?, ?, ?)', [hashToken(token), userID, expiresAt]);
-        const user = await get('SELECT id, name, role FROM users WHERE id = ?', [userID]);
-        return { ...user, token, expiresAt: new Date(expiresAt).toISOString() };
+        return db.transaction(() => {
+            const user = db.prepare('SELECT id, name, role FROM users WHERE id = ? AND deleted_at IS NULL').get(userID);
+            if (!user) {
+                const error = new Error('This account is no longer available.');
+                error.status = 401;
+                throw error;
+            }
+            const token = randomBytes(32).toString('hex');
+            const expiresAt = now() + sessionDuration;
+            db.prepare('DELETE FROM sessions WHERE expires_at <= ?').run(now());
+            db.prepare('INSERT INTO sessions (token_hash, user_id, expires_at) VALUES (?, ?, ?)').run(hashToken(token), userID, expiresAt);
+            return { ...user, token, expiresAt: new Date(expiresAt).toISOString() };
+        })();
     }
 
     app.get('/health', (req, res) => res.json({ status: 'ok' }));
@@ -120,7 +115,7 @@ async function createApp(databasePath = path.join(__dirname, 'ecotourism.db'), o
             );
             res.status(201).json({ id: result.id, message: 'User registered successfully!' });
         } catch (error) {
-            if (error.code === 'SQLITE_CONSTRAINT') return res.status(409).json({ error: 'Email already exists.' });
+            if (error.code?.startsWith('SQLITE_CONSTRAINT')) return res.status(409).json({ error: 'Email already exists.' });
             throw error;
         }
     });
@@ -145,12 +140,14 @@ async function createApp(databasePath = path.join(__dirname, 'ecotourism.db'), o
         await require('./social-auth')(app, { run, get, now, issueSession }, options.social);
         await require('./marketplace')(app, { run, get, all, authenticate, now });
         await require('./community')(app, { run, get, all, authenticate, now });
+        await require('./account-care')(app, { db, authenticate, now }, options.account);
     } catch (error) {
         await close();
         throw error;
     }
     app.use((req, res) => res.status(404).json({ error: 'Route not found.' }));
     app.use((error, req, res, next) => {
+        if (error.status === 401) return res.status(401).json({ error: 'This account is no longer available.' });
         if (error.type === 'entity.parse.failed') return res.status(400).json({ error: 'Invalid JSON.' });
         if (error.type === 'entity.too.large') return res.status(413).json({ error: 'Request too large.' });
         console.error('Request failed:', error.code || error.name);

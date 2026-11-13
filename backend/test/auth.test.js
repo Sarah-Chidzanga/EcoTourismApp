@@ -3,7 +3,7 @@ const assert = require('node:assert/strict');
 const { mkdtemp, rm } = require('node:fs/promises');
 const { tmpdir } = require('node:os');
 const path = require('node:path');
-const sqlite3 = require('sqlite3');
+const Database = require('better-sqlite3');
 const { createApp } = require('../server');
 
 test('authentication, persistence, validation, and removed reset route', async () => {
@@ -50,13 +50,13 @@ test('authentication, persistence, validation, and removed reset route', async (
         const malformed = await fetch(`http://127.0.0.1:${server.address().port}/register`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: '{' });
         assert.equal(malformed.status, 400);
         await stop();
-        const db = new sqlite3.Database(database);
+        const db = new Database(database);
         try {
-            const saved = await new Promise((resolve, reject) => db.get('SELECT password FROM users WHERE email = ?', [tourist.email], (error, row) => error ? reject(error) : resolve(row)));
+            const saved = db.prepare('SELECT password FROM users WHERE email = ?').get(tourist.email);
             assert.notEqual(saved.password, tourist.password);
             assert.match(saved.password, /^\$2[aby]\$/);
         } finally {
-            await new Promise((resolve, reject) => db.close(error => error ? reject(error) : resolve()));
+            db.close();
         }
         await start();
         const login = await request('/login', { email: ' TOURIST@EXAMPLE.TEST ', password: tourist.password });
