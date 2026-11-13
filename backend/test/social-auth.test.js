@@ -9,9 +9,9 @@ test('Apple form-post callback verifies signature, audience and nonce before iss
     let nonce;
     let audience = 'apple-service';
     const service = await createApp(':memory:', { social: {
-        env: { OAUTH_PUBLIC_URL: 'https://api.example.test', APPLE_SERVICE_ID: audience, APPLE_CLIENT_SECRET: 'test-secret' },
+        env: { OAUTH_PUBLIC_URL: 'https://api.example.test', TOKEN_ENCRYPTION_KEY: Buffer.alloc(32, 1).toString('base64'), APPLE_SERVICE_ID: audience, APPLE_CLIENT_SECRET: 'test-secret' },
         appleKeys: publicKey,
-        fetch: async () => Response.json({ id_token: await new SignJWT({ nonce, email: 'relay@privaterelay.appleid.com', email_verified: 'true' })
+        fetch: async () => Response.json({ refresh_token: 'apple-refresh', id_token: await new SignJWT({ nonce, email: 'relay@privaterelay.appleid.com', email_verified: 'true' })
             .setProtectedHeader({ alg: 'RS256' }).setIssuer('https://appleid.apple.com').setAudience(audience)
             .setSubject('apple-user').setIssuedAt().setExpirationTime('5m').sign(privateKey) })
     } });
@@ -56,7 +56,7 @@ test('social login validates state, PKCE, expiry, provider identity and account 
     let failProvider = false;
     const calls = [];
     const service = await createApp(':memory:', { now: () => now, authLimit: 200, social: {
-        env: { OAUTH_PUBLIC_URL: 'https://api.example.test', GOOGLE_CLIENT_ID: 'test-client', GOOGLE_CLIENT_SECRET: 'test-secret',
+        env: { OAUTH_PUBLIC_URL: 'https://api.example.test', TOKEN_ENCRYPTION_KEY: Buffer.alloc(32, 1).toString('base64'), GOOGLE_CLIENT_ID: 'test-client', GOOGLE_CLIENT_SECRET: 'test-secret',
             FACEBOOK_APP_ID: 'test-facebook', FACEBOOK_APP_SECRET: 'test-facebook-secret', APPLE_SERVICE_ID: 'test-apple', APPLE_CLIENT_SECRET: 'test-apple-secret' },
         fetch: async (url, options) => {
             calls.push({ url: String(url), options });

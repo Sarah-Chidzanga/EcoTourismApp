@@ -56,6 +56,7 @@ struct Settings: View {
                 Text("Listings are sourced travel information, not a guarantee of quality or a partnership. Wildlife sightings are never guaranteed.")
             }
             Section("About") {
+                NavigationLink("Privacy & Your Data") { PrivacyInformation() }
                 LabeledContent("App", value: "Shanya")
                 LabeledContent("Version", value: Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "Development")
             }

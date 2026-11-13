@@ -20,6 +20,10 @@ struct Profile: View {
                     Section("Your Account") {
                         LabeledContent("Name", value: user.name)
                         LabeledContent("Email", value: user.email)
+                        LabeledContent("Email verification", value: user.emailVerified == 1 ? "Verified" : "Not verified")
+                        if user.emailVerified != 1 {
+                            NavigationLink("Verify Email") { EmailAccountCare(isRecovery: false) }
+                        }
                         LabeledContent("Account Type", value: user.role == .guide ? "Tour Guide" : "Tourist")
                     }
                     if let nationality = user.nationality, !nationality.isEmpty {
@@ -35,6 +39,9 @@ struct Profile: View {
                         if let bio = user.bio, !bio.isEmpty {
                             Section("About You") { Text(bio) }
                         }
+                    }
+                    Section {
+                        NavigationLink("Delete Account") { DeleteAccountView() }
                     }
                     Section {
                         Button(role: .destructive) {

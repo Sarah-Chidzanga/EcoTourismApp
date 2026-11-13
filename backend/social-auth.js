@@ -1,5 +1,6 @@
 const { randomBytes, createHash, createHmac } = require('node:crypto');
 const express = require('express');
+const { keyFor, seal } = require('./provider-tokens');
 
 const hash = value => createHash('sha256').update(value).digest('base64url');
 const random = () => randomBytes(32).toString('base64url');
@@ -20,7 +21,10 @@ module.exports = async function socialAuth(app, { run, get, now, issueSession },
         apple: { id: env.APPLE_SERVICE_ID, secret: env.APPLE_CLIENT_SECRET,
             authorize: 'https://appleid.apple.com/auth/authorize', token: 'https://appleid.apple.com/auth/token', scope: 'name email' }
     };
-    const enabled = name => Boolean(validOrigin && providers[name]?.id && providers[name]?.secret);
+    const enabled = name => {
+        if (name === 'apple') { try { keyFor(env); } catch { return false; } }
+        return Boolean(validOrigin && providers[name]?.id && providers[name]?.secret);
+    };
     await run(`CREATE TABLE IF NOT EXISTS social_identities (
         provider TEXT NOT NULL, subject TEXT NOT NULL, user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
         PRIMARY KEY(provider, subject))`);
@@ -30,6 +34,7 @@ module.exports = async function socialAuth(app, { run, get, now, issueSession },
     await run(`CREATE TABLE IF NOT EXISTS oauth_codes (
         code_hash TEXT PRIMARY KEY, user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
         challenge TEXT NOT NULL, expires_at INTEGER NOT NULL)`);
+    await run(`CREATE TABLE IF NOT EXISTS provider_tokens (user_id INTEGER PRIMARY KEY REFERENCES users(id) ON DELETE CASCADE, encrypted_token TEXT NOT NULL)`);
     app.get('/auth/providers', (req, res) => res.json({ providers: Object.keys(providers).filter(enabled) }));
     app.post('/auth/social/start', async (req, res) => {
         const { provider, challenge, role } = req.body || {};
@@ -81,7 +86,7 @@ module.exports = async function socialAuth(app, { run, get, now, issueSession },
                     issuer: 'https://appleid.apple.com', audience: p.id, algorithms: ['RS256'],
                     requiredClaims: ['exp', 'iat', 'sub', 'nonce']
                 });
-                if (payload.nonce !== flow.nonce) throw new Error('Invalid nonce');
+                if (payload.nonce !== flow.nonce || typeof tokens.refresh_token !== 'string' || !tokens.refresh_token) throw new Error('Invalid Apple response');
                 identity = { subject: payload.sub, email: payload.email, name: 'Explorer',
                     verified: payload.email_verified === true || payload.email_verified === 'true' };
             } else if (provider === 'google') {
@@ -117,6 +122,12 @@ module.exports = async function socialAuth(app, { run, get, now, issueSession },
                     throw error;
                 }
                 linked = { user_id: user.id };
+            }
+            if (provider === 'google' || provider === 'apple') {
+                await run('UPDATE users SET email_verified = 1 WHERE id = ? AND email = ? COLLATE NOCASE AND deleted_at IS NULL', [linked.user_id, identity.email || '']);
+            }
+            if (provider === 'apple') {
+                await run('INSERT INTO provider_tokens VALUES (?, ?) ON CONFLICT(user_id) DO UPDATE SET encrypted_token = excluded.encrypted_token', [linked.user_id, seal(tokens.refresh_token, env)]);
             }
             const code = random();
             await run('INSERT INTO oauth_codes VALUES (?, ?, ?, ?)', [hash(code), linked.user_id, flow.challenge, now() + 60000]);

@@ -1,0 +1,13 @@
+**/xcuserdata/
+.DS_Store
+**/node_modules/
+**/.env
+**/.env.*
+!**/.env.example
+*.db
+*.db-*
+*.sqlite
+*.sqlite-*
+*.pem
+*.p8
+backups/

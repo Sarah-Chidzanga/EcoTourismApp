@@ -12,7 +12,6 @@ struct AuthenticationForm: View {
     @State private var languages = ""
     @State private var errorMessage = ""
     @State private var showingError = false
-    @State private var showingRecoveryInfo = false
     @State private var passwordVisible = false
 
     private var canSubmit: Bool {
@@ -116,7 +115,7 @@ struct AuthenticationForm: View {
                     } label: {
                         Text("New here? Create an Account")
                     }
-                    Button("Forgot Password?") { showingRecoveryInfo = true }
+                    NavigationLink("Forgot Password?") { EmailAccountCare(isRecovery: true) }
                         .font(.footnote)
                 }
                 SocialSignIn(role: role)
@@ -141,11 +140,6 @@ struct AuthenticationForm: View {
             Button("OK", role: .cancel) {}
         } message: {
             Text(errorMessage)
-        }
-        .alert("Password Recovery", isPresented: $showingRecoveryInfo) {
-            Button("OK", role: .cancel) {}
-        } message: {
-            Text("Password recovery isn't available yet. You can try signing in again with your existing password.")
         }
     }
 

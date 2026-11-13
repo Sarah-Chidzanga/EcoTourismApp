@@ -90,7 +90,7 @@ module.exports = async function installMarketplace(app, { run, get, all, authent
                 [req.user.id, guideId, tourDate, guests, note.trim(), guide.daily_rate, requestId, now()]);
             res.status(201).json(await findBooking(result.id));
         } catch (error) {
-            if (error.code === 'SQLITE_CONSTRAINT') return res.status(409).json({ error: 'You already have a request for this guide and date. Check My Trips.' });
+            if (error.code?.startsWith('SQLITE_CONSTRAINT')) return res.status(409).json({ error: 'You already have a request for this guide and date. Check My Trips.' });
             throw error;
         }
     });
@@ -110,7 +110,7 @@ module.exports = async function installMarketplace(app, { run, get, all, authent
             if (!result.changes) return res.status(409).json({ error: 'This request changed. Refresh and try again.' });
             res.json(await findBooking(booking.id));
         } catch (error) {
-            if (error.code === 'SQLITE_CONSTRAINT') return res.status(409).json({ error: 'You already have a confirmed booking on this date.' });
+            if (error.code?.startsWith('SQLITE_CONSTRAINT')) return res.status(409).json({ error: 'You already have a confirmed booking on this date.' });
             throw error;
         }
     });

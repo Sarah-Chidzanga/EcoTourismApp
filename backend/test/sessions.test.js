@@ -4,7 +4,7 @@ const { createApp } = require('../server');
 const { mkdtemp, rm } = require('node:fs/promises');
 const { tmpdir } = require('node:os');
 const path = require('node:path');
-const sqlite3 = require('sqlite3');
+const Database = require('better-sqlite3');
 const { createHash } = require('node:crypto');
 
 test('sessions survive restart, isolate users, expire, and can be revoked', async () => {
@@ -47,13 +47,13 @@ test('sessions survive restart, isolate users, expire, and can be revoked', asyn
         assert.equal((await request('/me')).status, 401);
         assert.equal((await request('/me', { token: '0'.repeat(64) })).status, 401);
         await stop();
-        const db = new sqlite3.Database(database);
+        const db = new Database(database);
         try {
-            const row = await new Promise((resolve, reject) => db.get('SELECT token_hash FROM sessions WHERE user_id = 1', (error, row) => error ? reject(error) : resolve(row)));
+            const row = db.prepare('SELECT token_hash FROM sessions WHERE user_id = 1').get();
             assert.notEqual(row.token_hash, tokens[0]);
             assert.equal(row.token_hash, createHash('sha256').update(tokens[0]).digest('hex'));
         } finally {
-            await new Promise(resolve => db.close(resolve));
+            db.close();
         }
         await start();
         for (let i = 0; i < users.length; i++) {

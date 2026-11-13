@@ -14,6 +14,7 @@ struct AccountProfile: Codable, Equatable {
     let nationality: String?
     let bio: String?
     let languages: String?
+    let emailVerified: Int?
 }
 
 struct LoginCredentials: Encodable {
@@ -223,6 +224,21 @@ final class AuthSession {
             let _: APIMessage? = try? await api.request("logout", method: "POST", token: result.token)
             throw error
         }
+    }
+
+    func refreshProfile() async throws {
+        user = try await request("me")
+    }
+
+    func deleteAccount() async throws {
+        guard !isBusy else { return }
+        isBusy = true
+        defer { isBusy = false }
+        let body = try JSONEncoder().encode(["confirmation": "DELETE"])
+        let _: APIMessage = try await api.request("account/delete", method: "DELETE", body: body, token: token)
+        // A revoked server token is unusable even if local Keychain cleanup fails.
+        try? keychain.delete()
+        token = nil; user = nil; restoreError = nil; isBrowsing = false
     }
 
     func signOut() async throws {
