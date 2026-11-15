@@ -98,7 +98,7 @@ struct DestinationCardView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
-            DestinationArtwork(image: destination.image, symbol: destination.symbol, height: 140)
+            DestinationArtwork(image: destination.artworkImage, symbol: destination.symbol, height: 140)
                 .frame(width: 200)
                 .cornerRadius(16)
                 .clipped()

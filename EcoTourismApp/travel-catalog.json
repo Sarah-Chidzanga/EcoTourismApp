@@ -62,7 +62,7 @@
     {
       "id": "nyanga",
       "name": "Nyanga & Mutarazi Falls",
-      "image": "inyanga",
+      "image": "photo-nyanga",
       "symbol": "mountain.2",
       "region": "Manicaland",
       "description": "Eastern Highlands landscapes, mountain walks and the Mutarazi Falls SkyWalk and SkyLine.",
@@ -74,12 +74,19 @@
         "Inyanga ",
         "Mutarazi"
       ],
-      "ecoTip": "Use designated routes, take litter home, and follow local guides and site rules. Ask permission before photographing people."
+      "ecoTip": "Use designated routes, take litter home, and follow local guides and site rules. Ask permission before photographing people.",
+      "photo": {
+        "author": "Babakathy",
+        "license": "Public domain",
+        "licenseURL": "https://commons.wikimedia.org/wiki/File:Central_nyanga_np.jpg",
+        "sourceURL": "https://commons.wikimedia.org/wiki/File:Central_nyanga_np.jpg",
+        "caption": "Nyanga National Park"
+      }
     },
     {
       "id": "chimanimani",
       "name": "Chimanimani National Park",
-      "image": "",
+      "image": "photo-chimanimani",
       "symbol": "figure.hiking",
       "region": "Manicaland",
       "description": "Mountain wilderness in Zimbabwe’s Eastern Highlands, with hiking routes through rugged scenery.",
@@ -87,12 +94,19 @@
       "sourceURL": "https://www.zimparks.org.zw/chimanimani-national-park/",
       "guideSearch": "Chimanimani",
       "aliases": [],
-      "ecoTip": "Use designated routes, take litter home, and follow local guides and site rules. Ask permission before photographing people."
+      "ecoTip": "Use designated routes, take litter home, and follow local guides and site rules. Ask permission before photographing people.",
+      "photo": {
+        "author": "JackyR",
+        "license": "CC BY-SA 3.0",
+        "licenseURL": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "sourceURL": "https://commons.wikimedia.org/wiki/File:Chimanimani%2C_Zimbabwe1.jpg",
+        "caption": "Chimanimani"
+      }
     },
     {
       "id": "great-zimbabwe",
       "name": "Great Zimbabwe",
-      "image": "",
+      "image": "photo-great-zimbabwe",
       "symbol": "building.columns",
       "region": "Masvingo",
       "description": "The stone-built remains of a major historic Shona settlement, including the Hill Complex and Great Enclosure.",
@@ -102,12 +116,19 @@
       "aliases": [
         "Great Zimbabwe National Monument"
       ],
-      "ecoTip": "Use designated routes, take litter home, and follow local guides and site rules. Ask permission before photographing people."
+      "ecoTip": "Use designated routes, take litter home, and follow local guides and site rules. Ask permission before photographing people.",
+      "photo": {
+        "author": "Andrew Moore from Johannesburg, South Africa",
+        "license": "CC BY-SA 2.0",
+        "licenseURL": "https://creativecommons.org/licenses/by-sa/2.0",
+        "sourceURL": "https://commons.wikimedia.org/wiki/File:Conical_Tower_-_Great_Enclosure_III_%2833736918448%29.jpg",
+        "caption": "Great Zimbabwe"
+      }
     },
     {
       "id": "khami",
       "name": "Khami Ruins",
-      "image": "",
+      "image": "photo-khami",
       "symbol": "building.columns",
       "region": "Matabeleland North",
       "description": "A heritage site near Bulawayo with decorated stone walls and terraces from the Kingdom of Butua.",
@@ -117,12 +138,19 @@
       "aliases": [
         "Khami Monument"
       ],
-      "ecoTip": "Use designated routes, take litter home, and follow local guides and site rules. Ask permission before photographing people."
+      "ecoTip": "Use designated routes, take litter home, and follow local guides and site rules. Ask permission before photographing people.",
+      "photo": {
+        "author": "Digr",
+        "license": "CC BY-SA 4.0",
+        "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceURL": "https://commons.wikimedia.org/wiki/File:ZW_Khami_Ruins.JPG",
+        "caption": "Khami"
+      }
     },
     {
       "id": "mana-pools",
       "name": "Mana Pools National Park",
-      "image": "",
+      "image": "photo-mana-pools",
       "symbol": "leaf",
       "region": "Mashonaland West",
       "description": "Zambezi river scenery and safari experiences on foot, by vehicle and by canoe with specialist operators.",
@@ -130,12 +158,19 @@
       "sourceURL": "https://africanbushcamps.com/wp-content/uploads/2020/08/African-Bush-Camps_Factsheets.pdf",
       "guideSearch": "Mana Pools",
       "aliases": [],
-      "ecoTip": "Use designated routes, take litter home, and follow local guides and site rules. Ask permission before photographing people."
+      "ecoTip": "Use designated routes, take litter home, and follow local guides and site rules. Ask permission before photographing people.",
+      "photo": {
+        "author": "Wikimedia Commons contributor (see source)",
+        "license": "Public domain",
+        "licenseURL": "https://commons.wikimedia.org/wiki/File:ZmbziRvr.jpg",
+        "sourceURL": "https://commons.wikimedia.org/wiki/File:ZmbziRvr.jpg",
+        "caption": "Mana Pools"
+      }
     },
     {
       "id": "gonarezhou",
       "name": "Gonarezhou National Park",
-      "image": "",
+      "image": "photo-gonarezhou",
       "symbol": "sun.haze",
       "region": "Masvingo",
       "description": "Lowveld wilderness, scenic viewpoints and wildlife routes around the Runde and Mwenezi river landscapes.",
@@ -143,12 +178,19 @@
       "sourceURL": "https://gonarezhou.org/visit-gonarezhou-national-park/activities/",
       "guideSearch": "Gonarezhou",
       "aliases": [],
-      "ecoTip": "Use designated routes, take litter home, and follow local guides and site rules. Ask permission before photographing people."
+      "ecoTip": "Use designated routes, take litter home, and follow local guides and site rules. Ask permission before photographing people.",
+      "photo": {
+        "author": "Babakathy at English Wikipedia",
+        "license": "Public domain",
+        "licenseURL": "https://commons.wikimedia.org/wiki/File:Buffalo_bend.jpg",
+        "sourceURL": "https://commons.wikimedia.org/wiki/File:Buffalo_bend.jpg",
+        "caption": "Gonarezhou National Park"
+      }
     },
     {
       "id": "kariba",
       "name": "Lake Kariba",
-      "image": "",
+      "image": "photo-kariba",
       "symbol": "sailboat",
       "region": "Mashonaland West",
       "description": "Lakeside scenery and opportunities to plan time on the water from Kariba.",
@@ -156,12 +198,19 @@
       "sourceURL": "https://www.zimparks.org.zw/lake-kariba-recreational-park/",
       "guideSearch": "Kariba",
       "aliases": [],
-      "ecoTip": "Use designated routes, take litter home, and follow local guides and site rules. Ask permission before photographing people."
+      "ecoTip": "Use designated routes, take litter home, and follow local guides and site rules. Ask permission before photographing people.",
+      "photo": {
+        "author": "ISS Expedition 4 Crew",
+        "license": "Public domain",
+        "licenseURL": "https://commons.wikimedia.org/wiki/File:Lake_Kariba.jpg",
+        "sourceURL": "https://commons.wikimedia.org/wiki/File:Lake_Kariba.jpg",
+        "caption": "Lake Kariba seen from space"
+      }
     },
     {
       "id": "matusadona",
       "name": "Matusadona National Park",
-      "image": "",
+      "image": "photo-matusadona",
       "symbol": "pawprint",
       "region": "Mashonaland West",
       "description": "A remote safari landscape along Lake Kariba, with woodland, hills and lakeshore wildlife viewing.",
@@ -169,40 +218,61 @@
       "sourceURL": "https://www.zimparks.org.zw/matusadona-national-park/",
       "guideSearch": "Matusadona",
       "aliases": [],
-      "ecoTip": "Use designated routes, take litter home, and follow local guides and site rules. Ask permission before photographing people."
+      "ecoTip": "Use designated routes, take litter home, and follow local guides and site rules. Ask permission before photographing people.",
+      "photo": {
+        "author": "ISS Expedition 4 Crew",
+        "license": "Public domain",
+        "licenseURL": "https://commons.wikimedia.org/wiki/File:Lake_Kariba.jpg",
+        "sourceURL": "https://commons.wikimedia.org/wiki/File:Lake_Kariba.jpg",
+        "caption": "Regional view: Lake Kariba, beside Matusadona"
+      }
     },
     {
       "id": "harare",
       "name": "Harare",
       "region": "Harare",
       "symbol": "building.2",
-      "image": "",
+      "image": "photo-harare",
       "description": "City art, museums, dining and places to stay, with nature outings nearby.",
       "sourceURL": "https://nationalgallery.co.zw/p/plan-your-visit",
       "guideSearch": "Harare",
       "aliases": [],
       "planning": "Confirm access, opening arrangements and any permits with the venue or visitor authority before travelling.",
-      "ecoTip": "Respect local communities and heritage, keep to designated routes, and take your litter home."
+      "ecoTip": "Respect local communities and heritage, keep to designated routes, and take your litter home.",
+      "photo": {
+        "author": "Baynham Goredema from Johannesburg, South Africa",
+        "license": "CC BY 2.0",
+        "licenseURL": "https://creativecommons.org/licenses/by/2.0",
+        "sourceURL": "https://commons.wikimedia.org/wiki/File:Crowne_Plaza%2C_Harare.png",
+        "caption": "Harare"
+      }
     },
     {
       "id": "bulawayo",
       "name": "Bulawayo",
       "region": "Bulawayo",
       "symbol": "building.columns",
-      "image": "",
+      "image": "photo-bulawayo",
       "description": "Museums and cultural heritage, with Khami and the Matobo Hills within reach.",
       "sourceURL": "https://naturalhistorymuseumzimbabwe.com/",
       "guideSearch": "Bulawayo",
       "aliases": [],
       "planning": "Confirm access, opening arrangements and any permits with the venue or visitor authority before travelling.",
-      "ecoTip": "Respect local communities and heritage, keep to designated routes, and take your litter home."
+      "ecoTip": "Respect local communities and heritage, keep to designated routes, and take your litter home.",
+      "photo": {
+        "author": "Prince Phumulani Nyoni",
+        "license": "Public domain",
+        "licenseURL": "https://commons.wikimedia.org/wiki/File:Bulawayo_CBD.jpg",
+        "sourceURL": "https://commons.wikimedia.org/wiki/File:Bulawayo_CBD.jpg",
+        "caption": "Bulawayo"
+      }
     },
     {
       "id": "bvumba",
       "name": "Bvumba Highlands",
       "region": "Manicaland",
       "symbol": "mountain.2",
-      "image": "",
+      "image": "photo-bvumba",
       "description": "Highland scenery, gardens, hotel dining and golf around the Bvumba area near Mutare.",
       "sourceURL": "https://www.leopardrockhotel.com/",
       "guideSearch": "Vumba",
@@ -210,53 +280,81 @@
         "Vumba"
       ],
       "planning": "Confirm access, opening arrangements and any permits with the venue or visitor authority before travelling.",
-      "ecoTip": "Respect local communities and heritage, keep to designated routes, and take your litter home."
+      "ecoTip": "Respect local communities and heritage, keep to designated routes, and take your litter home.",
+      "photo": {
+        "author": "Senorhorst Jahnsen from Mumbai, India",
+        "license": "CC BY 2.0",
+        "licenseURL": "https://creativecommons.org/licenses/by/2.0",
+        "sourceURL": "https://commons.wikimedia.org/wiki/File:Mount_Vumba_%286555288481%29.jpg",
+        "caption": "Bvumba Mountains"
+      }
     },
     {
       "id": "chivero",
       "name": "Lake Chivero Recreational Park",
       "region": "Mashonaland West",
       "symbol": "leaf",
-      "image": "",
+      "image": "photo-chivero",
       "description": "A park near Harare with woodland and birdlife around the lake.",
       "sourceURL": "https://www.zimparks.org.zw/lake-chivero-recreational-park-2/",
       "guideSearch": "Chivero",
       "aliases": [],
       "planning": "Confirm access, opening arrangements and any permits with the venue or visitor authority before travelling.",
-      "ecoTip": "Respect local communities and heritage, keep to designated routes, and take your litter home."
+      "ecoTip": "Respect local communities and heritage, keep to designated routes, and take your litter home.",
+      "photo": {
+        "author": "Gyron",
+        "license": "Public domain",
+        "licenseURL": "https://commons.wikimedia.org/wiki/File:Lake_Chivero.JPG",
+        "sourceURL": "https://commons.wikimedia.org/wiki/File:Lake_Chivero.JPG",
+        "caption": "Lake Chivero"
+      }
     },
     {
       "id": "chizarira",
       "name": "Chizarira National Park",
       "region": "Matabeleland North",
       "symbol": "mountain.2",
-      "image": "",
+      "image": "photo-chizarira",
       "description": "Escarpment scenery, gorges and birdwatching in a remote national park.",
       "sourceURL": "https://www.zimparks.org.zw/chizarira-national-park/",
       "guideSearch": "Chizarira",
       "aliases": [],
       "planning": "Confirm access, opening arrangements and any permits with the venue or visitor authority before travelling.",
-      "ecoTip": "Respect local communities and heritage, keep to designated routes, and take your litter home."
+      "ecoTip": "Respect local communities and heritage, keep to designated routes, and take your litter home.",
+      "photo": {
+        "author": "Dissoxciate",
+        "license": "CC BY-SA 4.0",
+        "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceURL": "https://commons.wikimedia.org/wiki/File:Chizarira_National_Park%2C_Zimbabwe.jpg",
+        "caption": "Chizarira National Park"
+      }
     },
     {
       "id": "mukuvisi",
       "name": "Mukuvisi Woodlands",
       "region": "Harare",
       "symbol": "leaf",
-      "image": "",
+      "image": "photo-mukuvisi",
       "description": "An urban woodland reserve with marked nature trails and birdwatching opportunities.",
       "sourceURL": "https://mukuvisiwoodlands.org/activities/",
       "guideSearch": "Harare",
       "aliases": [],
       "planning": "Confirm access, opening arrangements and any permits with the venue or visitor authority before travelling.",
-      "ecoTip": "Respect local communities and heritage, keep to designated routes, and take your litter home."
+      "ecoTip": "Respect local communities and heritage, keep to designated routes, and take your litter home.",
+      "photo": {
+        "author": "i_c_riddell",
+        "license": "CC BY 4.0",
+        "licenseURL": "https://creativecommons.org/licenses/by/4.0",
+        "sourceURL": "https://commons.wikimedia.org/wiki/File:African%20Spotted%20Creeper%20Salpornis%20salvadori%20xylodromus%2C%20Mukuvisi%2C%20Harare%2C%20Zimbabwe%201.jpg",
+        "caption": "Birdlife at Mukuvisi"
+      }
     },
     {
       "id": "gweru",
       "name": "Antelope Park, Gweru",
       "region": "Midlands",
       "symbol": "sun.max",
-      "image": "",
+      "image": "photo-gweru",
       "description": "A private park and accommodation destination near Gweru.",
       "sourceURL": "https://zimbabwetourism.net/portfolios/antelope-park/",
       "guideSearch": "Gweru",
@@ -264,14 +362,21 @@
         "Antelope Park"
       ],
       "planning": "Confirm access, opening arrangements and any permits with the venue or visitor authority before travelling.",
-      "ecoTip": "Respect local communities and heritage, keep to designated routes, and take your litter home."
+      "ecoTip": "Respect local communities and heritage, keep to designated routes, and take your litter home.",
+      "photo": {
+        "author": "Dnldhnsn",
+        "license": "CC BY-SA 3.0",
+        "licenseURL": "https://creativecommons.org/licenses/by-sa/3.0",
+        "sourceURL": "https://commons.wikimedia.org/wiki/File:Boggies_clock_Gweru.jpg",
+        "caption": "Gweru"
+      }
     },
     {
       "id": "penhalonga",
       "name": "Penhalonga & La Rochelle",
       "region": "Manicaland",
       "symbol": "tree",
-      "image": "",
+      "image": "photo-penhalonga",
       "description": "Country-house stays, gardens and dining in the Penhalonga area near Mutare.",
       "sourceURL": "https://larochellecentre.com/",
       "guideSearch": "Mutare",
@@ -279,7 +384,14 @@
         "La Rochelle"
       ],
       "planning": "Confirm access, opening arrangements and any permits with the venue or visitor authority before travelling.",
-      "ecoTip": "Respect local communities and heritage, keep to designated routes, and take your litter home."
+      "ecoTip": "Respect local communities and heritage, keep to designated routes, and take your litter home.",
+      "photo": {
+        "author": "The National Archives UK - Flickr account",
+        "license": "OGL v1.0",
+        "licenseURL": "https://NationalArchives.gov.uk/doc/open-government-licence/version/1/",
+        "sourceURL": "https://commons.wikimedia.org/wiki/File:The_National_Archives_UK_-_CO_1069-101-7.jpg",
+        "caption": "Historic view of Penhalonga — The National Archives"
+      }
     }
   ],
   "activities": [

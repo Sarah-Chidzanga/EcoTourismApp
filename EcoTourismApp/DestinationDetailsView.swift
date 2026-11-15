@@ -14,8 +14,9 @@ struct DestinationDetailsView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 24) {
-                DestinationArtwork(image: destination.image, symbol: destination.symbol, height: 260)
+                DestinationArtwork(image: destination.artworkImage, symbol: destination.symbol, height: 260)
                     .clipShape(RoundedRectangle(cornerRadius: 26))
+                if let photo = destination.photoCredit { PhotoCredit(photo: photo) }
                 DestinationOverview(destination: destination)
                 HStack {
                     Button {
@@ -29,10 +30,9 @@ struct DestinationDetailsView: View {
                         Label(isSaved ? "Saved" : "Save Place", systemImage: isSaved ? "bookmark.fill" : "bookmark")
                     }
                     Spacer()
-                    if let url = destination.mapURL {
-                        Link(destination: url) { Label("Find in Maps", systemImage: "map") }
-                    }
+
                 }
+                PlaceDirections(query: destination.mapQuery, isArea: true)
                 TravelInfoSection(title: "Plan Your Visit", text: destination.planning)
                 Picker("Explore this destination", selection: $selectedSection) {
                     Text("Activities").tag("Activities")

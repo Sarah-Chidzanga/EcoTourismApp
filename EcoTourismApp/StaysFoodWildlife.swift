@@ -97,8 +97,9 @@ struct VenueDetailView: View {
                         Label(isSaved ? "Saved" : "Save Place", systemImage: isSaved ? "bookmark.fill" : "bookmark")
                     }
                     Spacer()
-                    if let url = venue.mapURL { Link("Find in Maps", destination: url) }
+
                 }
+                PlaceDirections(query: "\(venue.name), \(venue.location), Zimbabwe")
                 TravelInfoSection(title: venue.category == "Stays" ? "Plan Your Stay" : "Plan Your Visit", text: venue.planning)
                 ExternalTravelLink(title: venue.sourceLabel == "Official website" ? "Visit Website & Enquire" : "View Contact Listing", address: venue.website)
                     .buttonStyle(TravelPrimaryButton())

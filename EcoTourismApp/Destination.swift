@@ -13,6 +13,16 @@ struct Destination: Identifiable, Codable {
     let guideSearch: String
     let aliases: [String]
     let ecoTip: String
+    let photo: TravelPhoto?
+
+    // Older servers may omit the newly bundled photos. Keep local artwork available.
+    var artworkImage: String {
+        photo == nil ? (TravelCatalog.bundled.destinations.first { $0.id == id }?.image ?? image) : image
+    }
+    var photoCredit: TravelPhoto? {
+        photo ?? TravelCatalog.bundled.destinations.first { $0.id == id }?.photo
+    }
+    var mapQuery: String { "\(name), Zimbabwe" }
 
     var mapURL: URL? {
         var components = URLComponents(string: "https://maps.apple.com/")

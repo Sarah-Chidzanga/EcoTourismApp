@@ -141,6 +141,7 @@ struct ActivityDetailView: View {
                     NavigationLink { DestinationDetailsView(destination: place) } label: {
                         Label(place.name, systemImage: "mappin.and.ellipse")
                     }
+                    PlaceDirections(query: place.mapQuery, isArea: true)
                 }
                 TravelInfoSection(title: "Plan This Experience", text: activity.planning)
                 TravelInfoSection(title: "Prices & Availability", text: "Check with the provider for a current quote and available dates. This listing does not reserve a place or collect payment.")
@@ -255,12 +256,32 @@ struct DestinationArtwork: View {
             LinearGradient(colors: [TravelStyle.forest, .black.opacity(0.85)], startPoint: .topLeading, endPoint: .bottomTrailing)
             if !image.isEmpty, UIImage(named: image) != nil {
                 Image(image).resizable().scaledToFill()
+            } else if let url = CatalogURL.website(image) {
+                AsyncImage(url: url) { phase in
+                    if let loaded = phase.image {
+                        loaded.resizable().scaledToFill()
+                    } else {
+                        ArtworkFallback(symbol: symbol)
+                    }
+                }
             } else {
-                Image(systemName: symbol).font(.system(size: 60, weight: .light)).foregroundStyle(.white.opacity(0.9))
+                ArtworkFallback(symbol: symbol)
             }
         }
         .frame(height: height)
         .clipped()
         .accessibilityHidden(true)
+    }
+}
+
+private struct ArtworkFallback: View {
+    let symbol: String
+
+    var body: some View {
+        VStack(spacing: 10) {
+            Image(systemName: symbol).font(.system(size: 44, weight: .light))
+            Text("Explore Zimbabwe").font(.caption)
+        }
+        .foregroundStyle(.white)
     }
 }
