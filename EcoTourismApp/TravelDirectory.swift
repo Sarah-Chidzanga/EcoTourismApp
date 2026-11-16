@@ -79,13 +79,13 @@ struct ActivityDirectoryRow: View {
             ActivityDetailView(activity: activity)
         } label: {
             HStack(alignment: .top, spacing: 14) {
-                Image(systemName: activity.symbol).font(.title2).foregroundStyle(TravelStyle.ink)
-                    .frame(width: 32)
+                ListingPhotoThumbnail(visual: activity.visual, symbol: activity.symbol)
                 VStack(alignment: .leading, spacing: 7) {
                     Text(activity.name).font(.headline).foregroundStyle(.primary)
                     Text(store.destinations.first { $0.id == activity.destinationID }?.name ?? "")
                         .font(.subheadline).foregroundStyle(.secondary)
                     Text(activity.category).font(.caption).foregroundStyle(TravelStyle.ink)
+                    Text(activity.visual.label).font(.caption2).foregroundStyle(.secondary)
                 }
                 Spacer(minLength: 0)
                 Image(systemName: "chevron.right").foregroundStyle(.secondary)
@@ -106,10 +106,11 @@ struct CompanyDirectoryRow: View {
             CompanyDetailView(company: company)
         } label: {
             HStack(alignment: .top, spacing: 14) {
-                Image(systemName: "building.2").font(.title2).foregroundStyle(TravelStyle.ink)
+                ListingPhotoThumbnail(visual: company.visual, symbol: "building.2")
                 VStack(alignment: .leading, spacing: 7) {
                     Text(company.name).font(.headline).foregroundStyle(.primary)
                     Text(company.kind).font(.caption).foregroundStyle(TravelStyle.ink)
+                    Text(company.visual.label).font(.caption2).foregroundStyle(.secondary)
                     Text(company.description).font(.subheadline).foregroundStyle(.secondary).lineLimit(3)
                 }
                 Spacer(minLength: 0)
@@ -134,6 +135,7 @@ struct ActivityDetailView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 24) {
+                ListingPhotoHeader(visual: activity.visual, symbol: activity.symbol)
                 Label(activity.category, systemImage: activity.symbol).foregroundStyle(TravelStyle.ink)
                 Text(activity.name).font(.largeTitle.bold())
                 Text(activity.description)
@@ -173,6 +175,7 @@ struct CompanyDetailView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 24) {
+                ListingPhotoHeader(visual: company.visual, symbol: "building.2")
                 Label(company.kind, systemImage: "building.2").foregroundStyle(TravelStyle.ink)
                 Text(company.name).font(.largeTitle.bold())
                 Text(company.description)

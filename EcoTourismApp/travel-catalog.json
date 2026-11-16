@@ -405,7 +405,9 @@
         "shearwater"
       ],
       "sourceURL": "https://www.shearwatervictoriafalls.com/victoria-falls-specials/",
-      "planning": "Confirm the date, total price, inclusions, transfers and participation requirements directly with the provider."
+      "planning": "Confirm the date, total price, inclusions, transfers and participation requirements directly with the provider.",
+      "image": "victoria",
+      "imageLabel": "Destination view: Victoria Falls — not the activity itself"
     },
     {
       "id": "sunset-cruise",
@@ -418,7 +420,9 @@
         "shearwater"
       ],
       "sourceURL": "https://wildhorizons.co.za/victoria-falls/",
-      "planning": "Confirm the date, total price, inclusions, transfers and participation requirements directly with the provider."
+      "planning": "Confirm the date, total price, inclusions, transfers and participation requirements directly with the provider.",
+      "image": "cruise",
+      "imageLabel": "Activity illustration — confirm the experience with the provider"
     },
     {
       "id": "rafting",
@@ -431,7 +435,9 @@
         "shearwater"
       ],
       "sourceURL": "https://wildhorizons.co.za/victoria-falls/",
-      "planning": "Confirm the date, total price, inclusions, transfers and participation requirements directly with the provider."
+      "planning": "Confirm the date, total price, inclusions, transfers and participation requirements directly with the provider.",
+      "image": "victoria",
+      "imageLabel": "Destination view: Victoria Falls — not the activity itself"
     },
     {
       "id": "bridge-bungee",
@@ -443,7 +449,9 @@
         "shearwater"
       ],
       "sourceURL": "https://www.shearwatervictoriafalls.com/experience/victoria-falls-bridge-adventures/",
-      "planning": "Confirm the date, total price, inclusions, transfers and participation requirements directly with the provider."
+      "planning": "Confirm the date, total price, inclusions, transfers and participation requirements directly with the provider.",
+      "image": "jump",
+      "imageLabel": "Activity illustration — confirm the experience with the provider"
     },
     {
       "id": "helicopter",
@@ -455,7 +463,9 @@
         "shearwater"
       ],
       "sourceURL": "https://www.shearwatervictoriafalls.com/victoria-falls-specials/",
-      "planning": "Confirm the date, total price, inclusions, transfers and participation requirements directly with the provider."
+      "planning": "Confirm the date, total price, inclusions, transfers and participation requirements directly with the provider.",
+      "image": "helicopter",
+      "imageLabel": "Activity illustration — confirm the experience with the provider"
     },
     {
       "id": "gorge",
@@ -467,7 +477,9 @@
         "wild-horizons"
       ],
       "sourceURL": "https://wildhorizons.co.za/victoria-falls/",
-      "planning": "Confirm the date, total price, inclusions, transfers and participation requirements directly with the provider."
+      "planning": "Confirm the date, total price, inclusions, transfers and participation requirements directly with the provider.",
+      "image": "victoria",
+      "imageLabel": "Destination view: Victoria Falls — not the activity itself"
     },
     {
       "id": "rhino",
@@ -479,7 +491,9 @@
         "matobo-lodge"
       ],
       "sourceURL": "https://www.matobohillslodge.co.zw/rhino-tracking-zimbabwe/",
-      "planning": "Confirm the date, total price, inclusions, transfers and participation requirements directly with the provider."
+      "planning": "Confirm the date, total price, inclusions, transfers and participation requirements directly with the provider.",
+      "image": "rhinoTracking",
+      "imageLabel": "Activity illustration — confirm the experience with the provider"
     },
     {
       "id": "rock-art",
@@ -491,7 +505,9 @@
         "matobo-lodge"
       ],
       "sourceURL": "https://www.matobohillslodge.co.zw/things-to-do/",
-      "planning": "Confirm the date, total price, inclusions, transfers and participation requirements directly with the provider."
+      "planning": "Confirm the date, total price, inclusions, transfers and participation requirements directly with the provider.",
+      "image": "rockArt",
+      "imageLabel": "Activity illustration — confirm the experience with the provider"
     },
     {
       "id": "matobo-view",
@@ -503,7 +519,9 @@
         "matobo-lodge"
       ],
       "sourceURL": "https://www.matobohillslodge.co.zw/things-to-do/",
-      "planning": "Confirm the date, total price, inclusions, transfers and participation requirements directly with the provider."
+      "planning": "Confirm the date, total price, inclusions, transfers and participation requirements directly with the provider.",
+      "image": "matopo",
+      "imageLabel": "Destination view: Matobo Hills — not the activity itself"
     },
     {
       "id": "hwange-drive",
@@ -515,7 +533,9 @@
         "imvelo"
       ],
       "sourceURL": "https://imvelosafarilodges.com/hwange-classic-combo/",
-      "planning": "Confirm the date, total price, inclusions, transfers and participation requirements directly with the provider."
+      "planning": "Confirm the date, total price, inclusions, transfers and participation requirements directly with the provider.",
+      "image": "gamedrive",
+      "imageLabel": "Activity illustration — confirm the experience with the provider"
     },
     {
       "id": "hwange-walk",
@@ -527,7 +547,9 @@
         "imvelo"
       ],
       "sourceURL": "https://imvelosafarilodges.com/hwange-classic-combo/",
-      "planning": "Confirm the date, total price, inclusions, transfers and participation requirements directly with the provider."
+      "planning": "Confirm the date, total price, inclusions, transfers and participation requirements directly with the provider.",
+      "image": "hiking",
+      "imageLabel": "Activity illustration — confirm the experience with the provider"
     },
     {
       "id": "waterhole",
@@ -539,7 +561,9 @@
         "imvelo"
       ],
       "sourceURL": "https://imvelosafarilodges.com/hwange-classic-combo/",
-      "planning": "Confirm the date, total price, inclusions, transfers and participation requirements directly with the provider."
+      "planning": "Confirm the date, total price, inclusions, transfers and participation requirements directly with the provider.",
+      "image": "hwange",
+      "imageLabel": "Destination view: Hwange National Park — not the activity itself"
     },
     {
       "id": "cave-view",
@@ -551,7 +575,9 @@
         "zimparks"
       ],
       "sourceURL": "https://www.wetlandscop15.gov.zw/service/chinhoyi-caves-recreational-park/",
-      "planning": "Confirm the date, total price, inclusions, transfers and participation requirements directly with the provider."
+      "planning": "Confirm the date, total price, inclusions, transfers and participation requirements directly with the provider.",
+      "image": "chinhoyi",
+      "imageLabel": "Destination view: Chinhoyi Caves — not the activity itself"
     },
     {
       "id": "nyanga-walk",
@@ -563,7 +589,9 @@
         "zimparks"
       ],
       "sourceURL": "https://www.zimparks.org.zw/nyanga-national-park/",
-      "planning": "Confirm the date, total price, inclusions, transfers and participation requirements directly with the provider."
+      "planning": "Confirm the date, total price, inclusions, transfers and participation requirements directly with the provider.",
+      "image": "hiking",
+      "imageLabel": "Activity illustration — confirm the experience with the provider"
     },
     {
       "id": "skywalk",
@@ -575,7 +603,16 @@
         "far-wide"
       ],
       "sourceURL": "https://www.farandwide.co.zw/copy-of-events",
-      "planning": "Confirm the date, total price, inclusions, transfers and participation requirements directly with the provider."
+      "planning": "Confirm the date, total price, inclusions, transfers and participation requirements directly with the provider.",
+      "image": "photo-nyanga",
+      "imageLabel": "Destination view: Nyanga & Mutarazi Falls — not the activity itself",
+      "photo": {
+        "author": "Babakathy",
+        "license": "Public domain",
+        "licenseURL": "https://commons.wikimedia.org/wiki/File:Central_nyanga_np.jpg",
+        "sourceURL": "https://commons.wikimedia.org/wiki/File:Central_nyanga_np.jpg",
+        "caption": "Nyanga National Park"
+      }
     },
     {
       "id": "skyline",
@@ -587,7 +624,16 @@
         "far-wide"
       ],
       "sourceURL": "https://www.farandwide.co.zw/copy-of-events",
-      "planning": "Confirm the date, total price, inclusions, transfers and participation requirements directly with the provider."
+      "planning": "Confirm the date, total price, inclusions, transfers and participation requirements directly with the provider.",
+      "image": "photo-nyanga",
+      "imageLabel": "Destination view: Nyanga & Mutarazi Falls — not the activity itself",
+      "photo": {
+        "author": "Babakathy",
+        "license": "Public domain",
+        "licenseURL": "https://commons.wikimedia.org/wiki/File:Central_nyanga_np.jpg",
+        "sourceURL": "https://commons.wikimedia.org/wiki/File:Central_nyanga_np.jpg",
+        "caption": "Nyanga National Park"
+      }
     },
     {
       "id": "chim-hike",
@@ -599,7 +645,9 @@
         "zimparks"
       ],
       "sourceURL": "https://www.zimparks.org.zw/chimanimani-national-park/",
-      "planning": "Confirm the date, total price, inclusions, transfers and participation requirements directly with the provider."
+      "planning": "Confirm the date, total price, inclusions, transfers and participation requirements directly with the provider.",
+      "image": "hiking",
+      "imageLabel": "Activity illustration — confirm the experience with the provider"
     },
     {
       "id": "great-heritage",
@@ -611,7 +659,16 @@
         "nmmz"
       ],
       "sourceURL": "https://whc.unesco.org/en/list/364/",
-      "planning": "Confirm the date, total price, inclusions, transfers and participation requirements directly with the provider."
+      "planning": "Confirm the date, total price, inclusions, transfers and participation requirements directly with the provider.",
+      "image": "photo-great-zimbabwe",
+      "imageLabel": "Destination view: Great Zimbabwe — not the activity itself",
+      "photo": {
+        "author": "Andrew Moore from Johannesburg, South Africa",
+        "license": "CC BY-SA 2.0",
+        "licenseURL": "https://creativecommons.org/licenses/by-sa/2.0",
+        "sourceURL": "https://commons.wikimedia.org/wiki/File:Conical_Tower_-_Great_Enclosure_III_%2833736918448%29.jpg",
+        "caption": "Great Zimbabwe"
+      }
     },
     {
       "id": "khami-heritage",
@@ -623,7 +680,16 @@
         "nmmz"
       ],
       "sourceURL": "https://whc.unesco.org/en/list/365/",
-      "planning": "Confirm the date, total price, inclusions, transfers and participation requirements directly with the provider."
+      "planning": "Confirm the date, total price, inclusions, transfers and participation requirements directly with the provider.",
+      "image": "photo-khami",
+      "imageLabel": "Destination view: Khami Ruins — not the activity itself",
+      "photo": {
+        "author": "Digr",
+        "license": "CC BY-SA 4.0",
+        "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceURL": "https://commons.wikimedia.org/wiki/File:ZW_Khami_Ruins.JPG",
+        "caption": "Khami"
+      }
     },
     {
       "id": "mana-walk",
@@ -635,7 +701,9 @@
         "abc"
       ],
       "sourceURL": "https://africanbushcamps.com/wp-content/uploads/2020/08/African-Bush-Camps_Factsheets.pdf",
-      "planning": "Confirm the date, total price, inclusions, transfers and participation requirements directly with the provider."
+      "planning": "Confirm the date, total price, inclusions, transfers and participation requirements directly with the provider.",
+      "image": "hiking",
+      "imageLabel": "Activity illustration — confirm the experience with the provider"
     },
     {
       "id": "mana-canoe",
@@ -647,7 +715,16 @@
         "abc"
       ],
       "sourceURL": "https://africanbushcamps.com/wp-content/uploads/2020/08/African-Bush-Camps_Factsheets.pdf",
-      "planning": "Confirm the date, total price, inclusions, transfers and participation requirements directly with the provider."
+      "planning": "Confirm the date, total price, inclusions, transfers and participation requirements directly with the provider.",
+      "image": "photo-mana-pools",
+      "imageLabel": "Destination view: Mana Pools National Park — not the activity itself",
+      "photo": {
+        "author": "Wikimedia Commons contributor (see source)",
+        "license": "Public domain",
+        "licenseURL": "https://commons.wikimedia.org/wiki/File:ZmbziRvr.jpg",
+        "sourceURL": "https://commons.wikimedia.org/wiki/File:ZmbziRvr.jpg",
+        "caption": "Mana Pools"
+      }
     },
     {
       "id": "mana-drive",
@@ -659,7 +736,9 @@
         "abc"
       ],
       "sourceURL": "https://africanbushcamps.com/wp-content/uploads/2020/08/African-Bush-Camps_Factsheets.pdf",
-      "planning": "Confirm the date, total price, inclusions, transfers and participation requirements directly with the provider."
+      "planning": "Confirm the date, total price, inclusions, transfers and participation requirements directly with the provider.",
+      "image": "gamedrive",
+      "imageLabel": "Activity illustration — confirm the experience with the provider"
     },
     {
       "id": "gona-drive",
@@ -671,7 +750,9 @@
         "gonarezhou-park"
       ],
       "sourceURL": "https://gonarezhou.org/visit-gonarezhou-national-park/activities/",
-      "planning": "Confirm the date, total price, inclusions, transfers and participation requirements directly with the provider."
+      "planning": "Confirm the date, total price, inclusions, transfers and participation requirements directly with the provider.",
+      "image": "gamedrive",
+      "imageLabel": "Activity illustration — confirm the experience with the provider"
     },
     {
       "id": "gona-bird",
@@ -683,7 +764,16 @@
         "gonarezhou-park"
       ],
       "sourceURL": "https://gonarezhou.org/visit-gonarezhou-national-park/activities/",
-      "planning": "Confirm the date, total price, inclusions, transfers and participation requirements directly with the provider."
+      "planning": "Confirm the date, total price, inclusions, transfers and participation requirements directly with the provider.",
+      "image": "photo-gonarezhou",
+      "imageLabel": "Destination view: Gonarezhou National Park — not the activity itself",
+      "photo": {
+        "author": "Babakathy at English Wikipedia",
+        "license": "Public domain",
+        "licenseURL": "https://commons.wikimedia.org/wiki/File:Buffalo_bend.jpg",
+        "sourceURL": "https://commons.wikimedia.org/wiki/File:Buffalo_bend.jpg",
+        "caption": "Gonarezhou National Park"
+      }
     },
     {
       "id": "gona-guided",
@@ -695,7 +785,9 @@
         "gonarezhou-park"
       ],
       "sourceURL": "https://gonarezhou.org/visit-gonarezhou-national-park/activities/",
-      "planning": "Confirm the date, total price, inclusions, transfers and participation requirements directly with the provider."
+      "planning": "Confirm the date, total price, inclusions, transfers and participation requirements directly with the provider.",
+      "image": "gamedrive",
+      "imageLabel": "Activity illustration — confirm the experience with the provider"
     },
     {
       "id": "kariba-lake",
@@ -707,7 +799,16 @@
         "zimparks"
       ],
       "sourceURL": "https://www.zimparks.org.zw/lake-kariba-recreational-park/",
-      "planning": "Confirm the date, total price, inclusions, transfers and participation requirements directly with the provider."
+      "planning": "Confirm the date, total price, inclusions, transfers and participation requirements directly with the provider.",
+      "image": "photo-kariba",
+      "imageLabel": "Destination view: Lake Kariba — not the activity itself",
+      "photo": {
+        "author": "ISS Expedition 4 Crew",
+        "license": "Public domain",
+        "licenseURL": "https://commons.wikimedia.org/wiki/File:Lake_Kariba.jpg",
+        "sourceURL": "https://commons.wikimedia.org/wiki/File:Lake_Kariba.jpg",
+        "caption": "Lake Kariba seen from space"
+      }
     },
     {
       "id": "matus-drive",
@@ -719,7 +820,9 @@
         "matusadona-park"
       ],
       "sourceURL": "https://www.zimparks.org.zw/matusadona-national-park/",
-      "planning": "Confirm the date, total price, inclusions, transfers and participation requirements directly with the provider."
+      "planning": "Confirm the date, total price, inclusions, transfers and participation requirements directly with the provider.",
+      "image": "gamedrive",
+      "imageLabel": "Activity illustration — confirm the experience with the provider"
     },
     {
       "id": "matus-birds",
@@ -731,7 +834,16 @@
         "matusadona-park"
       ],
       "sourceURL": "https://www.zimparks.org.zw/matusadona-national-park/",
-      "planning": "Confirm the date, total price, inclusions, transfers and participation requirements directly with the provider."
+      "planning": "Confirm the date, total price, inclusions, transfers and participation requirements directly with the provider.",
+      "image": "photo-matusadona",
+      "imageLabel": "Destination view: Matusadona National Park — not the activity itself",
+      "photo": {
+        "author": "ISS Expedition 4 Crew",
+        "license": "Public domain",
+        "licenseURL": "https://commons.wikimedia.org/wiki/File:Lake_Kariba.jpg",
+        "sourceURL": "https://commons.wikimedia.org/wiki/File:Lake_Kariba.jpg",
+        "caption": "Regional view: Lake Kariba, beside Matusadona"
+      }
     },
     {
       "id": "vf-game-drive",
@@ -743,7 +855,9 @@
         "vf-collection"
       ],
       "sourceURL": "https://victoria-falls-safari-collection.com/en-US/activities",
-      "planning": "Ask which reserve the drive visits, whether day visitors can join, and what transport and fees are included."
+      "planning": "Ask which reserve the drive visits, whether day visitors can join, and what transport and fees are included.",
+      "image": "gamedrive",
+      "imageLabel": "Activity illustration — confirm the experience with the provider"
     },
     {
       "id": "zambezi-drive",
@@ -755,7 +869,9 @@
         "vf-river-operator"
       ],
       "sourceURL": "https://victoriafallsriverlodge.com/victoria-falls-safari/",
-      "planning": "This operator arranges activities for in-house guests. Confirm age restrictions, inclusions and dates with the lodge."
+      "planning": "This operator arranges activities for in-house guests. Confirm age restrictions, inclusions and dates with the lodge.",
+      "image": "gamedrive",
+      "imageLabel": "Activity illustration — confirm the experience with the provider"
     },
     {
       "id": "boma-evening",
@@ -767,7 +883,9 @@
         "vf-collection"
       ],
       "sourceURL": "https://victoria-falls-safari-collection.com/en-US/wine-and-dine",
-      "planning": "Reserve directly and confirm transport, dietary requirements and the total meal price."
+      "planning": "Reserve directly and confirm transport, dietary requirements and the total meal price.",
+      "image": "victoria",
+      "imageLabel": "Destination view: Victoria Falls — not the activity itself"
     },
     {
       "id": "harare-gallery",
@@ -779,7 +897,16 @@
         "gallery"
       ],
       "sourceURL": "https://nationalgallery.co.zw/p/plan-your-visit",
-      "planning": "Contact the provider for current opening arrangements, available dates, participation requirements and a full quote."
+      "planning": "Contact the provider for current opening arrangements, available dates, participation requirements and a full quote.",
+      "image": "listing-gallery",
+      "imageLabel": "National Gallery of Zimbabwe",
+      "photo": {
+        "author": "Awinda",
+        "license": "CC BY-SA 3.0",
+        "licenseURL": "https://creativecommons.org/licenses/by-sa/3.0",
+        "sourceURL": "https://commons.wikimedia.org/wiki/File:National_Gallery_Zimbabwe.jpg",
+        "caption": "National Gallery Zimbabwe"
+      }
     },
     {
       "id": "byo-museum",
@@ -791,7 +918,16 @@
         "nmmz"
       ],
       "sourceURL": "https://naturalhistorymuseumzimbabwe.com/",
-      "planning": "Contact the provider for current opening arrangements, available dates, participation requirements and a full quote."
+      "planning": "Contact the provider for current opening arrangements, available dates, participation requirements and a full quote.",
+      "image": "photo-bulawayo",
+      "imageLabel": "Destination view: Bulawayo — not the activity itself",
+      "photo": {
+        "author": "Prince Phumulani Nyoni",
+        "license": "Public domain",
+        "licenseURL": "https://commons.wikimedia.org/wiki/File:Bulawayo_CBD.jpg",
+        "sourceURL": "https://commons.wikimedia.org/wiki/File:Bulawayo_CBD.jpg",
+        "caption": "Bulawayo"
+      }
     },
     {
       "id": "bvumba-golf",
@@ -803,7 +939,16 @@
         "leopard-rock"
       ],
       "sourceURL": "https://www.leopardrockhotel.com/",
-      "planning": "Contact the provider for current opening arrangements, available dates, participation requirements and a full quote."
+      "planning": "Contact the provider for current opening arrangements, available dates, participation requirements and a full quote.",
+      "image": "photo-bvumba",
+      "imageLabel": "Destination view: Bvumba Highlands — not the activity itself",
+      "photo": {
+        "author": "Senorhorst Jahnsen from Mumbai, India",
+        "license": "CC BY 2.0",
+        "licenseURL": "https://creativecommons.org/licenses/by/2.0",
+        "sourceURL": "https://commons.wikimedia.org/wiki/File:Mount_Vumba_%286555288481%29.jpg",
+        "caption": "Bvumba Mountains"
+      }
     },
     {
       "id": "chivero-bird",
@@ -815,7 +960,16 @@
         "zimparks"
       ],
       "sourceURL": "https://www.zimparks.org.zw/lake-chivero-recreational-park-2/",
-      "planning": "Contact the provider for current opening arrangements, available dates, participation requirements and a full quote."
+      "planning": "Contact the provider for current opening arrangements, available dates, participation requirements and a full quote.",
+      "image": "photo-chivero",
+      "imageLabel": "Destination view: Lake Chivero Recreational Park — not the activity itself",
+      "photo": {
+        "author": "Gyron",
+        "license": "Public domain",
+        "licenseURL": "https://commons.wikimedia.org/wiki/File:Lake_Chivero.JPG",
+        "sourceURL": "https://commons.wikimedia.org/wiki/File:Lake_Chivero.JPG",
+        "caption": "Lake Chivero"
+      }
     },
     {
       "id": "chizarira-view",
@@ -827,7 +981,16 @@
         "zimparks"
       ],
       "sourceURL": "https://www.zimparks.org.zw/chizarira-national-park/",
-      "planning": "Contact the provider for current opening arrangements, available dates, participation requirements and a full quote."
+      "planning": "Contact the provider for current opening arrangements, available dates, participation requirements and a full quote.",
+      "image": "photo-chizarira",
+      "imageLabel": "Destination view: Chizarira National Park — not the activity itself",
+      "photo": {
+        "author": "Dissoxciate",
+        "license": "CC BY-SA 4.0",
+        "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceURL": "https://commons.wikimedia.org/wiki/File:Chizarira_National_Park%2C_Zimbabwe.jpg",
+        "caption": "Chizarira National Park"
+      }
     },
     {
       "id": "mukuvisi-trails",
@@ -839,7 +1002,16 @@
         "mukuvisi-team"
       ],
       "sourceURL": "https://mukuvisiwoodlands.org/activities/",
-      "planning": "Contact the provider for current opening arrangements, available dates, participation requirements and a full quote."
+      "planning": "Contact the provider for current opening arrangements, available dates, participation requirements and a full quote.",
+      "image": "photo-mukuvisi",
+      "imageLabel": "Destination view: Mukuvisi Woodlands — not the activity itself",
+      "photo": {
+        "author": "i_c_riddell",
+        "license": "CC BY 4.0",
+        "licenseURL": "https://creativecommons.org/licenses/by/4.0",
+        "sourceURL": "https://commons.wikimedia.org/wiki/File:African%20Spotted%20Creeper%20Salpornis%20salvadori%20xylodromus%2C%20Mukuvisi%2C%20Harare%2C%20Zimbabwe%201.jpg",
+        "caption": "Birdlife at Mukuvisi"
+      }
     },
     {
       "id": "antelope-visit",
@@ -851,7 +1023,16 @@
         "antelope"
       ],
       "sourceURL": "https://zimbabwetourism.net/portfolios/antelope-park/",
-      "planning": "Contact the provider for current opening arrangements, available dates, participation requirements and a full quote."
+      "planning": "Contact the provider for current opening arrangements, available dates, participation requirements and a full quote.",
+      "image": "photo-gweru",
+      "imageLabel": "Destination view: Antelope Park, Gweru — not the activity itself",
+      "photo": {
+        "author": "Dnldhnsn",
+        "license": "CC BY-SA 3.0",
+        "licenseURL": "https://creativecommons.org/licenses/by-sa/3.0",
+        "sourceURL": "https://commons.wikimedia.org/wiki/File:Boggies_clock_Gweru.jpg",
+        "caption": "Gweru"
+      }
     },
     {
       "id": "larochelle-gardens",
@@ -863,7 +1044,16 @@
         "la-rochelle"
       ],
       "sourceURL": "https://larochellecentre.com/",
-      "planning": "Contact the provider for current opening arrangements, available dates, participation requirements and a full quote."
+      "planning": "Contact the provider for current opening arrangements, available dates, participation requirements and a full quote.",
+      "image": "photo-penhalonga",
+      "imageLabel": "Destination view: Penhalonga & La Rochelle — not the activity itself",
+      "photo": {
+        "author": "The National Archives UK - Flickr account",
+        "license": "OGL v1.0",
+        "licenseURL": "https://NationalArchives.gov.uk/doc/open-government-licence/version/1/",
+        "sourceURL": "https://commons.wikimedia.org/wiki/File:The_National_Archives_UK_-_CO_1069-101-7.jpg",
+        "caption": "Historic view of Penhalonga — The National Archives"
+      }
     }
   ],
   "companies": [
@@ -875,7 +1065,9 @@
       "website": "https://wildhorizons.co.za/victoria-falls/",
       "destinationIDs": [
         "victoria-falls"
-      ]
+      ],
+      "image": "victoria",
+      "imageLabel": "Operating area: Victoria Falls — not a company property"
     },
     {
       "id": "shearwater",
@@ -885,7 +1077,9 @@
       "website": "https://www.shearwatervictoriafalls.com/victoria-falls-specials/",
       "destinationIDs": [
         "victoria-falls"
-      ]
+      ],
+      "image": "victoria",
+      "imageLabel": "Operating area: Victoria Falls — not a company property"
     },
     {
       "id": "matobo-lodge",
@@ -895,7 +1089,9 @@
       "website": "https://www.matobohillslodge.co.zw/things-to-do/",
       "destinationIDs": [
         "matobo"
-      ]
+      ],
+      "image": "matopo",
+      "imageLabel": "Operating area: Matobo Hills — not a company property"
     },
     {
       "id": "imvelo",
@@ -905,7 +1101,9 @@
       "website": "https://imvelosafarilodges.com/hwange-classic-combo/",
       "destinationIDs": [
         "hwange"
-      ]
+      ],
+      "image": "hwange",
+      "imageLabel": "Operating area: Hwange National Park — not a company property"
     },
     {
       "id": "far-wide",
@@ -915,7 +1113,16 @@
       "website": "https://www.farandwide.co.zw/copy-of-events",
       "destinationIDs": [
         "nyanga"
-      ]
+      ],
+      "image": "photo-nyanga",
+      "imageLabel": "Operating area: Nyanga & Mutarazi Falls — not a company property",
+      "photo": {
+        "author": "Babakathy",
+        "license": "Public domain",
+        "licenseURL": "https://commons.wikimedia.org/wiki/File:Central_nyanga_np.jpg",
+        "sourceURL": "https://commons.wikimedia.org/wiki/File:Central_nyanga_np.jpg",
+        "caption": "Nyanga National Park"
+      }
     },
     {
       "id": "abc",
@@ -925,7 +1132,16 @@
       "website": "https://africanbushcamps.com/",
       "destinationIDs": [
         "mana-pools"
-      ]
+      ],
+      "image": "photo-mana-pools",
+      "imageLabel": "Operating area: Mana Pools National Park — not a company property",
+      "photo": {
+        "author": "Wikimedia Commons contributor (see source)",
+        "license": "Public domain",
+        "licenseURL": "https://commons.wikimedia.org/wiki/File:ZmbziRvr.jpg",
+        "sourceURL": "https://commons.wikimedia.org/wiki/File:ZmbziRvr.jpg",
+        "caption": "Mana Pools"
+      }
     },
     {
       "id": "zimparks",
@@ -944,7 +1160,9 @@
         "kariba",
         "chivero",
         "chizarira"
-      ]
+      ],
+      "image": "victoria",
+      "imageLabel": "Operating area: Victoria Falls — not a company property"
     },
     {
       "id": "nmmz",
@@ -956,7 +1174,16 @@
         "great-zimbabwe",
         "khami",
         "bulawayo"
-      ]
+      ],
+      "image": "photo-great-zimbabwe",
+      "imageLabel": "Operating area: Great Zimbabwe — not a company property",
+      "photo": {
+        "author": "Andrew Moore from Johannesburg, South Africa",
+        "license": "CC BY-SA 2.0",
+        "licenseURL": "https://creativecommons.org/licenses/by-sa/2.0",
+        "sourceURL": "https://commons.wikimedia.org/wiki/File:Conical_Tower_-_Great_Enclosure_III_%2833736918448%29.jpg",
+        "caption": "Great Zimbabwe"
+      }
     },
     {
       "id": "gonarezhou-park",
@@ -966,7 +1193,16 @@
       "website": "https://gonarezhou.org/visit-gonarezhou-national-park/activities/",
       "destinationIDs": [
         "gonarezhou"
-      ]
+      ],
+      "image": "photo-gonarezhou",
+      "imageLabel": "Operating area: Gonarezhou National Park — not a company property",
+      "photo": {
+        "author": "Babakathy at English Wikipedia",
+        "license": "Public domain",
+        "licenseURL": "https://commons.wikimedia.org/wiki/File:Buffalo_bend.jpg",
+        "sourceURL": "https://commons.wikimedia.org/wiki/File:Buffalo_bend.jpg",
+        "caption": "Gonarezhou National Park"
+      }
     },
     {
       "id": "matusadona-park",
@@ -976,7 +1212,16 @@
       "website": "https://visitmatusadona.org/day-visitors/",
       "destinationIDs": [
         "matusadona"
-      ]
+      ],
+      "image": "photo-matusadona",
+      "imageLabel": "Operating area: Matusadona National Park — not a company property",
+      "photo": {
+        "author": "ISS Expedition 4 Crew",
+        "license": "Public domain",
+        "licenseURL": "https://commons.wikimedia.org/wiki/File:Lake_Kariba.jpg",
+        "sourceURL": "https://commons.wikimedia.org/wiki/File:Lake_Kariba.jpg",
+        "caption": "Regional view: Lake Kariba, beside Matusadona"
+      }
     },
     {
       "id": "vf-collection",
@@ -986,7 +1231,9 @@
       "website": "https://victoria-falls-safari-collection.com/en-US/activities",
       "destinationIDs": [
         "victoria-falls"
-      ]
+      ],
+      "image": "victoria",
+      "imageLabel": "Operating area: Victoria Falls — not a company property"
     },
     {
       "id": "vf-river-operator",
@@ -996,7 +1243,9 @@
       "website": "https://victoriafallsriverlodge.com/victoria-falls-safari/",
       "destinationIDs": [
         "victoria-falls"
-      ]
+      ],
+      "image": "victoria",
+      "imageLabel": "Operating area: Victoria Falls — not a company property"
     },
     {
       "id": "gallery",
@@ -1006,7 +1255,16 @@
       "website": "https://nationalgallery.co.zw/p/plan-your-visit",
       "destinationIDs": [
         "harare"
-      ]
+      ],
+      "image": "listing-gallery",
+      "imageLabel": "National Gallery of Zimbabwe",
+      "photo": {
+        "author": "Awinda",
+        "license": "CC BY-SA 3.0",
+        "licenseURL": "https://creativecommons.org/licenses/by-sa/3.0",
+        "sourceURL": "https://commons.wikimedia.org/wiki/File:National_Gallery_Zimbabwe.jpg",
+        "caption": "National Gallery Zimbabwe"
+      }
     },
     {
       "id": "mukuvisi-team",
@@ -1017,7 +1275,16 @@
       "destinationIDs": [
         "mukuvisi",
         "harare"
-      ]
+      ],
+      "image": "photo-mukuvisi",
+      "imageLabel": "Operating area: Mukuvisi Woodlands — not a company property",
+      "photo": {
+        "author": "i_c_riddell",
+        "license": "CC BY 4.0",
+        "licenseURL": "https://creativecommons.org/licenses/by/4.0",
+        "sourceURL": "https://commons.wikimedia.org/wiki/File:African%20Spotted%20Creeper%20Salpornis%20salvadori%20xylodromus%2C%20Mukuvisi%2C%20Harare%2C%20Zimbabwe%201.jpg",
+        "caption": "Birdlife at Mukuvisi"
+      }
     },
     {
       "id": "leopard-rock",
@@ -1027,7 +1294,16 @@
       "website": "https://www.leopardrockhotel.com/",
       "destinationIDs": [
         "bvumba"
-      ]
+      ],
+      "image": "photo-bvumba",
+      "imageLabel": "Operating area: Bvumba Highlands — not a company property",
+      "photo": {
+        "author": "Senorhorst Jahnsen from Mumbai, India",
+        "license": "CC BY 2.0",
+        "licenseURL": "https://creativecommons.org/licenses/by/2.0",
+        "sourceURL": "https://commons.wikimedia.org/wiki/File:Mount_Vumba_%286555288481%29.jpg",
+        "caption": "Bvumba Mountains"
+      }
     },
     {
       "id": "antelope",
@@ -1037,7 +1313,16 @@
       "website": "https://zimbabwetourism.net/portfolios/antelope-park/",
       "destinationIDs": [
         "gweru"
-      ]
+      ],
+      "image": "photo-gweru",
+      "imageLabel": "Operating area: Antelope Park, Gweru — not a company property",
+      "photo": {
+        "author": "Dnldhnsn",
+        "license": "CC BY-SA 3.0",
+        "licenseURL": "https://creativecommons.org/licenses/by-sa/3.0",
+        "sourceURL": "https://commons.wikimedia.org/wiki/File:Boggies_clock_Gweru.jpg",
+        "caption": "Gweru"
+      }
     },
     {
       "id": "la-rochelle",
@@ -1047,7 +1332,16 @@
       "website": "https://larochellecentre.com/",
       "destinationIDs": [
         "penhalonga"
-      ]
+      ],
+      "image": "photo-penhalonga",
+      "imageLabel": "Operating area: Penhalonga & La Rochelle — not a company property",
+      "photo": {
+        "author": "The National Archives UK - Flickr account",
+        "license": "OGL v1.0",
+        "licenseURL": "https://NationalArchives.gov.uk/doc/open-government-licence/version/1/",
+        "sourceURL": "https://commons.wikimedia.org/wiki/File:The_National_Archives_UK_-_CO_1069-101-7.jpg",
+        "caption": "Historic view of Penhalonga — The National Archives"
+      }
     },
     {
       "id": "amalinda",
@@ -1058,7 +1352,9 @@
       "destinationIDs": [
         "matobo",
         "hwange"
-      ]
+      ],
+      "image": "matopo",
+      "imageLabel": "Operating area: Matobo Hills — not a company property"
     }
   ],
   "venues": [
@@ -1072,7 +1368,9 @@
       "description": "A hotel base in Victoria Falls with gardens and on-site dining.",
       "website": "https://www.ilalalodge.com/facilities",
       "sourceLabel": "Official website",
-      "planning": "Ask about your dates, room type, meal plan, transfers and cancellation terms. Confirm the total directly before paying."
+      "planning": "Ask about your dates, room type, meal plan, transfers and cancellation terms. Confirm the total directly before paying.",
+      "image": "victoria",
+      "imageLabel": "Area view: Victoria Falls — not a property photo"
     },
     {
       "id": "vf-hotel",
@@ -1084,7 +1382,16 @@
       "description": "A historic hotel with rooms, gardens and several dining options.",
       "website": "https://africansun.com/hotels/the-victoria-falls-hotel/",
       "sourceLabel": "Official website",
-      "planning": "Ask about your dates, room type, meal plan, transfers and cancellation terms. Confirm the total directly before paying."
+      "planning": "Ask about your dates, room type, meal plan, transfers and cancellation terms. Confirm the total directly before paying.",
+      "image": "listing-vf-hotel",
+      "imageLabel": "The Victoria Falls Hotel exterior",
+      "photo": {
+        "author": "SpringbokSam",
+        "license": "CC BY-SA 4.0",
+        "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceURL": "https://commons.wikimedia.org/wiki/File:Victoria_Falls_Hotel_from_behind.jpg",
+        "caption": "Victoria Falls Hotel from behind"
+      }
     },
     {
       "id": "vf-safari",
@@ -1096,7 +1403,9 @@
       "description": "A lodge overlooking bushland and a waterhole, with dining and an activity desk.",
       "website": "https://victoria-falls-safari-collection.com/en-US/accommodation/victoria-falls-safari-lodge",
       "sourceLabel": "Official website",
-      "planning": "Ask about your dates, room type, meal plan, transfers and cancellation terms. Confirm the total directly before paying."
+      "planning": "Ask about your dates, room type, meal plan, transfers and cancellation terms. Confirm the total directly before paying.",
+      "image": "victoria",
+      "imageLabel": "Area view: Victoria Falls — not a property photo"
     },
     {
       "id": "vf-river",
@@ -1108,7 +1417,9 @@
       "description": "A safari stay with game drives for in-house guests. Confirm which activities are included in your booking.",
       "website": "https://victoriafallsriverlodge.com/victoria-falls-safari/",
       "sourceLabel": "Official website",
-      "planning": "Ask about your dates, room type, meal plan, transfers and cancellation terms. Confirm the total directly before paying."
+      "planning": "Ask about your dates, room type, meal plan, transfers and cancellation terms. Confirm the total directly before paying.",
+      "image": "victoria",
+      "imageLabel": "Area view: Victoria Falls — not a property photo"
     },
     {
       "id": "matobo-stay",
@@ -1120,7 +1431,9 @@
       "description": "Chalet accommodation with meal packages and options for guided Matobo experiences.",
       "website": "https://www.matobohillslodge.co.zw/rooms/",
       "sourceLabel": "Official website",
-      "planning": "Ask about your dates, room type, meal plan, transfers and cancellation terms. Confirm the total directly before paying."
+      "planning": "Ask about your dates, room type, meal plan, transfers and cancellation terms. Confirm the total directly before paying.",
+      "image": "matopo",
+      "imageLabel": "Area view: Matobo Hills — not a property photo"
     },
     {
       "id": "bomani",
@@ -1132,7 +1445,9 @@
       "description": "Imvelo’s tented safari lodge in the Ngamo Plains area, with access to Hwange safari experiences.",
       "website": "https://imvelosafarilodges.com/bomani-tented-camp/",
       "sourceLabel": "Official website",
-      "planning": "Ask about your dates, room type, meal plan, transfers and cancellation terms. Confirm the total directly before paying."
+      "planning": "Ask about your dates, room type, meal plan, transfers and cancellation terms. Confirm the total directly before paying.",
+      "image": "hwange",
+      "imageLabel": "Area view: Hwange National Park — not a property photo"
     },
     {
       "id": "troutbeck",
@@ -1144,7 +1459,16 @@
       "description": "An Eastern Highlands resort with mountain surroundings and on-site dining.",
       "website": "https://africansun.com/hotels/troutbeck-resort/",
       "sourceLabel": "Official website",
-      "planning": "Ask about your dates, room type, meal plan, transfers and cancellation terms. Confirm the total directly before paying."
+      "planning": "Ask about your dates, room type, meal plan, transfers and cancellation terms. Confirm the total directly before paying.",
+      "image": "photo-nyanga",
+      "imageLabel": "Area view: Nyanga & Mutarazi Falls — not a property photo",
+      "photo": {
+        "author": "Babakathy",
+        "license": "Public domain",
+        "licenseURL": "https://commons.wikimedia.org/wiki/File:Central_nyanga_np.jpg",
+        "sourceURL": "https://commons.wikimedia.org/wiki/File:Central_nyanga_np.jpg",
+        "caption": "Nyanga National Park"
+      }
     },
     {
       "id": "khayalethu",
@@ -1156,7 +1480,16 @@
       "description": "A Kwekwe accommodation listing. Confirm the property’s current facilities and booking arrangements directly.",
       "website": "https://thedirectory.co.zw/company.cfm?companyid=14887",
       "sourceLabel": "Business-directory listing",
-      "planning": "Ask about your dates, room type, meal plan, transfers and cancellation terms. Confirm the total directly before paying."
+      "planning": "Ask about your dates, room type, meal plan, transfers and cancellation terms. Confirm the total directly before paying.",
+      "image": "photo-chizarira",
+      "imageLabel": "Zimbabwe landscape illustration — not Khayalethu or Kwekwe",
+      "photo": {
+        "author": "Dissoxciate",
+        "license": "CC BY-SA 4.0",
+        "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceURL": "https://commons.wikimedia.org/wiki/File:Chizarira_National_Park%2C_Zimbabwe.jpg",
+        "caption": "Chizarira National Park"
+      }
     },
     {
       "id": "kumusha",
@@ -1168,7 +1501,16 @@
       "description": "An agrotourism resort with a focus on Zimbabwean cultural heritage. Enquire about available visits and facilities.",
       "website": "https://kumushagardens.com/contact/",
       "sourceLabel": "Official website",
-      "planning": "Contact the venue for current facilities, visiting arrangements and availability."
+      "planning": "Contact the venue for current facilities, visiting arrangements and availability.",
+      "image": "photo-harare",
+      "imageLabel": "Area view: Harare — not a property photo",
+      "photo": {
+        "author": "Baynham Goredema from Johannesburg, South Africa",
+        "license": "CC BY 2.0",
+        "licenseURL": "https://creativecommons.org/licenses/by/2.0",
+        "sourceURL": "https://commons.wikimedia.org/wiki/File:Crowne_Plaza%2C_Harare.png",
+        "caption": "Harare"
+      }
     },
     {
       "id": "lookout",
@@ -1180,7 +1522,9 @@
       "description": "Dining overlooking the Batoka Gorge, with breakfast, lunch and dinner options.",
       "website": "https://wildhorizons.co.za/the-lookout-cafe/",
       "sourceLabel": "Official website",
-      "planning": "Check current menus, opening times and table availability. Tell the venue about dietary and access requirements when enquiring."
+      "planning": "Check current menus, opening times and table availability. Tell the venue about dietary and access requirements when enquiring.",
+      "image": "victoria",
+      "imageLabel": "Area view: Victoria Falls — not a property photo"
     },
     {
       "id": "cassia",
@@ -1192,7 +1536,9 @@
       "description": "Indoor and garden dining at Ilala Lodge, serving breakfast, lunch and dinner.",
       "website": "https://www.ilalalodge.com/dining",
       "sourceLabel": "Official website",
-      "planning": "Check current menus, opening times and table availability. Tell the venue about dietary and access requirements when enquiring."
+      "planning": "Check current menus, opening times and table availability. Tell the venue about dietary and access requirements when enquiring.",
+      "image": "victoria",
+      "imageLabel": "Area view: Victoria Falls — not a property photo"
     },
     {
       "id": "boma",
@@ -1204,7 +1550,9 @@
       "description": "A dining experience combining a meal with performances and interactive drumming.",
       "website": "https://victoria-falls-safari-collection.com/en-US/wine-and-dine",
       "sourceLabel": "Official website",
-      "planning": "Check current menus, opening times and table availability. Tell the venue about dietary and access requirements when enquiring."
+      "planning": "Check current menus, opening times and table availability. Tell the venue about dietary and access requirements when enquiring.",
+      "image": "victoria",
+      "imageLabel": "Area view: Victoria Falls — not a property photo"
     },
     {
       "id": "makuwa",
@@ -1216,7 +1564,9 @@
       "description": "Restaurant dining overlooking the estate’s waterhole.",
       "website": "https://victoria-falls-safari-collection.com/en-US/wine-and-dine",
       "sourceLabel": "Official website",
-      "planning": "Check current menus, opening times and table availability. Tell the venue about dietary and access requirements when enquiring."
+      "planning": "Check current menus, opening times and table availability. Tell the venue about dietary and access requirements when enquiring.",
+      "image": "victoria",
+      "imageLabel": "Area view: Victoria Falls — not a property photo"
     },
     {
       "id": "livingstone",
@@ -1228,7 +1578,16 @@
       "description": "A formal dining option at the historic Victoria Falls Hotel. Check dress requirements when reserving.",
       "website": "https://www.victoriafallshotel.com/dining",
       "sourceLabel": "Official website",
-      "planning": "Check current menus, opening times and table availability. Tell the venue about dietary and access requirements when enquiring."
+      "planning": "Check current menus, opening times and table availability. Tell the venue about dietary and access requirements when enquiring.",
+      "image": "listing-vf-hotel",
+      "imageLabel": "The Victoria Falls Hotel exterior — not the dining room",
+      "photo": {
+        "author": "SpringbokSam",
+        "license": "CC BY-SA 4.0",
+        "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceURL": "https://commons.wikimedia.org/wiki/File:Victoria_Falls_Hotel_from_behind.jpg",
+        "caption": "Victoria Falls Hotel from behind"
+      }
     },
     {
       "id": "matobo-dining",
@@ -1240,7 +1599,9 @@
       "description": "Lodge dining with terrace and evening meal options; visitors should enquire in advance.",
       "website": "https://www.matobohillslodge.co.zw/dining/",
       "sourceLabel": "Official website",
-      "planning": "Check current menus, opening times and table availability. Tell the venue about dietary and access requirements when enquiring."
+      "planning": "Check current menus, opening times and table availability. Tell the venue about dietary and access requirements when enquiring.",
+      "image": "matopo",
+      "imageLabel": "Area view: Matobo Hills — not a property photo"
     },
     {
       "id": "troutbeck-dining",
@@ -1252,7 +1613,16 @@
       "description": "Buffet, à la carte and lounge dining at Troutbeck Resort. Ask about arrangements for day visitors.",
       "website": "https://africansun.com/hotels/troutbeck-resort/",
       "sourceLabel": "Official website",
-      "planning": "Check current menus, opening times and table availability. Tell the venue about dietary and access requirements when enquiring."
+      "planning": "Check current menus, opening times and table availability. Tell the venue about dietary and access requirements when enquiring.",
+      "image": "photo-nyanga",
+      "imageLabel": "Area view: Nyanga & Mutarazi Falls — not a property photo",
+      "photo": {
+        "author": "Babakathy",
+        "license": "Public domain",
+        "licenseURL": "https://commons.wikimedia.org/wiki/File:Central_nyanga_np.jpg",
+        "sourceURL": "https://commons.wikimedia.org/wiki/File:Central_nyanga_np.jpg",
+        "caption": "Nyanga National Park"
+      }
     },
     {
       "id": "meikles",
@@ -1264,7 +1634,16 @@
       "description": "A central Harare hotel with on-site dining.",
       "website": "https://www.hyatt.com/hyatt-regency/en-US/hrerh-hyatt-regency-harare-the-meikles/dining",
       "sourceLabel": "Official website",
-      "planning": "Ask about available rooms, meal plans, transfers and the total price for your dates. Confirm cancellation terms directly."
+      "planning": "Ask about available rooms, meal plans, transfers and the total price for your dates. Confirm cancellation terms directly.",
+      "image": "photo-harare",
+      "imageLabel": "Area view: Harare — not a property photo",
+      "photo": {
+        "author": "Baynham Goredema from Johannesburg, South Africa",
+        "license": "CC BY 2.0",
+        "licenseURL": "https://creativecommons.org/licenses/by/2.0",
+        "sourceURL": "https://commons.wikimedia.org/wiki/File:Crowne_Plaza%2C_Harare.png",
+        "caption": "Harare"
+      }
     },
     {
       "id": "holiday-harare",
@@ -1276,7 +1655,16 @@
       "description": "City accommodation listed in African Sun’s hotel portfolio.",
       "website": "https://africansun.com/hotels/",
       "sourceLabel": "Official website",
-      "planning": "Ask about available rooms, meal plans, transfers and the total price for your dates. Confirm cancellation terms directly."
+      "planning": "Ask about available rooms, meal plans, transfers and the total price for your dates. Confirm cancellation terms directly.",
+      "image": "photo-harare",
+      "imageLabel": "Area view: Harare — not a property photo",
+      "photo": {
+        "author": "Baynham Goredema from Johannesburg, South Africa",
+        "license": "CC BY 2.0",
+        "licenseURL": "https://creativecommons.org/licenses/by/2.0",
+        "sourceURL": "https://commons.wikimedia.org/wiki/File:Crowne_Plaza%2C_Harare.png",
+        "caption": "Harare"
+      }
     },
     {
       "id": "holiday-byo",
@@ -1288,7 +1676,16 @@
       "description": "Hotel accommodation for a Bulawayo city stay.",
       "website": "https://africansun.com/hotels/",
       "sourceLabel": "Official website",
-      "planning": "Ask about available rooms, meal plans, transfers and the total price for your dates. Confirm cancellation terms directly."
+      "planning": "Ask about available rooms, meal plans, transfers and the total price for your dates. Confirm cancellation terms directly.",
+      "image": "photo-bulawayo",
+      "imageLabel": "Area view: Bulawayo — not a property photo",
+      "photo": {
+        "author": "Prince Phumulani Nyoni",
+        "license": "Public domain",
+        "licenseURL": "https://commons.wikimedia.org/wiki/File:Bulawayo_CBD.jpg",
+        "sourceURL": "https://commons.wikimedia.org/wiki/File:Bulawayo_CBD.jpg",
+        "caption": "Bulawayo"
+      }
     },
     {
       "id": "leopard-stay",
@@ -1300,7 +1697,16 @@
       "description": "A highland hotel with golf and dining.",
       "website": "https://www.leopardrockhotel.com/",
       "sourceLabel": "Official website",
-      "planning": "Ask about available rooms, meal plans, transfers and the total price for your dates. Confirm cancellation terms directly."
+      "planning": "Ask about available rooms, meal plans, transfers and the total price for your dates. Confirm cancellation terms directly.",
+      "image": "photo-bvumba",
+      "imageLabel": "Area view: Bvumba Highlands — not a property photo",
+      "photo": {
+        "author": "Senorhorst Jahnsen from Mumbai, India",
+        "license": "CC BY 2.0",
+        "licenseURL": "https://creativecommons.org/licenses/by/2.0",
+        "sourceURL": "https://commons.wikimedia.org/wiki/File:Mount_Vumba_%286555288481%29.jpg",
+        "caption": "Bvumba Mountains"
+      }
     },
     {
       "id": "rochelle-stay",
@@ -1312,7 +1718,16 @@
       "description": "Country-house accommodation with gardens and communal lounges.",
       "website": "https://larochellecentre.com/",
       "sourceLabel": "Official website",
-      "planning": "Ask about available rooms, meal plans, transfers and the total price for your dates. Confirm cancellation terms directly."
+      "planning": "Ask about available rooms, meal plans, transfers and the total price for your dates. Confirm cancellation terms directly.",
+      "image": "photo-penhalonga",
+      "imageLabel": "Area view: Penhalonga & La Rochelle — not a property photo",
+      "photo": {
+        "author": "The National Archives UK - Flickr account",
+        "license": "OGL v1.0",
+        "licenseURL": "https://NationalArchives.gov.uk/doc/open-government-licence/version/1/",
+        "sourceURL": "https://commons.wikimedia.org/wiki/File:The_National_Archives_UK_-_CO_1069-101-7.jpg",
+        "caption": "Historic view of Penhalonga — The National Archives"
+      }
     },
     {
       "id": "amalinda-stay",
@@ -1324,7 +1739,9 @@
       "description": "Rooms set among granite boulders, with guided heritage and safari options.",
       "website": "https://www.amalindacollection.com/amalinda-lodge-page",
       "sourceLabel": "Official website",
-      "planning": "Ask about available rooms, meal plans, transfers and the total price for your dates. Confirm cancellation terms directly."
+      "planning": "Ask about available rooms, meal plans, transfers and the total price for your dates. Confirm cancellation terms directly.",
+      "image": "matopo",
+      "imageLabel": "Area view: Matobo Hills — not a property photo"
     },
     {
       "id": "khulu",
@@ -1336,7 +1753,9 @@
       "description": "A tented camp on a private concession bordering Hwange.",
       "website": "https://www.amalindacollection.com/explore-our-lodges",
       "sourceLabel": "Official website",
-      "planning": "Ask about available rooms, meal plans, transfers and the total price for your dates. Confirm cancellation terms directly."
+      "planning": "Ask about available rooms, meal plans, transfers and the total price for your dates. Confirm cancellation terms directly.",
+      "image": "hwange",
+      "imageLabel": "Area view: Hwange National Park — not a property photo"
     },
     {
       "id": "ivory",
@@ -1348,7 +1767,9 @@
       "description": "A lodge with raised chalets and a covered wildlife hide.",
       "website": "https://www.amalindacollection.com/",
       "sourceLabel": "Official website",
-      "planning": "Ask about available rooms, meal plans, transfers and the total price for your dates. Confirm cancellation terms directly."
+      "planning": "Ask about available rooms, meal plans, transfers and the total price for your dates. Confirm cancellation terms directly.",
+      "image": "hwange",
+      "imageLabel": "Area view: Hwange National Park — not a property photo"
     },
     {
       "id": "ancient-city",
@@ -1360,7 +1781,16 @@
       "description": "A lodge base for visiting the Great Zimbabwe monuments.",
       "website": "https://lodgeattheancientcity.co.zw/index.html",
       "sourceLabel": "Official website",
-      "planning": "Ask about available rooms, meal plans, transfers and the total price for your dates. Confirm cancellation terms directly."
+      "planning": "Ask about available rooms, meal plans, transfers and the total price for your dates. Confirm cancellation terms directly.",
+      "image": "photo-great-zimbabwe",
+      "imageLabel": "Area view: Great Zimbabwe — not a property photo",
+      "photo": {
+        "author": "Andrew Moore from Johannesburg, South Africa",
+        "license": "CC BY-SA 2.0",
+        "licenseURL": "https://creativecommons.org/licenses/by-sa/2.0",
+        "sourceURL": "https://commons.wikimedia.org/wiki/File:Conical_Tower_-_Great_Enclosure_III_%2833736918448%29.jpg",
+        "caption": "Great Zimbabwe"
+      }
     },
     {
       "id": "bushman-rock",
@@ -1372,7 +1802,16 @@
       "description": "Lodge accommodation offered by Bushman Rock Safaris. Confirm transfer arrangements when booking.",
       "website": "https://bushmanrock.com/accommodation/",
       "sourceLabel": "Official website",
-      "planning": "Ask about available rooms, meal plans, transfers and the total price for your dates. Confirm cancellation terms directly."
+      "planning": "Ask about available rooms, meal plans, transfers and the total price for your dates. Confirm cancellation terms directly.",
+      "image": "photo-harare",
+      "imageLabel": "Area view: Harare — not a property photo",
+      "photo": {
+        "author": "Baynham Goredema from Johannesburg, South Africa",
+        "license": "CC BY 2.0",
+        "licenseURL": "https://creativecommons.org/licenses/by/2.0",
+        "sourceURL": "https://commons.wikimedia.org/wiki/File:Crowne_Plaza%2C_Harare.png",
+        "caption": "Harare"
+      }
     },
     {
       "id": "meikles-dining",
@@ -1384,7 +1823,16 @@
       "description": "Explore the hotel’s current dining options and enquire about a table.",
       "website": "https://www.hyatt.com/hyatt-regency/en-US/hrerh-hyatt-regency-harare-the-meikles/dining",
       "sourceLabel": "Official website",
-      "planning": "Check current menus, opening arrangements and reservations with the venue. Mention dietary and access requirements."
+      "planning": "Check current menus, opening arrangements and reservations with the venue. Mention dietary and access requirements.",
+      "image": "photo-harare",
+      "imageLabel": "Area view: Harare — not a property photo",
+      "photo": {
+        "author": "Baynham Goredema from Johannesburg, South Africa",
+        "license": "CC BY 2.0",
+        "licenseURL": "https://creativecommons.org/licenses/by/2.0",
+        "sourceURL": "https://commons.wikimedia.org/wiki/File:Crowne_Plaza%2C_Harare.png",
+        "caption": "Harare"
+      }
     },
     {
       "id": "leopard-dining",
@@ -1396,7 +1844,16 @@
       "description": "Hotel dining and bar options; check the evening dress requirements when reserving.",
       "website": "https://www.leopardrockhotel.com/dining",
       "sourceLabel": "Official website",
-      "planning": "Check current menus, opening arrangements and reservations with the venue. Mention dietary and access requirements."
+      "planning": "Check current menus, opening arrangements and reservations with the venue. Mention dietary and access requirements.",
+      "image": "photo-bvumba",
+      "imageLabel": "Area view: Bvumba Highlands — not a property photo",
+      "photo": {
+        "author": "Senorhorst Jahnsen from Mumbai, India",
+        "license": "CC BY 2.0",
+        "licenseURL": "https://creativecommons.org/licenses/by/2.0",
+        "sourceURL": "https://commons.wikimedia.org/wiki/File:Mount_Vumba_%286555288481%29.jpg",
+        "caption": "Bvumba Mountains"
+      }
     },
     {
       "id": "rochelle-dining",
@@ -1408,14 +1865,23 @@
       "description": "Country-house dining and coffee-shop options; enquire about visitor access.",
       "website": "https://larochellecentre.com/",
       "sourceLabel": "Official website",
-      "planning": "Check current menus, opening arrangements and reservations with the venue. Mention dietary and access requirements."
+      "planning": "Check current menus, opening arrangements and reservations with the venue. Mention dietary and access requirements.",
+      "image": "photo-penhalonga",
+      "imageLabel": "Area view: Penhalonga & La Rochelle — not a property photo",
+      "photo": {
+        "author": "The National Archives UK - Flickr account",
+        "license": "OGL v1.0",
+        "licenseURL": "https://NationalArchives.gov.uk/doc/open-government-licence/version/1/",
+        "sourceURL": "https://commons.wikimedia.org/wiki/File:The_National_Archives_UK_-_CO_1069-101-7.jpg",
+        "caption": "Historic view of Penhalonga — The National Archives"
+      }
     }
   ],
   "wildlife": [
     {
       "id": "elephant",
       "name": "African elephant",
-      "image": "elephant",
+      "image": "elephant ",
       "description": "Hwange supports elephants. Ask your guide about seasonal wildlife viewing and observe from a respectful distance.",
       "destinationIDs": [
         "hwange"
@@ -1424,7 +1890,8 @@
         "hwange-drive",
         "waterhole"
       ],
-      "sourceURL": "https://www.zimparks.org.zw/hwange-national-park/"
+      "sourceURL": "https://www.zimparks.org.zw/hwange-national-park/",
+      "imageLabel": "Species illustration — sightings are not guaranteed"
     },
     {
       "id": "lion",
@@ -1437,12 +1904,13 @@
       "activityIDs": [
         "hwange-drive"
       ],
-      "sourceURL": "https://www.zimparks.org.zw/hwange-national-park/"
+      "sourceURL": "https://www.zimparks.org.zw/hwange-national-park/",
+      "imageLabel": "Species illustration — sightings are not guaranteed"
     },
     {
       "id": "buffalo",
       "name": "African buffalo",
-      "image": "",
+      "image": "listing-buffalo",
       "description": "Buffalo are among Hwange’s large mammals. View them with your guide and follow park rules.",
       "destinationIDs": [
         "hwange"
@@ -1450,12 +1918,20 @@
       "activityIDs": [
         "hwange-drive"
       ],
-      "sourceURL": "https://www.zimparks.org.zw/hwange-national-park/"
+      "sourceURL": "https://www.zimparks.org.zw/hwange-national-park/",
+      "imageLabel": "Species illustration — photographed outside Zimbabwe",
+      "photo": {
+        "author": "Charles J. Sharp",
+        "license": "CC BY-SA 4.0",
+        "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceURL": "https://commons.wikimedia.org/wiki/File:African_buffalo_%28Syncerus_caffer_caffer%29_male_with_cattle_egret.jpg",
+        "caption": "African buffalo (Syncerus caffer caffer) male with cattle egret"
+      }
     },
     {
       "id": "leopard",
       "name": "Leopard",
-      "image": "",
+      "image": "listing-leopard",
       "description": "Leopards occur in Hwange but can be difficult to spot; no drive can promise a sighting.",
       "destinationIDs": [
         "hwange"
@@ -1463,7 +1939,15 @@
       "activityIDs": [
         "hwange-drive"
       ],
-      "sourceURL": "https://www.zimparks.org.zw/hwange-national-park/"
+      "sourceURL": "https://www.zimparks.org.zw/hwange-national-park/",
+      "imageLabel": "Species illustration — photographed outside Zimbabwe",
+      "photo": {
+        "author": "Charles J. Sharp",
+        "license": "CC BY-SA 4.0",
+        "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceURL": "https://commons.wikimedia.org/wiki/File:Leopard_%28Panthera_pardus_pardus%29_Kruger.jpg",
+        "caption": "Leopard (Panthera pardus pardus) Kruger"
+      }
     },
     {
       "id": "rhino",
@@ -1476,12 +1960,13 @@
       "activityIDs": [
         "rhino"
       ],
-      "sourceURL": "https://www.matobohillslodge.co.zw/rhino-tracking-zimbabwe/"
+      "sourceURL": "https://www.matobohillslodge.co.zw/rhino-tracking-zimbabwe/",
+      "imageLabel": "Species illustration — sightings are not guaranteed"
     },
     {
       "id": "waterhole-wildlife",
       "name": "Waterhole wildlife",
-      "image": "",
+      "image": "hwange",
       "description": "Elephant, buffalo, kudu, waterbuck and impala may visit the Safari Lodge waterhole. Animals arrive at their own pace.",
       "destinationIDs": [
         "victoria-falls"
@@ -1489,7 +1974,8 @@
       "activityIDs": [
         "vf-game-drive"
       ],
-      "sourceURL": "https://victoria-falls-safari-collection.com/en-US/activities"
+      "sourceURL": "https://victoria-falls-safari-collection.com/en-US/activities",
+      "imageLabel": "Wildlife illustration — not a specific waterhole"
     }
   ]
 }

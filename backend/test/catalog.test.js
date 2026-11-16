@@ -2,6 +2,29 @@ const { test } = require('node:test');
 const assert = require('node:assert/strict');
 const { createApp } = require('../server');
 const catalog = require('../../EcoTourismApp/travel-catalog.json');
+const fs = require('node:fs');
+const path = require('node:path');
+
+test('every directory listing has a bundled photo and new photo credits are readable', () => {
+    const root = path.join(__dirname, '../../EcoTourismApp/Assets.xcassets');
+    const assets = new Map(fs.readdirSync(root, { recursive: true })
+        .filter(file => file.endsWith('.imageset/Contents.json'))
+        .map(file => [path.basename(path.dirname(file), '.imageset'), path.join(root, file)]));
+    for (const group of ['destinations', 'activities', 'venues', 'companies', 'wildlife']) {
+        for (const item of catalog[group]) {
+            assert.ok(item.image && assets.has(item.image), `Missing photo: ${group}/${item.id}`);
+            const manifestPath = assets.get(item.image);
+            const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+            assert.ok(manifest.images.some(image => image.filename && fs.statSync(path.join(path.dirname(manifestPath), image.filename)).size > 0));
+            if (group !== 'destinations') assert.ok(item.imageLabel, `Missing context label: ${item.id}`);
+            if (item.photo) {
+                assert.ok(item.photo.author.length > 0 && item.photo.author.length < 200);
+                assert.ok(item.photo.license && item.photo.caption);
+                for (const field of ['sourceURL', 'licenseURL']) assert.equal(new URL(item.photo[field]).protocol, 'https:');
+            }
+        }
+    }
+});
 
 test('travel catalogue has stable unique IDs, valid references and secure source links', () => {
     assert.equal(catalog.schemaVersion, 2);
