@@ -108,7 +108,7 @@ struct DestinationExploreCard: View {
             NavigationLink {
                 DestinationDetailsView(destination: destination)
             } label: {
-                DestinationArtwork(image: destination.image, symbol: destination.symbol, height: 220)
+                DestinationArtwork(image: destination.artworkImage, symbol: destination.symbol, height: 220)
                     .overlay(alignment: .bottomLeading) {
                         Text(destination.region)
                             .font(.caption.weight(.semibold))

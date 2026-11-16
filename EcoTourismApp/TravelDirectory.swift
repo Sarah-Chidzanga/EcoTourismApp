@@ -79,13 +79,13 @@ struct ActivityDirectoryRow: View {
             ActivityDetailView(activity: activity)
         } label: {
             HStack(alignment: .top, spacing: 14) {
-                Image(systemName: activity.symbol).font(.title2).foregroundStyle(TravelStyle.ink)
-                    .frame(width: 32)
+                ListingPhotoThumbnail(visual: activity.visual, symbol: activity.symbol)
                 VStack(alignment: .leading, spacing: 7) {
                     Text(activity.name).font(.headline).foregroundStyle(.primary)
                     Text(store.destinations.first { $0.id == activity.destinationID }?.name ?? "")
                         .font(.subheadline).foregroundStyle(.secondary)
                     Text(activity.category).font(.caption).foregroundStyle(TravelStyle.ink)
+                    Text(activity.visual.label).font(.caption2).foregroundStyle(.secondary)
                 }
                 Spacer(minLength: 0)
                 Image(systemName: "chevron.right").foregroundStyle(.secondary)
@@ -106,10 +106,11 @@ struct CompanyDirectoryRow: View {
             CompanyDetailView(company: company)
         } label: {
             HStack(alignment: .top, spacing: 14) {
-                Image(systemName: "building.2").font(.title2).foregroundStyle(TravelStyle.ink)
+                ListingPhotoThumbnail(visual: company.visual, symbol: "building.2")
                 VStack(alignment: .leading, spacing: 7) {
                     Text(company.name).font(.headline).foregroundStyle(.primary)
                     Text(company.kind).font(.caption).foregroundStyle(TravelStyle.ink)
+                    Text(company.visual.label).font(.caption2).foregroundStyle(.secondary)
                     Text(company.description).font(.subheadline).foregroundStyle(.secondary).lineLimit(3)
                 }
                 Spacer(minLength: 0)
@@ -134,6 +135,7 @@ struct ActivityDetailView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 24) {
+                ListingPhotoHeader(visual: activity.visual, symbol: activity.symbol)
                 Label(activity.category, systemImage: activity.symbol).foregroundStyle(TravelStyle.ink)
                 Text(activity.name).font(.largeTitle.bold())
                 Text(activity.description)
@@ -141,6 +143,7 @@ struct ActivityDetailView: View {
                     NavigationLink { DestinationDetailsView(destination: place) } label: {
                         Label(place.name, systemImage: "mappin.and.ellipse")
                     }
+                    PlaceDirections(query: place.mapQuery, isArea: true)
                 }
                 TravelInfoSection(title: "Plan This Experience", text: activity.planning)
                 TravelInfoSection(title: "Prices & Availability", text: "Check with the provider for a current quote and available dates. This listing does not reserve a place or collect payment.")
@@ -172,6 +175,7 @@ struct CompanyDetailView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 24) {
+                ListingPhotoHeader(visual: company.visual, symbol: "building.2")
                 Label(company.kind, systemImage: "building.2").foregroundStyle(TravelStyle.ink)
                 Text(company.name).font(.largeTitle.bold())
                 Text(company.description)
@@ -255,12 +259,32 @@ struct DestinationArtwork: View {
             LinearGradient(colors: [TravelStyle.forest, .black.opacity(0.85)], startPoint: .topLeading, endPoint: .bottomTrailing)
             if !image.isEmpty, UIImage(named: image) != nil {
                 Image(image).resizable().scaledToFill()
+            } else if let url = CatalogURL.website(image) {
+                AsyncImage(url: url) { phase in
+                    if let loaded = phase.image {
+                        loaded.resizable().scaledToFill()
+                    } else {
+                        ArtworkFallback(symbol: symbol)
+                    }
+                }
             } else {
-                Image(systemName: symbol).font(.system(size: 60, weight: .light)).foregroundStyle(.white.opacity(0.9))
+                ArtworkFallback(symbol: symbol)
             }
         }
         .frame(height: height)
         .clipped()
         .accessibilityHidden(true)
+    }
+}
+
+private struct ArtworkFallback: View {
+    let symbol: String
+
+    var body: some View {
+        VStack(spacing: 10) {
+            Image(systemName: symbol).font(.system(size: 44, weight: .light))
+            Text("Explore Zimbabwe").font(.caption)
+        }
+        .foregroundStyle(.white)
     }
 }

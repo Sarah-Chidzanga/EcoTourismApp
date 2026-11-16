@@ -13,6 +13,16 @@ struct Destination: Identifiable, Codable {
     let guideSearch: String
     let aliases: [String]
     let ecoTip: String
+    let photo: TravelPhoto?
+
+    // Older servers may omit the newly bundled photos. Keep local artwork available.
+    var artworkImage: String {
+        photo == nil ? (TravelCatalog.bundled.destinations.first { $0.id == id }?.image ?? image) : image
+    }
+    var photoCredit: TravelPhoto? {
+        photo ?? TravelCatalog.bundled.destinations.first { $0.id == id }?.photo
+    }
+    var mapQuery: String { "\(name), Zimbabwe" }
 
     var mapURL: URL? {
         var components = URLComponents(string: "https://maps.apple.com/")
@@ -29,6 +39,10 @@ struct Region: Identifiable {
 }
 
 struct TravelActivity: Identifiable, Codable {
+    let image: String?
+    let imageLabel: String?
+    let photo: TravelPhoto?
+
     let id: String
     let destinationID: String
     let name: String
@@ -52,6 +66,10 @@ struct TravelActivity: Identifiable, Codable {
 }
 
 struct TravelCompany: Identifiable, Codable {
+    let image: String?
+    let imageLabel: String?
+    let photo: TravelPhoto?
+
     let id: String
     let name: String
     let kind: String
@@ -61,6 +79,10 @@ struct TravelCompany: Identifiable, Codable {
 }
 
 struct TravelVenue: Identifiable, Codable {
+    let image: String?
+    let imageLabel: String?
+    let photo: TravelPhoto?
+
     let id: String
     let name: String
     let category: String
@@ -84,6 +106,9 @@ struct TravelVenue: Identifiable, Codable {
 }
 
 struct WildlifeListing: Identifiable, Codable {
+    let imageLabel: String?
+    let photo: TravelPhoto?
+
     let id: String
     let name: String
     let image: String
@@ -217,3 +242,47 @@ final class TravelCatalogStore {
 // Legacy region screens use the same reviewed offline catalogue.
 let destinations = TravelCatalog.bundled.destinations
 let regions = Set(destinations.map(\.region)).sorted().map { Region(name: $0) }
+
+
+extension TravelActivity {
+    var visual: ListingVisual {
+        let bundled = TravelCatalog.bundled.activities.first { $0.id == id }
+        return ListingVisual(
+            image: imageLabel == nil ? (bundled?.image ?? image ?? "") : image ?? "",
+            label: imageLabel ?? bundled?.imageLabel ?? "Photo",
+            photo: photo ?? bundled?.photo)
+    }
+}
+
+
+extension TravelCompany {
+    var visual: ListingVisual {
+        let bundled = TravelCatalog.bundled.companies.first { $0.id == id }
+        return ListingVisual(
+            image: imageLabel == nil ? (bundled?.image ?? image ?? "") : image ?? "",
+            label: imageLabel ?? bundled?.imageLabel ?? "Photo",
+            photo: photo ?? bundled?.photo)
+    }
+}
+
+
+extension TravelVenue {
+    var visual: ListingVisual {
+        let bundled = TravelCatalog.bundled.venues.first { $0.id == id }
+        return ListingVisual(
+            image: imageLabel == nil ? (bundled?.image ?? image ?? "") : image ?? "",
+            label: imageLabel ?? bundled?.imageLabel ?? "Photo",
+            photo: photo ?? bundled?.photo)
+    }
+}
+
+
+extension WildlifeListing {
+    var visual: ListingVisual {
+        let bundled = TravelCatalog.bundled.wildlife.first { $0.id == id }
+        return ListingVisual(
+            image: imageLabel == nil ? (bundled?.image ?? image) : image,
+            label: imageLabel ?? bundled?.imageLabel ?? "Photo",
+            photo: photo ?? bundled?.photo)
+    }
+}

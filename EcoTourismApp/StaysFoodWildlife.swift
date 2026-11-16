@@ -57,9 +57,10 @@ struct VenueRow: View {
     var body: some View {
         NavigationLink { VenueDetailView(venue: venue) } label: {
             HStack(alignment: .top, spacing: 14) {
-                Image(systemName: venue.symbol).font(.title2).foregroundStyle(TravelStyle.ink)
+                ListingPhotoThumbnail(visual: venue.visual, symbol: venue.symbol)
                 VStack(alignment: .leading, spacing: 8) {
                     Text(venue.name).font(.headline).foregroundStyle(.primary)
+                    Text(venue.visual.label).font(.caption2).foregroundStyle(.secondary)
                     Text("\(venue.kind) · \(venue.location)").font(.subheadline).foregroundStyle(.secondary)
                     Text(venue.description).font(.subheadline).foregroundStyle(.secondary).lineLimit(3)
                 }
@@ -84,6 +85,7 @@ struct VenueDetailView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 24) {
+                ListingPhotoHeader(visual: venue.visual, symbol: venue.symbol)
                 Label(venue.kind, systemImage: venue.symbol).foregroundStyle(TravelStyle.ink)
                 Text(venue.name).font(.largeTitle.bold())
                 Label(venue.location, systemImage: "mappin.and.ellipse").foregroundStyle(.secondary)
@@ -97,8 +99,9 @@ struct VenueDetailView: View {
                         Label(isSaved ? "Saved" : "Save Place", systemImage: isSaved ? "bookmark.fill" : "bookmark")
                     }
                     Spacer()
-                    if let url = venue.mapURL { Link("Find in Maps", destination: url) }
+
                 }
+                PlaceDirections(query: "\(venue.name), \(venue.location), Zimbabwe")
                 TravelInfoSection(title: venue.category == "Stays" ? "Plan Your Stay" : "Plan Your Visit", text: venue.planning)
                 ExternalTravelLink(title: venue.sourceLabel == "Official website" ? "Visit Website & Enquire" : "View Contact Listing", address: venue.website)
                     .buttonStyle(TravelPrimaryButton())
@@ -163,10 +166,10 @@ struct WildlifeRow: View {
     var body: some View {
         NavigationLink { WildlifeDetailView(animal: animal) } label: {
             HStack(alignment: .top, spacing: 14) {
-                DestinationArtwork(image: animal.image, symbol: "pawprint", height: 80)
-                    .frame(width: 80).clipShape(RoundedRectangle(cornerRadius: 14))
+                ListingPhotoThumbnail(visual: animal.visual, symbol: "pawprint")
                 VStack(alignment: .leading, spacing: 8) {
                     Text(animal.name).font(.headline).foregroundStyle(.primary)
+                    Text(animal.visual.label).font(.caption2).foregroundStyle(.secondary)
                     Text(animal.description).font(.subheadline).foregroundStyle(.secondary).lineLimit(3)
                 }
             }
@@ -184,8 +187,7 @@ struct WildlifeDetailView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 24) {
-                DestinationArtwork(image: animal.image, symbol: "pawprint", height: 220)
-                    .clipShape(RoundedRectangle(cornerRadius: 22))
+                ListingPhotoHeader(visual: animal.visual, symbol: "pawprint")
                 Text(animal.name).font(.largeTitle.bold())
                 Text(animal.description)
                 Text("Where to Look").font(.title2.bold())
